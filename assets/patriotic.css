@@ -1,0 +1,392 @@
+:root {
+  /* ===== THREE BLUE SYSTEM ===== */
+  
+  /* DARK BLUE (40% - Headers, emphasis, navigation bars) */
+  --blue: #002868;
+  --blue-dark: #002868;
+  --blue-darker: #002868;
+  --indigo: #002868;
+  --purple: #002868;
+  --primary: #002868;
+  --dark: #002868;
+  --theme-primary-color: #002868;
+  --theme-primary-bgcolor: #002868;
+  
+  /* LIGHT BLUE (30% - Buttons, links, interactive elements) */
+  --theme-secondary-color: #4A7BC8;
+  --theme-secondary-bgcolor: #4A7BC8;
+  --blue-light: #4A7BC8;
+  --blue-lighter: #E8F0FA;
+  
+  /* MEDIUM BLUE (5% - Supporting, accents) */
+  --theme-tertiary-color: #00398F;
+  --theme-tertiary-bgcolor: #00398F;
+  --cyan: #00398F;
+  --teal: #00398F;
+  --info: #00398F;
+  --green: #00398F;
+  --success: #00398F;
+  
+  /* ===== RED ACCENT (Defined but NOT USED in current elements) ===== */
+  --red: #BF0A30;
+  --danger: #BF0A30;
+  --warning: #BF0A30;
+  --orange: #BF0A30;
+  --yellow: #BF0A30;
+  --pink: #BF0A30;
+  
+  /* ===== NEUTRALS ===== */
+  --white: #FFFFFF;
+  --light: #F1F1F1;
+  --grey-lighter: #F1F1F1;
+  --black: #000000;
+  --grey-darker: #000000;
+  --body-color: #000000;
+  --theme-font-color: #000000;
+  
+  /* Grays - Keep for secondary UI */
+  --gray: #6c757d;
+  --grey: #6c757d;
+  --grey-light: #6c757d;
+  --secondary: #6c757d;
+  --gray-dark: #343a40;
+  --grey-dark: #343a40;
+  
+  /* ===== HEADER COLORS ===== */
+  --theme-h1-font-color: #002868;
+  --theme-h2-font-color: #002868;
+  --theme-h3-font-color: #002868;
+  --theme-h4-font-color: #002868;
+  --theme-h5-font-color: #002868;
+  --theme-h6-font-color: #002868;
+  
+  /* ===== LINK COLORS ===== */
+  --theme-anchor-color: #4A7BC8;
+  --theme-anchor-hover-color: #00398F;  /* Medium blue, NOT red */
+  
+  /* ===== SHADOWS ===== */
+  --theme-box-shadow-primary-color: rgba(0, 40, 104, .08);
+  --theme-box-shadow-secondary-color: rgba(0, 40, 104, .15);
+  --theme-header-box-shadow-color: rgba(0, 40, 104, .1);
+  
+  /* Keep typography settings unchanged */
+  --theme-font-family: "Inter", "Open Sans", Arial;
+  --theme-font-size: 16px;
+  --theme-font-weight: normal;
+  --theme-letter-spacing: .25px;
+  --theme-line-height: 1.5;
+  
+  /* Breakpoints - unchanged */
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+}
+
+/* ===== BUTTONS ===== */
+
+/* Primary buttons - Light blue with white text */
+.btn,
+.btn-primary {
+  background-color: #4A7BC8 !important;
+  color: #FFFFFF !important;
+  border-color: #4A7BC8 !important;
+}
+
+/* Hover: Light blue → Medium blue */
+.btn:hover,
+.btn-primary:hover {
+  background-color: #00398F !important;
+  border-color: #00398F !important;
+  color: #FFFFFF !important;
+}
+
+/* Outline buttons - White bg with light blue text, NO BORDER */
+.btn.outline-btn,
+.c-info-section__column-button {
+  background-color: #FFFFFF !important;
+  color: #4A7BC8 !important;
+  border: none !important;  /* NO border */
+}
+
+/* Hover: White → Light blue background */
+.btn.outline-btn:hover,
+.c-info-section__column-button:hover {
+  background-color: #4A7BC8 !important;
+  color: #FFFFFF !important;
+  border: none !important;
+}
+
+/* Info/Success buttons - Medium blue */
+.btn-info,
+.btn-success {
+  background-color: #00398F !important;
+  border-color: #00398F !important;
+  color: #FFFFFF !important;
+}
+
+/* Hover: Medium blue → Dark blue */
+.btn-info:hover,
+.btn-success:hover {
+  background-color: #002868 !important;
+  border-color: #002868 !important;
+  color: #FFFFFF !important;
+}
+
+/* Secondary buttons - Gray */
+.btn-secondary {
+  background-color: #6c757d !important;
+  border-color: #6c757d !important;
+  color: #FFFFFF !important;
+}
+
+/* Hover: Gray → Darker gray */
+.btn-secondary:hover {
+  background-color: #5a6268 !important;
+  border-color: #5a6268 !important;
+  color: #FFFFFF !important;
+}
+
+/* Danger/Warning buttons - Red (DEFINED but likely not used) */
+.btn-danger,
+.btn-warning {
+  background-color: #BF0A30 !important;
+  border-color: #BF0A30 !important;
+  color: #FFFFFF !important;
+}
+
+.btn-danger:hover,
+.btn-warning:hover {
+  background-color: #8F0724 !important;
+  border-color: #8F0724 !important;
+}
+
+/* ===== HEADERS ===== */
+h1, h2, h3, h4, h5, h6 {
+  color: #002868 !important;
+}
+
+.c-number-counter__item-count,
+.c-number-counter__number-counter-column_title,
+.l-portfolio__item-title,
+.l-team-archive__name {
+  color: #002868 !important;
+}
+
+/* ===== NAVIGATION ===== */
+
+/* Hamburger toggle bars - Dark blue */
+.c-header__toggle-bar1,
+.c-header__toggle-bar2,
+.c-header__toggle-bar3 {
+  background-color: #002868 !important;
+}
+
+/* Navigation links - Light blue */
+.nav-link,
+.c-header__nav-link,
+.navbar-brand,
+.c-header__navbar-brand {
+  color: #4A7BC8 !important;
+}
+
+/* Active state - Light blue with white bottom border */
+.nav-link.active,
+.c-header__nav-link.active {
+  color: #4A7BC8 !important;
+  border-bottom-color: #FFFFFF !important;
+}
+
+/* Hover: Light blue → Medium blue */
+.nav-link:hover,
+.c-header__nav-link:hover {
+  color: #00398F !important;
+}
+
+/* ===== LINKS ===== */
+a {
+  color: #4A7BC8 !important;
+}
+
+/* Hover: Light blue → Medium blue */
+a:hover {
+  color: #00398F !important;
+}
+
+/* ===== BACKGROUNDS ===== */
+.bg-primary {
+  background-color: #002868 !important;
+}
+
+.bg-secondary {
+  background-color: #6c757d !important;
+}
+
+.bg-info,
+.bg-success {
+  background-color: #00398F !important;
+}
+
+.bg-danger,
+.bg-warning {
+  background-color: #BF0A30 !important;
+}
+
+.bg-light {
+  background-color: #F1F1F1 !important;
+}
+
+/* ===== TEXT COLORS ===== */
+.text-primary {
+  color: #002868 !important;
+}
+
+.text-secondary {
+  color: #6c757d !important;
+}
+
+.text-info,
+.text-success {
+  color: #00398F !important;
+}
+
+.text-danger,
+.text-warning {
+  color: #BF0A30 !important;
+}
+
+/* ===== BADGES & ALERTS ===== */
+.badge-primary {
+  background-color: #002868 !important;
+}
+
+.badge-info,
+.badge-success {
+  background-color: #00398F !important;
+}
+
+.badge-danger,
+.badge-warning {
+  background-color: #BF0A30 !important;
+}
+
+.alert-primary {
+  background-color: rgba(0, 40, 104, .1) !important;
+  border-color: #002868 !important;
+  color: #002868 !important;
+}
+
+.alert-info,
+.alert-success {
+  background-color: rgba(0, 57, 143, .1) !important;
+  border-color: #00398F !important;
+  color: #00398F !important;
+}
+
+.alert-danger,
+.alert-warning {
+  background-color: rgba(191, 10, 48, .1) !important;
+  border-color: #BF0A30 !important;
+  color: #BF0A30 !important;
+}
+
+/* ===== FOOTER ===== */
+/* ===== FOOTER ===== */
+
+/* Footer background - Dark blue */
+.c-footer {
+  background-color: #002868 !important;
+}
+
+/* Footer headings - WHITE */
+.c-footer__footer-heading {
+  color: #FFFFFF !important;
+}
+
+/* Footer text - WHITE */
+.c-footer,
+.c-footer p,
+.c-footer a,
+.c-footer__footer-content,
+.c-footer__footer-content p,
+.c-footer__copyright-text,
+.c-footer__copyright-text p,
+.c-footer__footer-column ul li,
+.c-footer__footer-column ul li a {
+  color: #FFFFFF !important;
+}
+
+/* Footer link hover - Light blue */
+.c-footer a:hover,
+.c-footer__footer-column ul li a:hover {
+  color: #4A7BC8 !important;
+}
+
+/* Footer social icons - White circle with dark blue icon */
+.c-footer__copyright-social-icon ul li a i {
+  background-color: #FFFFFF !important;
+  padding: 10px;
+  border-radius: 50%;
+  color: #002868 !important;  /* Dark blue icon */
+  transition: .5s;
+}
+
+/* Footer social icons hover - Light blue circle with white icon */
+.c-footer__copyright-social-icon ul li a i:hover {
+  background-color: #4A7BC8 !important;  /* Light blue circle */
+  color: #FFFFFF !important;              /* White icon */
+}
+
+/* Font Awesome brands */
+.fab {
+  font-family: 'Font Awesome 5 Brands';
+}
+
+/* ===== BORDERS ===== */
+.border-primary {
+  border-color: #002868 !important;
+}
+
+.border-secondary {
+  border-color: #6c757d !important;
+}
+
+.border-danger,
+.border-warning {
+  border-color: #BF0A30 !important;
+}
+
+/* ===== SPECIFIC OVERRIDES ===== */
+
+/* Override inline RGB colors */
+[style*="rgb(45, 54, 99)"] {
+  color: #002868 !important;
+}
+
+[style*="background-color: rgb(45, 54, 99)"],
+[style*="background: rgb(45, 54, 99)"] {
+  background-color: #002868 !important;
+}
+
+[style*="rgb(110, 146, 255)"] {
+  color: #4A7BC8 !important;
+}
+
+[style*="background-color: rgb(110, 146, 255)"],
+[style*="background: rgb(110, 146, 255)"] {
+  background-color: #4A7BC8 !important;
+}
+
+[style*="rgb(22, 44, 64)"] {
+  color: #000000 !important;
+}
+
+[style*="rgb(0, 57, 143)"] {
+  color: #00398F !important;
+}
+
+[style*="background-color: rgb(0, 57, 143)"],
+[style*="background: rgb(0, 57, 143)"] {
+  background-color: #00398F !important;
+}

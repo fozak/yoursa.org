@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Stock Market News</title>
+    <style>
+        .hero {
+            position: relative;
+            background-image: url('gaz.png'); /* Replace with your image URL */
+            background-size: cover;
+            height: 400px;
+            color: white;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Stock Market</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="#">My Portfolio</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">News</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Markets</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Sectors</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Screeners</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Personal Finance</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Videos</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <div class="overlay">
+            <h1>Latest Market News</h1>
+        </div>
+    </div>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-8">
+                <h2>What caused the 'Blue Screen of Death' outage</h2>
+                <p>Reuters • 3 hours ago</p>
+                <h2>Netflix is doubling down on India as its competitors back away</h2>
+                <p>Reuters • 3 hours ago</p>
+            </div>
+            <div class="col-md-4">
+                <h3>Latest</h3>
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">CrowdStrike chaos could prompt rethink among investors, customers</h5>
+                        <p class="card-text">Reuters • 10 minutes ago</p>
+                        <p class="card-text"><strong>CRWD -10.63%</strong></p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Risk-averse organizations chose CrowdStrike for cybersecurity. Now its software is causing chaos</h5>
+                        <p class="card-text">Associated Press Finance • 20 minutes ago</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

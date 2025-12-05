@@ -1,0 +1,205 @@
+[
+    {
+        "topic": "programs",
+        "insert_url": "/programs/startup-huddle",
+        "needs_update": "no",
+        "source_url": "https://cfeglobal.org/programs/startup-huddle-source.txt",
+        "topic_name": "Startup Huddle"
+    },
+    {
+        "topic": "programs",
+        "insert_url": "/programs/global-entrepreneurship-week",
+        "needs_update": "no",
+        "source_url": "https://cfeglobal.org/programs/global-entrepreneurship-week-source.txt",
+        "topic_name": "Global Entrepreneurship Week"
+    },
+    {
+        "topic": "programs",
+        "insert_url": "/programs/g20-young-entrepreneurs-alliance",
+        "needs_update": "no",
+        "source_url": "https://cfeglobal.org/programs/g20-young-entrepreneurs-alliance-source.txt",
+        "topic_name": "G20 Young Entrepreneurs Alliance"
+    },
+    {
+        "topic": "programs",
+        "insert_url": "/programs/dynamic-entrepreneurship-classroom",
+        "needs_update": "no",
+        "source_url": "https://cfeglobal.org/programs/dynamic-entrepreneurship-classroom-source.txt",
+        "topic_name": "Dynamic Entrepreneurship Classroom"
+    },
+    {
+        "topic": "programs",
+        "insert_url": "/programs/scaleup-acceleration-program",
+        "needs_update": "no",
+        "source_url": "https://cfeglobal.org/programs/scaleup-acceleration-program-source.txt",
+        "topic_name": "Scaleup Acceleration Program"
+    },
+    {
+        "topic": "programs",
+        "insert_url": "/programs/startup-club",
+        "needs_update": "no",
+        "source_url": "https://cfeglobal.org/programs/startup-club.txt",
+        "topic_name": "Startup Club"
+    },
+    {
+        "topic": "programs",
+        "insert_url": "/programs/fasttrac",
+        "needs_update": "no",
+        "source_url": "https://cfeglobal.org/programs/fasttrac-source.txt",
+        "topic_name": "Fasttrac"
+    },
+    {
+        "topic": "programs",
+        "insert_url": "/programs/acceleration-programs",
+        "needs_update": "no",
+        "source_url": "https://cfeglobal.org/programs/acceleration-programs-source.txt",
+        "topic_name": "Acceleration Programs"
+    },
+    {
+        "topic": "programs",
+        "insert_url": "/programs/startup-programs",
+        "needs_update": "no",
+        "source_url": "https://cfeglobal.org/programs/startup-programs-source.txt",
+        "topic_name": "Startup Programs"
+    },
+    {
+        "topic": "programs",
+        "insert_url": "/programs/educational-programs",
+        "needs_update": "no",
+        "source_url": "https://cfeglobal.org/programs/educational-programs-source.txt",
+        "topic_name": "Educational Programs"
+    },
+    {
+        "topic": "programs",
+        "insert_url": "/programs/ecosystem-programs",
+        "needs_update": "no",
+        "source_url": "https://cfeglobal.org/programs/ecosystem-programs-source.txt",
+        "topic_name": "Ecosystem Programs"
+    },
+    {
+        "topic": "programs",
+        "insert_url": "/programs/launch-startup",
+        "needs_update": "no",
+        "source_url": "https://cfeglobal.org/programs/launch-startup-source.txt",
+        "topic_name": "Launch Startup"
+    },
+    {
+        "topic": "programs",
+        "insert_url": "/programs/grow-existing-business",
+        "needs_update": "no",
+        "source_url": "https://cfeglobal.org/programs/grow-existing-business-source.txt",
+        "topic_name": "Grow Existing Business"
+    },
+    {
+        "topic": "programs",
+        "insert_url": "/programs/support-entrepreneurship",
+        "needs_update": "no",
+        "source_url": "https://cfeglobal.org/programs/support-entrepreneurship-source.txt",
+        "topic_name": "Support Entrepreneurship"
+    },
+    {
+        "topic": "programs",
+        "insert_url": "/programs/mentoring-programs",
+        "needs_update": "no",
+        "source_url": "https://cfeglobal.org/programs/mentoring-programs.txt",
+        "topic_name": "Mentoring Programs"
+    },
+    {
+        "topic": "programs",
+        "insert_url": "/programs/scale-up-programs",
+        "needs_update": "no",
+        "source_url": "https://cfeglobal.org/programs/scale-up-programs.txt",
+        "topic_name": "Scale Up Programs"
+    },
+    {
+        "topic": "programs",
+        "insert_url": "/programs/best-practices",
+        "needs_update": "no",
+        "source_url": "https://cfeglobal.org/programs/best-practices.txt",
+        "topic_name": "Best Practices"
+    },
+    {
+        "topic": "programs",
+        "insert_url": "/programs/learn-entrepreneurship",
+        "needs_update": "no",
+        "source_url": "https://cfeglobal.org/programs/learn-entrepreneurship-source.txt",
+        "topic_name": "Learn Entrepreneurship"
+    },
+    {
+        "topic": "programs",
+        "insert_url": "/programs/volunteer",
+        "needs_update": "no",
+        "source_url": "https://cfeglobal.org/programs/volunteer-source.txt",
+        "topic_name": "Volunteer"
+    },
+    {
+        "topic": "partners",
+        "insert_url": "/partners/global-entrepreneurship-network",
+        "needs_update": "no",
+        "source_url": "https://cfeglobal.org/partners/global-entrepreneurship-network-source.txt",
+        "topic_name": "Global Entrepreneurship Network"
+    },
+    {
+        "topic": "partners",
+        "insert_url": "/partners/ewing-marion-kauffman-foundation",
+        "needs_update": "no",
+        "source_url": "https://cfeglobal.org/partners/ewing-marion-kauffman-foundation-source.txt",
+        "topic_name": "Ewing Marion Kauffman Foundation"
+    },
+    {
+        "topic": "partners",
+        "insert_url": "/partners/us-department-of-state",
+        "needs_update": "no",
+        "source_url": "https://cfeglobal.org/partners/us-department-of-state-source.txt",
+        "topic_name": "Us Department Of State"
+    },
+    {
+        "topic": "blog",
+        "insert_url": NaN,
+        "needs_update": "no",
+        "source_url": "https://cfeglobal.org/blog/gew-dates-faqs-source.txt",
+        "topic_name": null
+    },
+    {
+        "topic": "blog",
+        "insert_url": NaN,
+        "needs_update": "no",
+        "source_url": "https://old.deloros.ru/v-startup-klube-predstavili-proekty-v-sfere-iskusstvennogo-intellekta.html",
+        "topic_name": null
+    },
+    {
+        "topic": "blog",
+        "insert_url": NaN,
+        "needs_update": "no",
+        "source_url": "https://dochub.sk.ru/foundation/itc/b/news/archive/2020/12/18/kompanii-skolkovo-rasskazali-o-svoih-resheniyah-v-oblasti-ai-na-startup-klube-delovoy-rossii.aspx",
+        "topic_name": null
+    },
+    {
+        "topic": "partners",
+        "insert_url": "/partners/young-entrepreneurs-organization",
+        "needs_update": "no",
+        "source_url": "https://cfeglobal.org/partners/young-entrepreneurs-organization.txt",
+        "topic_name": "Young Entrepreneurs Organization"
+    },
+    {
+        "topic": "partners",
+        "insert_url": "/partners/american-chamber-of-commerce",
+        "needs_update": "no",
+        "source_url": "https://cfeglobal.org/partners/american-chamber-of-commerce.txt",
+        "topic_name": "American Chamber Of Commerce"
+    },
+    {
+        "topic": "partners",
+        "insert_url": "/partners/junior-achievement",
+        "needs_update": "no",
+        "source_url": "https://cfeglobal.org/partners/junior-achievement.txt",
+        "topic_name": "Junior Achievement"
+    },
+    {
+        "topic": "programs",
+        "insert_url": "/programs/dedicated-team",
+        "needs_update": "no",
+        "source_url": "https://cfeglobal.org/programs/dedicated-team.txt",
+        "topic_name": "Dedicated Team"
+    }
+]

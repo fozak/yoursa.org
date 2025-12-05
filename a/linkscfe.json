@@ -1,0 +1,6 @@
+{
+    "commands": [
+        { "name": "linkpeople", "url": "https://cfeglobal.org/people.html" },
+        { "name": "linkblog", "url": "https://cfeglobal.org/blog.html" }
+    ]
+}
