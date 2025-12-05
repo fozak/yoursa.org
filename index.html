@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body {
+    font-family: 'Roboto', "Helvetica Neue", Arial, sans-serif;
+    /* Use relative spacing here too. */
+    letter-spacing: -0.05em; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px; /* Separating the examples */
+    margin: 40px;
+    background: #f9f9f9;
+  }
+
+  .ysa-container {
+    font-weight: bold;
+    /* Line-height: 1 is crucial for consistent vertical alignment */
+    line-height: 1; 
+    color: #002868;
+  }
+
+  /* Define the star class using ONLY relative units */
+  .star {
+    /* 1. Relative Size */
+    font-size: 70%; 
+    
+    /* 2. Vertical Alignment basics */
+    vertical-align: middle;
+    position: relative;
+
+    /* 3. THE MAGIC NUMBER 
+       Instead of -4px, we use -0.12em.
+       This means "lift it up by 12% of the star's height."
+       It will calculate correctly regardless of the font size. */
+    top: -0.12em; 
+
+    /* 4. Relative Breathing room */
+    margin: 0 0.15em;
+  }
+
+  /* Examples of different sizes to prove it works */
+  .small  { font-size: 16px; }
+  .medium { font-size: 48px; } /* Your original size */
+  .large  { font-size: 96px; }
+
+</style>
+</head>
+<body>
+
+  <!-- Small (Business Card) -->
+  <div class="ysa-container small">
+    Y<span class="star">★</span>S<span class="star">★</span>A
+  </div>
+
+  <!-- Medium (Website Header - Your Original) -->
+  <div class="ysa-container medium">
+    Y<span class="star">★</span>S<span class="star">★</span>A
+  </div>
+
+  <!-- Large (Billboard) -->
+  <div class="ysa-container large">
+    Y<span class="star">★</span>S<span class="star">★</span>A
+  </div>
+
+</body>
+</html>
