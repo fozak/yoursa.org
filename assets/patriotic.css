@@ -174,33 +174,49 @@ h1, h2, h3, h4, h5, h6 {
   color: #002868 !important;
 }
 
-/* ===== NAVIGATION LINKS ===== */
+/* ===== NAVIGATION - REMOVE YELLOW UNDERLINE ===== */
 
-/* Default navigation links - Light blue */
+/* Remove ::after yellow pseudo-element */
+.c-header__nav-link::before,
+.c-header__nav-link::after,
+.nav-link::before,
+.nav-link::after {
+    content: none !important;
+    display: none !important;
+    background: transparent !important;
+    border: none !important;
+}
+
+/* Remove border-bottom */
+.c-header__nav-link {
+    border-bottom: none !important;
+}
+
+/* Default navigation links */
 .nav-link,
 .c-header__nav-link {
     color: #4A7BC8 !important;
-    font-weight: 400;  /* Normal weight */
+    font-weight: 400;
     position: relative;
     transition: all 0.3s ease;
 }
 
-/* Active state - Bold + light blue background highlight */
+/* Active state - Bold, no background, no yellow */
 .nav-link.active,
 .c-header__nav-link.active {
     color: #4A7BC8 !important;
-    font-weight: 700 !important;  /* Bold */
-    border-radius: 5px;  /* Subtle rounded corners */
-    padding: 8px 16px;  /* Add some padding for the highlight */
+    font-weight: 700 !important;
+    border-radius: 5px;
+    padding: 8px 16px;
 }
 
-/* Hover state - Medium blue */
+/* Hover state */
 .nav-link:hover,
 .c-header__nav-link:hover {
     color: #00398F !important;
 }
 
-/* Active link should not change color on hover */
+/* Active link stays same on hover */
 .nav-link.active:hover,
 .c-header__nav-link.active:hover {
     color: #4A7BC8 !important;
