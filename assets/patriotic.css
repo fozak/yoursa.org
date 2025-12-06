@@ -190,21 +190,20 @@ h1, h2, h3, h4, h5, h6 {
 .c-header__nav-link.active {
     color: #4A7BC8 !important;
     font-weight: 700 !important;  /* Bold */
-    background-color: rgba(74, 123, 200, 0.1) !important;  /* Light blue highlight (10% opacity) */
     border-radius: 5px;  /* Subtle rounded corners */
     padding: 8px 16px;  /* Add some padding for the highlight */
 }
 
-/* Hover state - Medium blue (for non-active links) */
+/* Hover state - Medium blue */
 .nav-link:hover,
 .c-header__nav-link:hover {
-    color: #00398F !important;  /* Medium blue */
+    color: #00398F !important;
 }
 
 /* Active link should not change color on hover */
 .nav-link.active:hover,
 .c-header__nav-link.active:hover {
-    color: #4A7BC8 !important;  /* Stay light blue */
+    color: #4A7BC8 !important;
 }
 
 /* ===== LINKS ===== */
