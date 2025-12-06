@@ -1,0 +1,83 @@
+; Domain: yoursa.org
+; Exported (y-m-d hh:mm:ss): 2025-12-05 20:07:01
+;
+; This file is intended for use for informational and archival
+; purposes ONLY and MUST be edited before use on a production
+; DNS server.
+;
+; In particular, you must update the SOA record with the correct
+; authoritative name server and contact e-mail address information,
+; and add the correct NS records for the name servers which will
+; be authoritative for this domain.
+;
+; For further information, please consult the BIND documentation
+; located on the following website:
+;
+; http://www.isc.org/
+;
+; And RFC 1035:
+;
+; http://www.ietf.org/rfc/rfc1035.txt
+;
+; Please note that we do NOT offer technical support for any use
+; of this zone data, the BIND name server, or any other third-
+; party DNS software.
+;
+; Use at your own risk.
+
+
+$ORIGIN yoursa.org.
+
+; SOA Record
+@	3600	 IN 	SOA	ns67.domaincontrol.com.	dns.jomax.net. (
+					2025120512
+					28800
+					7200
+					604800
+					3600
+					) 
+
+; A Record
+@	3600	 IN 	A	185.199.108.153
+@	3600	 IN 	A	185.199.109.153
+@	3600	 IN 	A	185.199.110.153
+@	3600	 IN 	A	185.199.111.153
+
+; TXT Record
+@	3600	 IN 	TXT	"google-site-verification=LJ5f7w7W7YL7iFmAWOxgtGM-coaw-2BHnHK52AzRwGQ"
+@	3600	 IN 	TXT	"v=spf1 include:mailgun.org ~all"
+@	3600	 IN 	TXT	"v=spf1 include:secureserver.net -all"
+mailo._domainkey	3600	 IN 	TXT	"k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDjVW+uScLNntZNfpcE3ZwS0sGjeotkWQgCMtXkaK7sXg5EIchDTVy5xBrcsNpW1JOrIequzS9snMyRx45SxjVEpax6ebrB7sXOsja1i4TrEgc2Z3MmCLRK3IE2FdMNjnr2lxR5M5k6U/KyAqE0SFNQ3riiU7vCSzVopRveKNJLIQIDAQAB"
+mg	3600	 IN 	TXT	"v=spf1 include:mailgun.org ~all"
+pic._domainkey.mg	3600	 IN 	TXT	"k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC4ZrCzv530q1DKes/bN2lTxp1Mampntuc1/89PVPBH9I7NisnJOMVQ2fmeTGeX8PXiTHwYtSl9YXg9LQ97tm3NjcrJ99K3e28hIpQqEP5ptq7rITVfLhp26BAqZAGWG9vamqn6SyGchZdvz738ndwezLb1dAZc5pWe0yHJ8I+guwIDAQAB"
+_dmarc	3600	 IN 	TXT	"v=DMARC1; p=quarantine; adkim=r; aspf=r; rua=mailto:dmarc_rua@onsecureserver.net;"
+_github-pages-challenge-fozak	3600	 IN 	TXT	"afdd1127775c2097637169c25bff3f"
+_github-pages-challenge-fozak	3600	 IN 	TXT	"e0c0b89a7041a4bca45ed1c899da27"
+
+; CNAME Record
+49227021	3600	 IN 	CNAME	google.com.
+autodiscover	3600	 IN 	CNAME	autodiscover.outlook.com.
+email	3600	 IN 	CNAME	mailgun.org.
+email.mg	3600	 IN 	CNAME	mailgun.org.
+ftp	3600	 IN 	CNAME	@
+lyncdiscover	3600	 IN 	CNAME	webdir.online.lync.com.
+msoid	3600	 IN 	CNAME	clientconfig.microsoftonline-p.net.
+pay	3600	 IN 	CNAME	paylinks.commerce.godaddy.com.
+sip	3600	 IN 	CNAME	sipdir.online.lync.com.
+www	3600	 IN 	CNAME	fozak.github.io.
+_domainconnect	3600	 IN 	CNAME	_domainconnect.gd.domaincontrol.com.
+
+; SRV Record
+_sip._tls.@	3600	 IN 	SRV	100	1	443	sipdir.online.lync.com.
+_sipfederationtls._tcp.@	3600	 IN 	SRV	100	1	5061	sipfed.online.lync.com.
+
+; NS Record
+@	3600	 IN 	NS	ns67.domaincontrol.com.
+@	3600	 IN 	NS	ns68.domaincontrol.com.
+
+; MX Record
+@	3600	 IN 	MX	10	mxb.mailgun.org.
+@	3600	 IN 	MX	10	mxa.mailgun.org.
+mg	3600	 IN 	MX	10	mxa.mailgun.org.
+mg	3600	 IN 	MX	10	mxb.mailgun.org.
+
