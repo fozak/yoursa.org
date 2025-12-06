@@ -293,19 +293,21 @@ a:hover {
 
 /* ===== FOOTER ===== */
 
-/* Desktop - rounded corners with margin */
+/* Desktop - rounded corners with margin 
 @media only screen and (min-width: 767px) {
     .c-footer {
         border-radius: 25px;
         margin: 0 20px 20px;
     }
-}
+}*/
 
 /* All screens - background and padding */
 .c-footer {
     background-color: #002868 !important;
     padding: 100px 0 30px;
     display: block;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
 }
 
 /* Footer headings - WHITE */
