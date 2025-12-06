@@ -1,33 +1,46 @@
+// posts.js - Load blog posts from sitemap.xml
+
 async function loadBlogPosts() {
-    const blogFolder = '/blog/';
-    const posts = [];
-    
     try {
-        // Fetch the blog directory index (requires directory listing enabled)
-        const response = await fetch(blogFolder);
-        const html = await response.text();
+        const response = await fetch('/sitemap.xml');
+        const xmlText = await response.text();
         
-        // Parse HTML to extract .html files
+        // Parse XML
         const parser = new DOMParser();
-        const doc = parser.parseFromString(html, 'text/html');
-        const links = doc.querySelectorAll('a[href$=".html"]');
+        const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
         
-        // Extract post data from filenames
-        links.forEach(link => {
-            const filename = link.getAttribute('href');
-            const match = filename.match(/(.+)-(\d{4}-\d{2}-\d{2})\.html$/);
+        // Get all <url> elements
+        const urls = xmlDoc.querySelectorAll('url');
+        
+        const posts = [];
+        
+        urls.forEach(url => {
+            const loc = url.querySelector('loc').textContent;
+            const lastmod = url.querySelector('lastmod')?.textContent;
             
-            if (match) {
-                const slug = match[1];
-                const date = match[2];
+            // Only get blog posts
+            if (loc.includes('/blog/')) {
+                // Extract filename from URL
+                const urlParts = loc.split('/');
+                const slug = urlParts[urlParts.length - 1];
+                
+                // Try to extract date from slug or use lastmod
+                const dateMatch = slug.match(/(\d{4}-\d{2}-\d{2})/);
+                const date = dateMatch ? dateMatch[1] : lastmod;
+                
+                // Create title from slug
+                const titleSlug = slug.replace(/-\d{4}-\d{2}-\d{2}$/, '').replace(/-/g, ' ');
+                const title = titleSlug.split(' ')
+                    .map(w => w.charAt(0).toUpperCase() + w.slice(1))
+                    .join(' ');
                 
                 posts.push({
-                    title: slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),
-                    url: blogFolder + filename,
-                    image: `/images/${filename.replace('.html', '.png')}`,
-                    category: 'Business', // Default category
+                    title: title,
+                    url: loc,
+                    image: `/images/${slug}.png`,
+                    category: 'Business', // Default, or parse from URL structure
                     date: date,
-                    trending: false
+                    lastmod: lastmod
                 });
             }
         });
@@ -35,20 +48,19 @@ async function loadBlogPosts() {
         // Sort by date (newest first)
         posts.sort((a, b) => new Date(b.date) - new Date(a.date));
         
+        console.log('📰 Loaded posts from sitemap:', posts.length);
         renderPosts(posts);
         
     } catch (error) {
-        console.error('Error loading blog posts:', error);
+        console.error('Error loading sitemap:', error);
     }
 }
 
-// Format date
 function formatDate(dateStr) {
     const date = new Date(dateStr);
     return date.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
 }
 
-// Create post HTML
 function createPostHTML(post, type = 'latest') {
     if (type === 'trending') {
         return `
@@ -91,19 +103,16 @@ function createPostHTML(post, type = 'latest') {
     }
 }
 
-// Render posts
 function renderPosts(posts) {
-    // Trending: first 3 posts
-    const trendingPosts = posts.slice(0, 3);
     const trendingContainer = document.getElementById('trending-posts');
     if (trendingContainer) {
-        trendingContainer.innerHTML = trendingPosts.map(p => createPostHTML(p, 'trending')).join('');
+        trendingContainer.innerHTML = posts.slice(0, 3).map(p => createPostHTML(p, 'trending')).join('');
     }
     
-    // Latest: next 3 posts
-    const latestPosts = posts.slice(0, 6);
     const latestContainer = document.getElementById('latest-posts');
     if (latestContainer) {
-        latestContainer.innerHTML = latestPosts.map(p => createPostHTML(p, 'latest')).join('');
+        latestContainer.innerHTML = posts.slice(0, 6).map(p => createPostHTML(p, 'latest')).join('');
     }
 }
+
+document.addEventListener('DOMContentLoaded', loadBlogPosts);
