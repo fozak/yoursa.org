@@ -302,12 +302,23 @@ a:hover {
 }*/
 
 /* All screens - background and padding */
+/* ===== FOOTER (FULL WIDTH WITH TOP ROUNDED CORNERS) ===== */
+
 .c-footer {
     background-color: #002868 !important;
     padding: 100px 0 30px;
     display: block;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
+    margin: 0;  /* NO margins */
+    width: 100%;  /* Force full width */
+}
+
+/* Make sure container inside footer is also full width */
+.c-footer .container {
+    max-width: 1200px;  /* Or your container max-width */
+    margin: 0 auto;
+    padding: 0 15px;
 }
 
 /* Footer headings - WHITE */
