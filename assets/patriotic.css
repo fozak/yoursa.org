@@ -292,16 +292,25 @@ a:hover {
 }
 
 /* ===== FOOTER ===== */
-/* ===== FOOTER ===== */
 
-/* Footer background - Dark blue */
+/* Desktop - rounded corners with margin */
+@media only screen and (min-width: 767px) {
+    .c-footer {
+        border-radius: 25px;
+        margin: 0 20px 20px;
+    }
+}
+
+/* All screens - background and padding */
 .c-footer {
-  background-color: #002868 !important;
+    background-color: #002868 !important;
+    padding: 100px 0 30px;
+    display: block;
 }
 
 /* Footer headings - WHITE */
 .c-footer__footer-heading {
-  color: #FFFFFF !important;
+    color: #FFFFFF !important;
 }
 
 /* Footer text - WHITE */
@@ -314,33 +323,33 @@ a:hover {
 .c-footer__copyright-text p,
 .c-footer__footer-column ul li,
 .c-footer__footer-column ul li a {
-  color: #FFFFFF !important;
+    color: #FFFFFF !important;
 }
 
 /* Footer link hover - Light blue */
 .c-footer a:hover,
 .c-footer__footer-column ul li a:hover {
-  color: #4A7BC8 !important;
+    color: #4A7BC8 !important;
 }
 
 /* Footer social icons - White circle with dark blue icon */
 .c-footer__copyright-social-icon ul li a i {
-  background-color: #FFFFFF !important;
-  padding: 10px;
-  border-radius: 50%;
-  color: #002868 !important;  /* Dark blue icon */
-  transition: .5s;
+    background-color: #FFFFFF !important;
+    padding: 10px;
+    border-radius: 50%;
+    color: #002868 !important;
+    transition: .5s;
 }
 
 /* Footer social icons hover - Light blue circle with white icon */
 .c-footer__copyright-social-icon ul li a i:hover {
-  background-color: #4A7BC8 !important;  /* Light blue circle */
-  color: #FFFFFF !important;              /* White icon */
+    background-color: #4A7BC8 !important;
+    color: #FFFFFF !important;
 }
 
 /* Font Awesome brands */
 .fab {
-  font-family: 'Font Awesome 5 Brands';
+    font-family: 'Font Awesome 5 Brands';
 }
 
 /* ===== BORDERS ===== */
