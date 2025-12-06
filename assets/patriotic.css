@@ -308,8 +308,11 @@ a:hover {
     background-color: #002868 !important;
     padding: 100px 0 30px;
     display: block;
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
+    /* Only top corners rounded */
+    border-top-left-radius: 25px !important;
+    border-top-right-radius: 25px !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
     margin: 0;  /* NO margins */
     width: 100%;  /* Force full width */
 }
