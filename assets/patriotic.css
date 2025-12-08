@@ -436,16 +436,11 @@ a:hover {
 
 /* Heroicons patriotic coloring - ADD THIS TO YOUR EXISTING FILE */
 
-/* Multicolor (3 paths = 3 colors) */
-.icon-patriotic-3 path:nth-child(1) { 
-    stroke: #002868; /* Dark blue */
-}
-.icon-patriotic-3 path:nth-child(2) { 
-    stroke: #4A7BC8; /* Light blue */
-}
-.icon-patriotic-3 path:nth-child(3) { 
-    stroke: #BF0A30; /* Red */
-}
+
+.icon-patriotic-3 { stroke: none !important; }
+.icon-patriotic-3 path:nth-child(1) { fill: #002868; }   /*stroke removed*/
+.icon-patriotic-3 path:nth-child(2) { fill: #4A7BC8; }
+.icon-patriotic-3 path:nth-child(3) { fill: #BF0A30; }
 
 /* Gradient option */
 .icon-patriotic-gradient { 
