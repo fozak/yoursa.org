@@ -464,3 +464,71 @@ a:hover {
         height: 64px;
     }
 }
+
+/* ===== WAVE BACKGROUND ===== */
+
+/* Page title block with wave background */
+.block-page-title-block {
+    margin-bottom: 4rem;
+    padding-top: 12rem;
+    position: relative;
+}
+
+/* Wave background media */
+.block-page-title-block .block__media {
+    display: block;
+    left: calc(-50vw + 50%);
+    max-width: none;
+    width: 100vw;
+    height: 26rem;
+    position: absolute;
+    top: 0;
+    z-index: 0;
+    background-image: url('/images/waves-blue.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Ensure content sits above waves */
+.block-page-title-block .block__inner {
+    background-color: #FFFFFF;
+    border-radius: 0.5rem;
+    display: inline-block;
+    max-width: 100%;
+    padding: 1.5rem 3.5rem 1.75rem;
+    position: relative;
+    z-index: 1; /* Above wave background */
+    text-align: initial;
+    vertical-align: middle;
+    white-space: normal;
+    width: 37rem;
+}
+
+/* Container positioning */
+.block-page-title-block .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Responsive adjustments */
+@media (min-width: 48em) {
+    .block-page-title-block.block--media-alt-right-aligned .block__media {
+        overflow: visible;
+    }
+}
+
+@media (max-width: 767px) {
+    .block-page-title-block {
+        padding-top: 8rem;
+    }
+    
+    .block-page-title-block .block__media {
+        height: 20rem;
+    }
+    
+    .block-page-title-block .block__inner {
+        padding: 1rem 2rem 1.25rem;
+        width: 100%;
+    }
+}
