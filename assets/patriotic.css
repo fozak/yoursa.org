@@ -484,7 +484,7 @@ a:hover {
     position: absolute;
     top: 0;
     z-index: 0;
-    background-image: url('/images/waves-blue.svg');
+    background-image: url('/images/waive-2.svg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -536,8 +536,7 @@ a:hover {
 /* ===== PEER BLOCK (Right Upper Corner)  ===== */
 
 .block__peer {
-    background-color: #FFFFFF;
-     background-image: url('/images/blue-waves-vertical.svg');
+    background-color: var(--grey-light);
     border-radius: 0.5rem;
     padding: 1.5rem 2.5rem 1.75rem;
     position: absolute;
