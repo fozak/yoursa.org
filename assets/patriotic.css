@@ -490,22 +490,23 @@ a:hover {
     background-repeat: no-repeat;
 }
 
-/* Full-width block container */
+/* Full-width block with image on right */
 .block-page-title-block .block__inner {
     background-color: #FFFFFF;
     border-radius: 0.5rem;
     display: flex;
-    align-items: stretch; /* Full height for both sides */
+    align-items: stretch;
     max-width: 100%;
-    padding: 0; /* Remove padding, add to inner content */
+    padding: 0;
     position: relative;
     z-index: 1;
-    width: 100%; /* Full width */
-    overflow: hidden; /* Contain rounded corners */
+    width: 100%;
+    overflow: hidden;
+    gap: 0; /* No gap between content and image */
 }
 
-/* Left side: Content */
-.block__inner-content {
+/* Left side: Text content */
+.block__inner-text {
     flex: 1;
     padding: 1.5rem 3.5rem 1.75rem;
     display: flex;
@@ -513,32 +514,31 @@ a:hover {
     justify-content: center;
 }
 
-/* Right side: Image */
+/* Right side: Full-height image */
 .block__inner-image {
-    flex: 0 0 40%; /* Takes 40% width */
+    flex: 0 0 40%; /* 40% width */
     min-height: 100%;
-    position: relative;
 }
 
 .block__inner-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Fill height, crop if needed */
+    object-fit: cover;
     display: block;
 }
 
 /* Responsive: Stack on mobile */
-@media (max-width: 767px) {
+@media (max-width: 991px) {
     .block-page-title-block .block__inner {
         flex-direction: column;
     }
     
     .block__inner-image {
-        flex: 0 0 300px; /* Fixed height on mobile */
+        flex: 0 0 300px;
         order: -1; /* Image on top */
     }
     
-    .block__inner-content {
+    .block__inner-text {
         padding: 1rem 2rem 1.25rem;
     }
 }
