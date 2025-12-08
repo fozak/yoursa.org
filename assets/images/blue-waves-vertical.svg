@@ -1,0 +1,10 @@
+<svg width="100%" height="100%" viewBox="0 0 1440 320" version="1.1" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+  <!-- Layer 1: Dark Blue Background (Right/Bottom) -->
+  <rect x="0" y="0" width="1440" height="320" fill="#002868"/>
+  
+  <!-- Layer 2: Medium Blue Wave (Middle) -->
+  <path d="M0,0 L0,320 L450,320 C750,320 900,120 1150,0 L0,0 Z" fill="#00398F"/>
+  
+  <!-- Layer 3: Light Blue Wave (Top Left) -->
+  <path d="M0,0 L0,260 C180,240 320,120 550,0 L0,0 Z" fill="#4A7BC8"/>
+</svg>
