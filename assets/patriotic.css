@@ -532,3 +532,85 @@ a:hover {
         width: 100%;
     }
 }
+
+/* ===== PEER BLOCK (Right Upper Corner) ===== */
+
+.block__peer {
+    background-color: #FFFFFF;
+    border-radius: 0.5rem;
+    padding: 1.5rem 2.5rem 1.75rem;
+    position: absolute;
+    top: 2rem;
+    right: 15px; /* Matches Bootstrap container padding */
+    width: calc(80% * 0.37 * 100vw / 1.2); /* 80% of block__inner width */
+    max-width: calc(37rem * 0.8);
+    z-index: 2;
+    overflow: hidden;
+}
+
+/* Top text: SHAPING */
+.peer__text-top {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 900;
+    color: #4A7BC8;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+/* Hero image behind text */
+.peer__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 1rem 0;
+    border-radius: 0.25rem;
+}
+
+/* Bottom text: UNIQUELY YOURS */
+.peer__text-bottom {
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    font-weight: 900;
+    color: #BF0A30;
+    margin: 0;
+    padding: 0;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .block__peer {
+        position: relative;
+        top: auto;
+        right: auto;
+        width: 100%;
+        max-width: 100%;
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .peer__text-top {
+        font-size: 2rem;
+    }
+    
+    .peer__text-bottom {
+        font-size: 1.25rem;
+    }
+    
+    .block__peer {
+        padding: 1rem 1.5rem;
+    }
+}
+
+/* Ensure container has relative positioning */
+.block-page-title-block .container {
+    position: relative;
+}
