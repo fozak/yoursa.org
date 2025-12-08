@@ -446,3 +446,21 @@ a:hover {
 .icon-patriotic-gradient { 
     stroke: url(#patriotic-gradient); 
 }
+
+/* Add to patriotic.css */
+
+/* Feature icons (replaces 87px PNGs) */
+.feature-icon,
+.c-info-section__analyze-column_column-image img,
+.c-info-section__analyze-column_column-image svg {
+    width: 96px;
+    height: 96px;
+}
+
+/* Responsive sizing */
+@media (max-width: 767px) {
+    .feature-icon {
+        width: 64px;
+        height: 64px;
+    }
+}
