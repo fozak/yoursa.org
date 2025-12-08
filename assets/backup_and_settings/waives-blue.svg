@@ -1,0 +1,27 @@
+<svg width="100%" height="100%" viewBox="0 0 1440 480" version="1.1" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+  <defs>
+    <!-- Horizontal gradient: light gray to white -->
+    <linearGradient id="grayGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#E5E5E5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFFFFF;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Layer 1: Dark Blue Background -->
+  <rect x="0" y="0" width="1440" height="480" fill="#002868"/>
+  
+  <!-- Layer 2: Light Blue Wave (Top) -->
+  <path d="M0,0 L0,200 C180,180 320,80 550,0 L0,0 Z" fill="#4A7BC8"/>
+  
+  <!-- Layer 3: Medium Blue Wave (Upper Middle) -->
+  <path d="M0,0 L0,280 L450,280 C750,280 900,100 1150,0 L0,0 Z" fill="#00398F"/>
+  
+  <!-- Layer 4: Medium Blue Wave (Lower Middle) -->
+  <path d="M0,480 L0,200 C300,220 600,360 900,340 C1100,325 1250,280 1440,240 L1440,480 Z" fill="#00398F"/>
+  
+  <!-- Layer 5: Light Blue Wave (Lower) -->
+  <path d="M0,480 L0,300 C250,320 500,400 750,390 C1000,380 1200,340 1440,310 L1440,480 Z" fill="#4A7BC8"/>
+  
+  <!-- Layer 6: Light Gray to White Gradient (Bottom Transition) -->
+  <path d="M0,480 L0,380 C300,400 600,440 900,430 C1150,422 1300,400 1440,385 L1440,480 Z" fill="url(#grayGradient)"/>
+</svg>
