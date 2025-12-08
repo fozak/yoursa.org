@@ -433,3 +433,21 @@ a:hover {
 [style*="background: rgb(0, 57, 143)"] {
   background-color: #00398F !important;
 }
+
+/* Heroicons patriotic coloring - ADD THIS TO YOUR EXISTING FILE */
+
+/* Multicolor (3 paths = 3 colors) */
+.icon-patriotic-3 path:nth-child(1) { 
+    stroke: #002868; /* Dark blue */
+}
+.icon-patriotic-3 path:nth-child(2) { 
+    stroke: #4A7BC8; /* Light blue */
+}
+.icon-patriotic-3 path:nth-child(3) { 
+    stroke: #BF0A30; /* Red */
+}
+
+/* Gradient option */
+.icon-patriotic-gradient { 
+    stroke: url(#patriotic-gradient); 
+}
