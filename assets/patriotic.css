@@ -490,127 +490,55 @@ a:hover {
     background-repeat: no-repeat;
 }
 
-/* Ensure content sits above waves */
+/* Full-width block container */
 .block-page-title-block .block__inner {
     background-color: #FFFFFF;
     border-radius: 0.5rem;
-    display: inline-block;
+    display: flex;
+    align-items: stretch; /* Full height for both sides */
     max-width: 100%;
+    padding: 0; /* Remove padding, add to inner content */
+    position: relative;
+    z-index: 1;
+    width: 100%; /* Full width */
+    overflow: hidden; /* Contain rounded corners */
+}
+
+/* Left side: Content */
+.block__inner-content {
+    flex: 1;
     padding: 1.5rem 3.5rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Right side: Image */
+.block__inner-image {
+    flex: 0 0 40%; /* Takes 40% width */
+    min-height: 100%;
     position: relative;
-    z-index: 1; /* Above wave background */
-    text-align: initial;
-    vertical-align: middle;
-    white-space: normal;
-    width: 37rem;
 }
 
-/* Container positioning */
-.block-page-title-block .container {
-    position: relative;
-    z-index: 1;
-}
-
-/* Responsive adjustments */
-@media (min-width: 48em) {
-    .block-page-title-block.block--media-alt-right-aligned .block__media {
-        overflow: visible;
-    }
-}
-
-@media (max-width: 767px) {
-    .block-page-title-block {
-        padding-top: 8rem;
-    }
-    
-    .block-page-title-block .block__media {
-        height: 20rem;
-    }
-    
-    .block-page-title-block .block__inner {
-        padding: 1rem 2rem 1.25rem;
-        width: 100%;
-    }
-}
-
-/* ===== PEER BLOCK (Right Upper Corner)  ===== */
-
-.block__peer {
-    background-color: var(--grey-light);
-    border-radius: 0.5rem;
-    padding: 1.5rem 2.5rem 1.75rem;
-    position: absolute;
-    top: 2rem;
-    right: 15px; /* Matches Bootstrap container padding */
-    width: calc(80% * 0.37 * 100vw / 1.2); /* 80% of block__inner width */
-    max-width: calc(37rem * 0.8);
-    z-index: 2;
-    overflow: hidden;
-}
-
-/* Top text: SHAPING */
-.peer__text-top {
-    font-size: clamp(2.5rem, 8vw, 5rem);
-    font-weight: 900;
-    color: #4A7BC8 !important;
-    margin: 0;
-    padding: 0;
-    line-height: 1;
-    letter-spacing: -0.02em;
-    text-transform: uppercase;
+.block__inner-image img {
     width: 100%;
-}
-
-/* Hero image behind text */
-.peer__image {
-    width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover; /* Fill height, crop if needed */
     display: block;
-    margin: 1rem 0;
-    border-radius: 0.25rem;
 }
 
-/* Bottom text: UNIQUELY YOURS  */
-.peer__text-bottom {
-    font-size: clamp(1.5rem, 5vw, 3rem);
-    font-weight: 900;
-    color: #BF0A30 !important;
-    margin: 0;
-    padding: 0;
-    line-height: 1.2;
-    letter-spacing: -0.01em;
-    text-transform: uppercase;
-    position: relative;
-    z-index: 1;
-}
-
-/* Responsive adjustments */
-@media (max-width: 991px) {
-    .block__peer {
-        position: relative;
-        top: auto;
-        right: auto;
-        width: 100%;
-        max-width: 100%;
-        margin-top: 2rem;
-    }
-}
-
+/* Responsive: Stack on mobile */
 @media (max-width: 767px) {
-    .peer__text-top {
-        font-size: 2rem;
+    .block-page-title-block .block__inner {
+        flex-direction: column;
     }
     
-    .peer__text-bottom {
-        font-size: 1.25rem;
+    .block__inner-image {
+        flex: 0 0 300px; /* Fixed height on mobile */
+        order: -1; /* Image on top */
     }
     
-    .block__peer {
-        padding: 1rem 1.5rem;
+    .block__inner-content {
+        padding: 1rem 2rem 1.25rem;
     }
-}
-
-/* Ensure container has relative positioning */
-.block-page-title-block .container {
-    position: relative;
 }
