@@ -570,7 +570,7 @@ a:hover {
     border-radius: 0.25rem;
 }
 
-/* Bottom text: UNIQUELY YOURS */
+/* Bottom text: UNIQUELY YOURS  */
 .peer__text-bottom {
     font-size: clamp(1.5rem, 5vw, 3rem);
     font-weight: 900;
