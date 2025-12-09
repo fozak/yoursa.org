@@ -566,8 +566,8 @@ a:hover {
 /* Call to action button - bottom left aligned with overlay */
 .block__inner-text .c-call-to-action__button {
     position: absolute;
-    bottom: 24px;  /* Same as hero-image-overlay bottom */
-    left: 0;       /* No left margin, flush with text container */
+    bottom: 24px;       /* Same as hero-image-overlay bottom */
+    left: 3.5rem;       /* Same as text padding-left */
 }
 
 .block__inner-text .c-call-to-action__button .btn {
