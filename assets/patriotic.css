@@ -512,6 +512,7 @@ a:hover {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    position: relative; /* For absolute positioning of button */
 }
 
 /* Right side: Full-height image with overlay */
@@ -559,5 +560,26 @@ a:hover {
         bottom: 16px;
         left: -24px; /* Less overlap on mobile */
         height: 40%;
+    }
+}
+
+/* Call to action button - bottom left aligned with overlay */
+.block__inner-text .c-call-to-action__button {
+    position: absolute;
+    bottom: 24px;  /* Same as hero-image-overlay bottom */
+    left: 0;       /* No left margin, flush with text container */
+}
+
+.block__inner-text .c-call-to-action__button .btn {
+    margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .block__inner-text .c-call-to-action__button {
+        position: relative; /* Stack normally on mobile */
+        bottom: auto;
+        left: auto;
+        margin-top: 1.5rem;
     }
 }
