@@ -480,7 +480,7 @@ a:hover {
     left: calc(-50vw + 50%);
     max-width: none;
     width: 100vw;
-    height: 32rem;   /* Increased height for better coverage */
+    height: 32rem;
     position: absolute;
     top: 0;
     z-index: 0;
@@ -502,7 +502,7 @@ a:hover {
     z-index: 1;
     width: 100%;
     overflow: hidden;
-    gap: 0; /* No gap between content and image */
+    gap: 0;
 }
 
 /* Left side: Text content */
@@ -514,17 +514,30 @@ a:hover {
     justify-content: center;
 }
 
-/* Right side: Full-height image */
+/* Right side: Full-height image with overlay */
 .block__inner-image {
     flex: 0 0 40%; /* 40% width */
     min-height: 100%;
+    position: relative; /* For absolute positioning of overlay */
 }
 
-.block__inner-image img {
+/* Base hero image */
+.hero-image-base {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+}
+
+/* Overlapping color image - OUTSIDE to the left */
+.hero-image-overlay {
+    position: absolute;
+    bottom: 24px;        /* 24px from bottom */
+    left: -48px;         /* 48px OUTSIDE to the left */
+    width: auto;
+    height: 50%;         /* 50% of parent height */
+    z-index: 2;
+    object-fit: contain;
 }
 
 /* Responsive: Stack on mobile */
@@ -540,5 +553,11 @@ a:hover {
     
     .block__inner-text {
         padding: 1rem 2rem 1.25rem;
+    }
+    
+    .hero-image-overlay {
+        bottom: 16px;
+        left: -24px; /* Less overlap on mobile */
+        height: 40%;
     }
 }
