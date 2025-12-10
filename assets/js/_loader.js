@@ -126,3 +126,63 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+//- Load sidebar image based on current page URL
+
+function loadSidebarImage() {
+    // Get current page URL
+    const currentUrl = window.location.pathname;
+    
+    // Extract page slug from URL
+    // Examples: /about → about, /programs/mentoring → programs-mentoring
+    let slug = currentUrl
+        .replace(/^\//, '')           // Remove leading slash
+        .replace(/\/$/, '')           // Remove trailing slash
+        .replace(/\//g, '-')          // Replace slashes with dashes
+        .replace(/\.html$/, '');      // Remove .html extension
+    
+    // If homepage, use default
+    if (!slug || slug === 'index') {
+        slug = 'home';
+    }
+    
+    // Construct image path
+    const imagePath = `/images/${slug}.png`;
+    
+    // Create sidebar HTML
+    const sidebarHTML = `
+        <div id="sidebar-image" style="
+            position: fixed;
+            left: 0;
+            top: 86px;
+            width: 20%;
+            height: calc(100vh - 86px);
+            background-image: url('${imagePath}');
+            background-size: cover;
+            background-position: center;
+            z-index: 100;
+        ">
+            <img src="${imagePath}" alt="Page illustration" style="
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            " onerror="this.parentElement.style.display='none';">
+        </div>
+    `;
+    
+    // Insert sidebar before main content
+    const mainContent = document.getElementById('main-content');
+    if (mainContent) {
+        mainContent.insertAdjacentHTML('beforebegin', sidebarHTML);
+        
+        // Shift main content to the right
+        mainContent.style.marginLeft = '20%';
+        mainContent.style.width = '80%';
+    }
+    
+    console.log('🖼️ Sidebar image loaded:', imagePath);
+}
+
+// Load on DOM ready
+document.addEventListener('DOMContentLoaded', loadSidebarImage);
