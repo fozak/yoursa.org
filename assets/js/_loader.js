@@ -146,7 +146,7 @@ function loadSidebarImage() {
         document.body.insertAdjacentElement('afterbegin', sidebar);
         
         // Only shift if image loaded
-        document.getElementById('main-content').style.marginLeft = '20%';
+        document.getElementById('main-content').style.marginLeft = '30%';
     };
     
     img.src = imagePath;
