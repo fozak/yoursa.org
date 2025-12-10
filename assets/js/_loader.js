@@ -136,7 +136,7 @@ function loadSidebarImage() {
     
     if (!slug) slug = 'home';
     
-    const imagePath = `/images/${slug}.png`;
+    const imagePath = `/images/${slug}.svg`;
     
     const img = new Image();
     img.onload = function() {
