@@ -605,16 +605,19 @@ a:hover {
     margin-top: 86px;
 }
 
-/* Sidebar image - only applies if exists */
+/* Sidebar container - 20% width */
 #sidebar-image {
     position: fixed;
     left: 0;
-    top: 240px;
+    top: 140px;
     width: 20%;
+    height: calc(100vh - 140px);
 }
 
+/* Image - 15% of screen width (75% of container) */
 #sidebar-image img {
-    width: 100%;
+    width: 75%;  /* 15% of screen = 75% of 20% container */
+    object-fit: cover;
     display: block;
 }
 
@@ -623,3 +626,4 @@ a:hover {
         display: none;
     }
 }
+
