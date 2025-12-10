@@ -600,7 +600,21 @@ a:hover {
     margin: 0;
 }
 
-/* Fix main content position below fixed header */
-#main-content {
-    margin-top: 86px;
+/* Sidebar image - only applies if exists */
+#sidebar-image {
+    position: fixed;
+    left: 0;
+    top: 140px;
+    width: 20%;
+}
+
+#sidebar-image img {
+    width: 100%;
+    display: block;
+}
+
+@media (max-width: 991px) {
+    #sidebar-image {
+        display: none;
+    }
 }

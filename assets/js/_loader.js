@@ -127,50 +127,26 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// sidebar-image.js - Load sidebar image based on current page URL
+// sidebar-image.js - Simple sidebar image loader
 
 function loadSidebarImage() {
-    // Get current page URL
     const currentUrl = window.location.pathname;
-    
-    // Extract filename from URL (last segment after final slash)
     const urlParts = currentUrl.split('/');
-    let slug = urlParts[urlParts.length - 1];  // Get last part only
+    let slug = urlParts[urlParts.length - 1].replace(/\.html$/, '');
     
-    // Remove .html extension if present
-    slug = slug.replace(/\.html$/, '');
+    if (!slug) slug = 'home';
     
-    // If empty (homepage), use default
-    if (!slug || slug === 'index' || slug === '') {
-        slug = 'home';
-    }
-    
-    // Construct image path
     const imagePath = `/images/${slug}.png`;
     
-    // Check if image exists
     const img = new Image();
     img.onload = function() {
-        // Image exists, create sidebar
-        const sidebarHTML = `
-            <div id="sidebar-image">
-                <img src="${imagePath}" alt="Page illustration">
-            </div>
-        `;
+        const sidebar = document.createElement('div');
+        sidebar.id = 'sidebar-image';
+        sidebar.innerHTML = `<img src="${imagePath}" alt="">`;
+        document.body.insertAdjacentElement('afterbegin', sidebar);
         
-        const mainContent = document.getElementById('main-content');
-        if (mainContent) {
-            mainContent.insertAdjacentHTML('beforebegin', sidebarHTML);
-            mainContent.style.marginLeft = '20%';
-            mainContent.style.width = '80%';
-            document.body.classList.add('has-sidebar');
-        }
-        
-        console.log('🖼️ Sidebar loaded:', imagePath);
-    };
-    
-    img.onerror = function() {
-        console.log('ℹ️ No sidebar image for:', slug);
+        // Only shift if image loaded
+        document.getElementById('main-content').style.marginLeft = '20%';
     };
     
     img.src = imagePath;
