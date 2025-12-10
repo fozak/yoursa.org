@@ -136,20 +136,34 @@ function loadSidebarImage() {
     
     if (!slug) slug = 'home';
     
-    const imagePath = `/images/${slug}.svg`;
+    const svgPath = `/images/${slug}.svg`;
+    const pngPath = `/images/${slug}.png`;
     
     const img = new Image();
     img.onload = function() {
         const sidebar = document.createElement('div');
         sidebar.id = 'sidebar-image';
-        sidebar.innerHTML = `<img src="${imagePath}" alt="">`;
+        sidebar.innerHTML = `<img src="${img.src}" alt="">`;
         document.body.insertAdjacentElement('afterbegin', sidebar);
         
-        // Only shift if image loaded
         document.getElementById('main-content').style.marginLeft = '30%';
     };
     
-    img.src = imagePath;
+    img.onerror = function() {
+        // Try PNG if SVG fails
+        const pngImg = new Image();
+        pngImg.onload = function() {
+            const sidebar = document.createElement('div');
+            sidebar.id = 'sidebar-image';
+            sidebar.innerHTML = `<img src="${pngPath}" alt="">`;
+            document.body.insertAdjacentElement('afterbegin', sidebar);
+            
+            document.getElementById('main-content').style.marginLeft = '30%';
+        };
+        pngImg.src = pngPath;
+    };
+    
+    img.src = svgPath;
 }
 
 document.addEventListener('DOMContentLoaded', loadSidebarImage);
