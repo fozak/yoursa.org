@@ -127,62 +127,53 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-//- Load sidebar image based on current page URL
+// sidebar-image.js - Load sidebar image based on current page URL
 
 function loadSidebarImage() {
     // Get current page URL
     const currentUrl = window.location.pathname;
     
-    // Extract page slug from URL
-    // Examples: /about → about, /programs/mentoring → programs-mentoring
-    let slug = currentUrl
-        .replace(/^\//, '')           // Remove leading slash
-        .replace(/\/$/, '')           // Remove trailing slash
-        .replace(/\//g, '-')          // Replace slashes with dashes
-        .replace(/\.html$/, '');      // Remove .html extension
+    // Extract filename from URL (last segment after final slash)
+    const urlParts = currentUrl.split('/');
+    let slug = urlParts[urlParts.length - 1];  // Get last part only
     
-    // If homepage, use default
-    if (!slug || slug === 'index') {
+    // Remove .html extension if present
+    slug = slug.replace(/\.html$/, '');
+    
+    // If empty (homepage), use default
+    if (!slug || slug === 'index' || slug === '') {
         slug = 'home';
     }
     
     // Construct image path
     const imagePath = `/images/${slug}.png`;
     
-    // Create sidebar HTML
-    const sidebarHTML = `
-        <div id="sidebar-image" style="
-            position: fixed;
-            left: 0;
-            top: 86px;
-            width: 20%;
-            height: calc(100vh - 86px);
-            background-image: url('${imagePath}');
-            background-size: cover;
-            background-position: center;
-            z-index: 100;
-        ">
-            <img src="${imagePath}" alt="Page illustration" style="
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                display: block;
-            " onerror="this.parentElement.style.display='none';">
-        </div>
-    `;
-    
-    // Insert sidebar before main content
-    const mainContent = document.getElementById('main-content');
-    if (mainContent) {
-        mainContent.insertAdjacentHTML('beforebegin', sidebarHTML);
+    // Check if image exists
+    const img = new Image();
+    img.onload = function() {
+        // Image exists, create sidebar
+        const sidebarHTML = `
+            <div id="sidebar-image">
+                <img src="${imagePath}" alt="Page illustration">
+            </div>
+        `;
         
-        // Shift main content to the right
-        mainContent.style.marginLeft = '20%';
-        mainContent.style.width = '80%';
-    }
+        const mainContent = document.getElementById('main-content');
+        if (mainContent) {
+            mainContent.insertAdjacentHTML('beforebegin', sidebarHTML);
+            mainContent.style.marginLeft = '20%';
+            mainContent.style.width = '80%';
+            document.body.classList.add('has-sidebar');
+        }
+        
+        console.log('🖼️ Sidebar loaded:', imagePath);
+    };
     
-    console.log('🖼️ Sidebar image loaded:', imagePath);
+    img.onerror = function() {
+        console.log('ℹ️ No sidebar image for:', slug);
+    };
+    
+    img.src = imagePath;
 }
 
-// Load on DOM ready
 document.addEventListener('DOMContentLoaded', loadSidebarImage);
