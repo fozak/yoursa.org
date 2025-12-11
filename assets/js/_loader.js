@@ -127,10 +127,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// sidebar-image.js - Simple sidebar image loader
-
 function loadSidebarImage() {
     const currentUrl = window.location.pathname;
+    
+    // Only run for /blog/ URLs
+    if (!currentUrl.includes('/blog/')) return;
+    
     const urlParts = currentUrl.split('/');
     let slug = urlParts[urlParts.length - 1].replace(/\.html$/, '');
     
