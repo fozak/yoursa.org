@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="200" viewBox="0 0 500 200">
+  <!-- Background -->
+  <rect width="500" height="200" fill="#fff"/>
+
+  <!-- Communication bar -->
+  <text x="10" y="30" font-family="Arial" font-size="16" fill="#000">Communication</text>
+  <rect x="150" y="15" width="340" height="30" fill="#002868" rx="5"/>
+  <text x="480" y="35" font-family="Arial" font-size="16" fill="#000" text-anchor="end">85%</text>
+
+  <!-- Problem-Solving bar -->
+  <text x="10" y="80" font-family="Arial" font-size="16" fill="#000">Problem-Solving</text>
+  <rect x="150" y="65" width="300" height="30" fill="#4A7BC8" rx="5"/>
+  <text x="450" y="85" font-family="Arial" font-size="16" fill="#000" text-anchor="end">75%</text>
+
+  <!-- Teamwork bar -->
+  <text x="10" y="130" font-family="Arial" font-size="16" fill="#000">Teamwork</text>
+  <rect x="150" y="115" width="280" height="30" fill="#BF0A30" rx="5"/>
+  <text x="430" y="135" font-family="Arial" font-size="16" fill="#000" text-anchor="end">70%</text>
+</svg>
