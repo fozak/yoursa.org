@@ -37,7 +37,7 @@ async function loadBlogPosts() {
                 posts.push({
                     title: title,
                     url: loc,
-                    image: `/images/${slug}.png`,
+                    slug: slug,
                     category: 'Business', // Default, or parse from URL structure
                     date: date,
                     lastmod: lastmod
@@ -62,13 +62,19 @@ function formatDate(dateStr) {
 }
 
 function createPostHTML(post, type = 'latest') {
+    const imageUrl = `/images/${post.slug}.png`;
+    const fallbackUrl = `/images/${post.slug}.svg`;
+    
+    // Image element with fallback
+    const imageStyle = `background-image: url(${imageUrl}), url(${fallbackUrl});`;
+    
     if (type === 'trending') {
         return `
             <div class="col-md-4">
                 <div class="c-trending-posts__posts">
                     <div class="c-trending-posts__image-wrapper">
                         <a href="${post.url}">
-                            <div class="c-trending-posts__image" style="background-image: url(${post.image});"></div>
+                            <div class="c-trending-posts__image" style="${imageStyle}"></div>
                         </a>
                     </div>
                     <div class="c-trending-posts__content">
@@ -87,7 +93,7 @@ function createPostHTML(post, type = 'latest') {
                 <div class="c-latest-blog__blog-post">
                     <div class="c-latest-blog__image-wrapper">
                         <a href="${post.url}">
-                            <div class="c-latest-blog__post-image" style="background-image: url(${post.image});"></div>
+                            <div class="c-latest-blog__post-image" style="${imageStyle}"></div>
                         </a>
                     </div>
                     <div class="c-latest-blog__post-content">
