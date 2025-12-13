@@ -1,3 +1,7 @@
+/* At the very top of your CSS file */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700&display=swap');
+
+
 :root {
   /* ===== THREE BLUE SYSTEM ===== */
   
@@ -70,7 +74,7 @@
   --theme-header-box-shadow-color: rgba(0, 40, 104, .1);
   
   /* Keep typography settings unchanged */
-  --theme-font-family: "Inter", "Open Sans", Arial;
+  --theme-font-family: "Montserrat", Arial, sans-serif;
   --theme-font-size: 16px;
   --theme-font-weight: normal;
   --theme-letter-spacing: .25px;
