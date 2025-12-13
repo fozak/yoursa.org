@@ -497,7 +497,7 @@ a:hover {
 /* Full-width block with image on right */
 .block-page-title-block .block__inner {
     background-color: #FFFFFF;
-    border-radius: 0.5rem;
+    /*border-radius: 0.5rem;*/
     display: flex;
     align-items: stretch;
     max-width: 100%;
