@@ -623,6 +623,7 @@ a:hover {
     width: 75%;  /* 15% of screen = 75% of 20% container */
     object-fit: cover;
     display: block;
+    margin: 0 auto; /* FIXED horizontal centering */
 }
 
 @media (max-width: 991px) {
