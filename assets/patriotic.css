@@ -535,6 +535,7 @@ a:hover {
     /*height: 100%;*/
     object-fit: cover;
     display: block;
+    object-position: -90px center;
 }
 
 /* Overlapping color image - OUTSIDE to the left */
