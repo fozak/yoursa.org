@@ -200,7 +200,7 @@ h1, h2, h3, h4, h5, h6 {
 .nav-link,
 .c-header__nav-link {
     color: #343a40 !important;  /*FIXIT to black*/
-    font-weight: 400;
+    font-weight: 500;
     position: relative;
     transition: all 0.3s ease;
 }
