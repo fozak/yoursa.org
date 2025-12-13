@@ -613,7 +613,7 @@ a:hover {
 #sidebar-image {
     position: fixed;
     left: 0;
-    top: 140px;
+    top: 210px;
     width: 30%;
     height: calc(100vh - 140px);
 }
