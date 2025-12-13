@@ -519,6 +519,7 @@ a:hover {
     flex-direction: column;
     justify-content: flex-start;  /* was center  */
     position: relative; /* For absolute positioning of button */
+    background-color: #FFFFFF; /* Ensure white background */
 }
 
 /* Right side: Full-height image with overlay */
@@ -530,8 +531,8 @@ a:hover {
 
 /* Base hero image */
 .hero-image-base {
-    width: 100%;
-    height: 100%;
+    /*width: 100%;*/
+    /*height: 100%;*/
     object-fit: cover;
     display: block;
     object-position: -90px center;
