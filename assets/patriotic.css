@@ -631,3 +631,34 @@ a:hover {
     }
 }
 
+/* Simple styling - no fixed positioning needed */
+scrolling-text {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    background: #f5f5f5;
+    padding: 12px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+scrolling-text > div {
+    display: inline-block;
+}
+
+.text-size--larger {
+    font-size: 1.1rem;
+}
+
+.element--horizontal-space--regular-x-2 {
+    padding: 0 2rem;
+}
+
+/* Hide demo wrapper elements */
+.demo-container {
+    margin: 0;
+}
+
+.demo-label {
+    display: none;
+}
+
