@@ -507,12 +507,11 @@ a:hover {
     width: 100%;
     overflow: hidden;
     gap: 0;
-    height:30rem;
+    height: 30rem;
 }
 
 /* Left side: Text content */
 .block__inner-text {
-    /*flex: 1;*/
     flex: 1 1 42%;  /*FIXED*/
     min-width: 42%; /*FIXED*/
     padding: 1.5rem 3.5rem 1.75rem;
@@ -531,8 +530,8 @@ a:hover {
 
 /* Base hero image */
 .hero-image-base {
-    /*width: 100%;*/
-    /*height: 100%;*/
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     display: block;
     object-position: -90px center;
@@ -549,28 +548,6 @@ a:hover {
     object-fit: contain;
 }
 
-/* Responsive: Stack on mobile */
-@media (max-width: 991px) {
-    .block-page-title-block .block__inner {
-        flex-direction: column;
-    }
-    
-    .block__inner-image {
-        flex: 0 0 300px;
-        order: -1; /* Image on top */
-    }
-    
-    .block__inner-text {
-        padding: 1rem 2rem 1.25rem;
-    }
-    
-    .hero-image-overlay {
-        bottom: 16px;
-        left: -24px; /* Less overlap on mobile */
-        height: 40%;
-    }
-}
-
 /* Call to action button - bottom left aligned with overlay */
 .block__inner-text .c-call-to-action__button {
     position: absolute;
@@ -583,29 +560,45 @@ a:hover {
     margin: 0;
 }
 
-/* Responsive adjustments */
+/* Responsive: Stack on mobile - TEXT GOES BELOW IMAGE */
 @media (max-width: 991px) {
+    .block-page-title-block .block__inner {
+        flex-direction: column;
+        height: auto; /* Allow height to adjust */
+    }
+    
+    /* Image on top */
+    .block__inner-image {
+        flex: 0 0 300px;
+        order: 1; /* Image first */
+        width: 100%;
+    }
+    
+    /* Text below image */
+    .block__inner-text {
+        order: 2; /* Text second */
+        padding: 1rem 2rem 1.25rem;
+        min-width: 100%;
+        flex: 1 1 auto;
+    }
+    
+    .hero-image-base {
+        object-position: center center; /* Better mobile centering */
+    }
+    
+    .hero-image-overlay {
+        bottom: 16px;
+        left: -24px; /* Less overlap on mobile */
+        height: 40%;
+    }
+    
+    /* Button positioning on mobile */
     .block__inner-text .c-call-to-action__button {
         position: relative; /* Stack normally on mobile */
         bottom: auto;
         left: auto;
         margin-top: 1.5rem;
     }
-}
-
-/* Red line below button 
-.block__inner-text .c-call-to-action__button::after {
-    content: '';
-    position: absolute;
-    bottom: -9px;       
-    left: 0;
-    width: 100%;        
-    height: 3px;
-    background-color: #BF0A30;  
-}*/
-
-.block__inner-text .c-call-to-action__button .btn {
-    margin: 0;
 }
 
 /* Fix main content position below fixed header */
