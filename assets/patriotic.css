@@ -575,6 +575,7 @@ a:hover {
     position: absolute;
     bottom: 30px;       /* was 24px Same as hero-image-overlay bottom */
     left: 3.5rem;       /* Same as text padding-left */
+    color: #BF0A30;     /* FIXED */
 }
 
 .block__inner-text .c-call-to-action__button .btn {
@@ -591,16 +592,16 @@ a:hover {
     }
 }
 
-/* Red line below button */
+/* Red line below button 
 .block__inner-text .c-call-to-action__button::after {
     content: '';
     position: absolute;
-    bottom: -9px;       /* 6px below button (3px line + 6px gap = 9px) */
+    bottom: -9px;       
     left: 0;
-    width: 100%;        /* Full width of button */
+    width: 100%;        
     height: 3px;
-    background-color: #BF0A30;  /* Your patriotic red */
-}
+    background-color: #BF0A30;  
+}*/
 
 .block__inner-text .c-call-to-action__button .btn {
     margin: 0;
