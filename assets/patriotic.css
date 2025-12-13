@@ -195,7 +195,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Default navigation links */
 .nav-link,
 .c-header__nav-link {
-    color: #4A7BC8 !important;
+    color: #343a40 !important;  /*FIXIT to black*/
     font-weight: 400;
     position: relative;
     transition: all 0.3s ease;
