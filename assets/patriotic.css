@@ -512,8 +512,8 @@ a:hover {
 
 /* Left side: Text content */
 .block__inner-text {
-    flex: 1 1 42%;  /*FIXED*/
-    min-width: 42%; /*FIXED*/
+    flex: 1 1 42%;  /* Takes 42% */
+    min-width: 42%;
     padding: 1.5rem 3.5rem 1.75rem;
     display: flex;
     flex-direction: column;
@@ -523,7 +523,7 @@ a:hover {
 
 /* Right side: Full-height image with overlay */
 .block__inner-image {
-    flex: 0 0 40%; /* 40% width */
+    flex: 0 0 58%; /* Takes 58% - CHANGED from 40% */
     min-height: 100%;
     position: relative; /* For absolute positioning of overlay */
 }
