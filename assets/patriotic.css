@@ -605,24 +605,32 @@ a:hover {
 /* Fix main content position below fixed header */
 #main-content {
     margin-top: 86px;
+    display: grid;
+    grid-template-columns: 20% 1fr;
+    gap: 2%;
 }
 
-/* Sidebar container - 20% width, floats left */
 #sidebar-image {
-    float: left;
-    width: 20%;
-    margin-right: 2%; /* spacing between image and text */
+    /* Image column - stays on left */
 }
 
-/* Image - 75% of container width */
 #sidebar-image img {
     width: 75%;
     object-fit: cover;
     display: block;
-    margin: 0 auto; /* centered in container */
+    margin: 0 auto;
+}
+
+/* Make all other content go into second column */
+#main-content > *:not(#sidebar-image) {
+    grid-column: 2;
 }
 
 @media (max-width: 991px) {
+    #main-content {
+        grid-template-columns: 1fr;
+    }
+    
     #sidebar-image {
         display: none;
     }
