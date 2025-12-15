@@ -607,22 +607,19 @@ a:hover {
     margin-top: 86px;
 }
 
-/* Sidebar container - 20% width */
+/* Sidebar container - 20% width, floats left */
 #sidebar-image {
-    /*position: fixed;*/
-    left: 0;
-    top: 210px;
-    width: 30%;
-    height: calc(100vh - 140px);
+    float: left;
+    width: 20%;
+    margin-right: 2%; /* spacing between image and text */
 }
 
-/* Image - 15% of screen width (75% of container) */
+/* Image - 75% of container width */
 #sidebar-image img {
-  
-    width: 75%;  /* 15% of screen = 75% of 20% container */
+    width: 75%;
     object-fit: cover;
     display: block;
-    margin: 0 auto; /* FIXED horizontal centering */
+    margin: 0 auto; /* centered in container */
 }
 
 @media (max-width: 991px) {
