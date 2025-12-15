@@ -162,7 +162,7 @@ function loadSidebarImage() {
             const mainContent = document.getElementById('main-content');
             mainContent.insertAdjacentElement('afterbegin', sidebar); // Inside main-content
             
-            mainContent.style.marginLeft = '30%';
+            /*mainContent.style.marginLeft = '30%';*/
         };
         pngImg.src = pngPath;
     };
