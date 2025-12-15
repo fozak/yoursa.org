@@ -609,7 +609,7 @@ a:hover {
 
 /* Sidebar container - 20% width */
 #sidebar-image {
-    position: fixed;
+    /*position: fixed;*/
     left: 0;
     top: 210px;
     width: 30%;
