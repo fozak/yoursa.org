@@ -102,30 +102,32 @@ document.querySelectorAll('.number-counter .number-counter__number-counter-colum
     requestAnimationFrame(updateCounter);
 });
 
-/* Bootstrap collapse functionality for mobile nav */
-document.addEventListener('DOMContentLoaded', function() {
-    const toggleButton = document.querySelector('[data-toggle="collapse"]');
+/* Bootstrap collapse functionality for mobile nav - using event delegation */
+document.addEventListener('click', function(e) {
+    const toggleButton = e.target.closest('[data-toggle="collapse"]');
     
     if (toggleButton) {
-        toggleButton.addEventListener('click', function() {
-            const targetId = this.getAttribute('data-target');
-            const targetElement = document.querySelector(targetId);
+        const targetId = toggleButton.getAttribute('data-target');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+            const isExpanded = toggleButton.getAttribute('aria-expanded') === 'true';
             
-            if (targetElement) {
-                const isExpanded = this.getAttribute('aria-expanded') === 'true';
-                
-                // Toggle aria-expanded
-                this.setAttribute('aria-expanded', !isExpanded);
-                
-                // Toggle collapse class
-                targetElement.classList.toggle('show');
-                
-                // Toggle icon animation
-                navbartoggle(this);
-            }
-        });
+            // Toggle aria-expanded
+            toggleButton.setAttribute('aria-expanded', !isExpanded);
+            
+            // Toggle collapse class
+            targetElement.classList.toggle('show');
+            
+            // Toggle icon animation
+            navbartoggle(toggleButton);
+        }
     }
 });
+
+/* End of mobile menue script */
+
+/* sidebar image loader for blog pages */
 
 function loadSidebarImage() {
     const currentUrl = window.location.pathname;
