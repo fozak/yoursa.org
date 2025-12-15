@@ -127,12 +127,9 @@ document.addEventListener('click', function(e) {
 
 /* End of mobile menue script */
 
-/* sidebar image loader for blog pages */
-
 function loadSidebarImage() {
     const currentUrl = window.location.pathname;
     
-    // Only run for /blog/ URLs
     if (!currentUrl.includes('/blog/')) return;
     
     const urlParts = currentUrl.split('/');
@@ -148,21 +145,24 @@ function loadSidebarImage() {
         const sidebar = document.createElement('div');
         sidebar.id = 'sidebar-image';
         sidebar.innerHTML = `<img src="${img.src}" alt="">`;
-        document.body.insertAdjacentElement('afterbegin', sidebar);
         
-        document.getElementById('main-content').style.marginLeft = '30%';
+        const mainContent = document.getElementById('main-content');
+        mainContent.insertAdjacentElement('afterbegin', sidebar); // Inside main-content
+        
+        mainContent.style.marginLeft = '30%';
     };
     
     img.onerror = function() {
-        // Try PNG if SVG fails
         const pngImg = new Image();
         pngImg.onload = function() {
             const sidebar = document.createElement('div');
             sidebar.id = 'sidebar-image';
             sidebar.innerHTML = `<img src="${pngPath}" alt="">`;
-            document.body.insertAdjacentElement('afterbegin', sidebar);
             
-            document.getElementById('main-content').style.marginLeft = '30%';
+            const mainContent = document.getElementById('main-content');
+            mainContent.insertAdjacentElement('afterbegin', sidebar); // Inside main-content
+            
+            mainContent.style.marginLeft = '30%';
         };
         pngImg.src = pngPath;
     };
