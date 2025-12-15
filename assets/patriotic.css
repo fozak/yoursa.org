@@ -88,6 +88,13 @@
   --breakpoint-xl: 1200px;
 }
 
+/* ===== BODY ===== */
+/* Prevent horizontal scrollbar */
+html, body {
+    overflow-x: hidden;
+}
+
+
 /* ===== BUTTONS ===== */
 
 /* Primary buttons - Light blue with white text */
