@@ -618,6 +618,7 @@ a:hover {
 
 /* Image - 15% of screen width (75% of container) */
 #sidebar-image img {
+  position: fixed; /* FIXED position */
     width: 75%;  /* 15% of screen = 75% of 20% container */
     object-fit: cover;
     display: block;
