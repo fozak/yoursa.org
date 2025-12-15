@@ -674,3 +674,10 @@ scrolling-text > div {
     display: none;
 }
 
+/*portfolio proportions*/
+
+.l-portfolio__item-image {
+    height: 600px;
+    background-size: cover;
+}
+
