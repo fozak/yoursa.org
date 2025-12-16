@@ -686,3 +686,12 @@ scrolling-text > div {
     padding-bottom: 10px; /*FIXED from 80px*/
 }
 
+/*her-block content section*/
+
+#hero-block-content {
+    margin-top: 86px;
+    display: grid;
+    grid-template-columns: 40% 1fr;
+    gap: 2%;
+}
+
