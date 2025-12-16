@@ -682,6 +682,7 @@ scrolling-text > div {
 }
 /*NUMBER COUNTER SECTION*/
 .c-number-counter {
-    padding-bottom: 40px; /*FIXED from 80px*/
+  padding-top: 40px; /*FIXED from 80px*/
+    padding-bottom: 10px; /*FIXED from 80px*/
 }
 
