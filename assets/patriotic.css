@@ -680,4 +680,8 @@ scrolling-text > div {
     height: 600px;
     background-size: cover;
 }
+/*NUMBER COUNTER SECTION*/
+.c-number-counter {
+    padding-bottom: 40px; /*FIXED from 80px*/
+}
 
