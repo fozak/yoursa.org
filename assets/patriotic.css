@@ -689,7 +689,7 @@ scrolling-text > div {
 /*her-block content section*/
 
 #hero-block-content {
-    margin-top: 86px;
+    margin-top: 125px;
     display: grid;
     grid-template-columns: 40% 1fr;
     gap: 2%;
