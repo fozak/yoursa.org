@@ -127,9 +127,9 @@
     },
     {
         "topic": "programs",
-        "insert_url": "/programs/volunteer",
+        "insert_url": "/volunteer",
         "needs_update": "no",
-        "source_url": "https://cfeglobal.org/programs/volunteer-source.txt",
+        "source_url": "https://cfeglobal.org/volunteer-source.txt",
         "topic_name": "Volunteer"
     },
     {
