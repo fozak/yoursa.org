@@ -691,7 +691,7 @@ scrolling-text > div {
 #hero-block-content {
     margin-top: 125px;
     display: grid;
-    grid-template-columns: 40% 1fr;
+    grid-template-columns: 1fr; /*FIXWED grid-template-columns: 40% 1fr; */
     gap: 2%;
 }
 
@@ -718,6 +718,13 @@ scrolling-text > div {
 @media (max-width: 767px) {
     .slogan-block h3 {
         font-size: 18px;
+    }
+}
+
+/* Desktop layout - switch to side-by-side */
+@media (min-width: 768px) {
+    #hero-block-content {
+        grid-template-columns: 40% 1fr;
     }
 }
 
