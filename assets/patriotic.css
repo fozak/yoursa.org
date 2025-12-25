@@ -526,7 +526,7 @@ a:hover {
     flex-direction: column;
     justify-content: space-between; /* CHANGED from flex-start */
     position: relative; /* For absolute positioning of button */
-    background-color: #FFFFFF; /* Ensure white background */
+    background-color: #E8F0FA; /* was white white background */
 }
 
 /* Right side: Full-height image with overlay */
