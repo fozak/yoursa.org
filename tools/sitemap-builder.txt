@@ -1,0 +1,53 @@
+# Sitemap Generator Script
+# Recursively scans for .html files and generates sitemap.xml
+
+# Configuration
+$baseUrl = "https://yoursa.org"
+$rootPath = Get-Location
+$outputFile = Join-Path $rootPath "sitemap.xml"
+
+# Get all HTML files recursively
+$htmlFiles = Get-ChildItem -Path $rootPath -Filter "*.html" -Recurse -File
+
+# Start building XML
+$xml = @"
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+"@
+
+# Process each HTML file
+foreach ($file in $htmlFiles) {
+    # Get relative path from root
+    $relativePath = $file.FullName.Substring($rootPath.Path.Length).Replace('\', '/')
+    
+    # Remove leading slash if present
+    $relativePath = $relativePath.TrimStart('/')
+    
+    # Build full URL
+    $url = "$baseUrl/$relativePath"
+    
+    # Get last modified date in ISO format
+    $lastMod = $file.LastWriteTime.ToString("yyyy-MM-dd")
+    
+    # Add URL entry
+    $xml += @"
+
+  <url>
+    <loc>$url</loc>
+    <lastmod>$lastMod</lastmod>
+  </url>
+"@
+}
+
+# Close the XML
+$xml += @"
+
+</urlset>
+"@
+
+# Write to file (overwrites if exists)
+$xml | Out-File -FilePath $outputFile -Encoding UTF8
+
+Write-Host "Sitemap generated successfully!" -ForegroundColor Green
+Write-Host "Location: $outputFile" -ForegroundColor Cyan
+Write-Host "Total URLs: $($htmlFiles.Count)" -ForegroundColor Cyan
