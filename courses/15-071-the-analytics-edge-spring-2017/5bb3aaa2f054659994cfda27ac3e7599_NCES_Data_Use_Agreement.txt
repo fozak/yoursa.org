@@ -1,0 +1,7 @@
+Under law, public use data collected and distributed by the National Center for Education Statistics (NCES) may be used only for statistical purposes. Any effort to determine the identity of any reported case by public-use data users is prohibited by law. Violations are subject to Class E felony charges of a fine up to $250,000 and/or a prison term up to 5 years.
+
+NCES does all it can to assure that the identity of data subjects cannot be disclosed. All direct identifiers, as well as any characteristics that might lead to identification, are omitted or modified in the dataset to protect the true characteristics of individual cases. Any intentional identification or disclosure of a person or institution violates the assurances of confidentiality given to the providers of the information. Therefore, users shall:
+
+- Use the data in any dataset for statistical purposes only.
+- Make no use of the identity of any person or institution discovered inadvertently, and advise NCES of any such discovery.
+- Not link any dataset with individually identifiable data from other NCES or non-NCES datasets.

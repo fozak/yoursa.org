@@ -1,0 +1,2356 @@
+<!doctype html>
+<html lang="en">
+<head>
+  
+    
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NMQZ25T');</script>
+    
+  
+  
+
+
+    
+    <link href="../../../../static_shared/css/course_v2.ba051.css" rel="stylesheet">
+    
+
+    
+    <link href="../../../../static_shared/css/common.ba051.css" rel="stylesheet">
+    
+
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Excel financial scenario calculator.">
+  <meta name="keywords" content="opencourseware,MIT OCW,courseware,MIT opencourseware,Free Courses,class notes,class syllabus,class materials,tutorials,online courses,MIT courses">
+  
+  <meta property="og:site_name" content="MIT OpenCourseWare">
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ocw.mit.edu/courses/res-15-002-mission-metrics-finance-training-for-federal-credit-program-professionals-summer-2016/resources/mm2fpc_ver1pt94/" />
+  <meta property="og:title" content="The MM2 Federal Program Calculator (MM2FPC) | Mission &amp; Metrics: Finance Training for Federal Credit Program Professionals | Sloan School of Management | MIT OpenCourseWare" />
+  <meta property="og:description" content="Excel financial scenario calculator." />
+
+  
+
+<meta property="og:image" content="https://ocw.mit.edu/courses/res-15-002-mission-metrics-finance-training-for-federal-credit-program-professionals-summer-2016/fae8027142b3a1e4fe8652f19fc47b1b_res-15-002sum16.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@mitocw" />
+<meta name="twitter:image:src" content="https://ocw.mit.edu/courses/res-15-002-mission-metrics-finance-training-for-federal-credit-program-professionals-summer-2016/fae8027142b3a1e4fe8652f19fc47b1b_res-15-002sum16.jpg" />
+
+  <link rel="canonical" href="index.html" />
+
+  <script type="application/ld+json">
+      {
+        "@context": "http://schema.org/",
+        "@type" : "WebPage",
+        "name": "MIT OpenCourseWare",
+        "description": "Excel financial scenario calculator.",
+        "license": "http://creativecommons.org/licenses/by-nc-sa/4.0/",
+        "publisher": {
+          "@type": "CollegeOrUniversity",
+          "name": "MIT OpenCourseWare"
+        }
+      }
+  </script>
+
+  <title>The MM2 Federal Program Calculator (MM2FPC) | Mission &amp; Metrics: Finance Training for Federal Credit Program Professionals | Sloan School of Management | MIT OpenCourseWare</title>
+  <style>
+  @font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Material Icons'),
+      local('MaterialIcons-Regular'),
+      url(../../../../static_shared/fonts/MaterialIcons-Regular.subset.504c7f0c308e930e9255.woff2) format('woff2'),
+      url(../../../../static_shared/fonts/MaterialIcons-Regular.subset.1f8f08f2bf0d6e078379.woff) format('woff'),
+      url(../../../../static_shared/fonts/MaterialIcons-Regular.subset.aa271372671db14b34f2.ttf) format('truetype');
+  }
+  @font-face {
+    font-family: 'Material Icons Round';
+    font-style: normal;
+    font-weight: 400;
+    src: local("MaterialIcons-Round"),
+    url(../../../../static_shared/fonts/MaterialIconsRound-Regular.subset.7154eae1d0e60e0dabe4.woff2) format('woff2');
+  }
+  @font-face {
+    font-family: 'Cardo Bold';
+    font-style: normal;
+    font-weight: bold;
+    src: local('Cardo'),
+      local('Cardo-Bold'),
+      url(../../../../static_shared/fonts/Cardo-Bold.d7bf1aa6f322a64b2fc3.ttf) format('truetype');
+  }
+  @font-face {
+    font-family: 'Cardo Italic';
+    font-style: italic;
+    font-weight: 400;
+    src: local('Cardo'),
+      local('Cardo-Italic'),
+      url(../../../../static_shared/fonts/Cardo-Italic.0935d2ebbc05be3559b1.ttf) format('truetype');
+  }
+  @font-face {
+    font-family: 'Helvetica Light';
+    font-style: normal`;
+    font-weight: 400;
+    src: local('Helvetica Light'),
+      local('Helvetica-Light'),
+      url(../../../../static_shared/fonts/Helvetica-Light.70359849afb40079a1c8.ttf) format('truetype');
+  }
+  .external-link.nav-link::after {
+    background-image: url('../../../../static_shared/images/external_link.58bbdd86c00a2c146c36.svg'); 
+  }
+  </style>
+</head>
+
+
+<body class="course-home-page">
+  
+    
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NMQZ25T"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    
+  
+  <div class="overflow-auto">
+    <span class="course-header">
+    <div
+  id="mobile-course-nav"
+  class="navbar-offcanvas offcanvas-toggle offcanvas-toggle-close medium-and-below-only drawer">
+  <h3 class="my-4 d-flex align-items-center justify-content-between">
+    Browse Course Material
+    <button
+      class="btn"
+      type="button"
+      aria-label="Close Course Menu"
+      onclick="$('#mobile-course-nav-toggle').click();"
+      id="close-mobile-course-menu-button"
+      >
+      <img
+        src="../../../../static_shared/images/close_small.b0a2684ccc0da6407a56.svg"
+        alt=""
+        width="12px"
+      />
+    </button>
+  </h3>
+  
+
+<nav class="course-nav" aria-label="Course materials">
+  <ul class="w-100 m-auto list-unstyled">
+    
+      
+
+
+
+
+
+
+
+
+
+<li class="course-nav-list-item">
+  <div class="course-nav-parent d-flex flex-direction-row align-items-center justify-content-between">
+    <span class="course-nav-text-wrapper">
+      
+        <a class="text-dark nav-link"
+          data-uuid="bad66661-53cd-ea6f-63bd-1e83e178f5e5"
+           href="../../pages/syllabus/index.html" >
+          Syllabus
+        </a>
+      
+    </span>
+    
+  </div>
+  
+  <span class="medium-and-below-only"><hr/></span>
+  
+  <ul
+    class="course-nav-child-nav m-auto collapse"
+    id="nav-container_mobile_bad66661-53cd-ea6f-63bd-1e83e178f5e5"
+    aria-labelledby="nav-button_mobile_bad66661-53cd-ea6f-63bd-1e83e178f5e5"
+  >
+    
+  </ul>
+</li>
+
+    
+      
+
+
+
+
+
+
+
+
+
+<li class="course-nav-list-item">
+  <div class="course-nav-parent d-flex flex-direction-row align-items-center justify-content-between">
+    <span class="course-nav-text-wrapper">
+      
+        <a class="text-dark nav-link"
+          data-uuid="95a3d99b-4964-c421-a20e-eb84f9477109"
+           href="../../pages/calendar/index.html" >
+          Calendar
+        </a>
+      
+    </span>
+    
+  </div>
+  
+  <span class="medium-and-below-only"><hr/></span>
+  
+  <ul
+    class="course-nav-child-nav m-auto collapse"
+    id="nav-container_mobile_95a3d99b-4964-c421-a20e-eb84f9477109"
+    aria-labelledby="nav-button_mobile_95a3d99b-4964-c421-a20e-eb84f9477109"
+  >
+    
+  </ul>
+</li>
+
+    
+      
+
+
+
+
+
+
+
+
+  
+
+
+<li class="course-nav-list-item">
+  <div class="course-nav-parent d-flex flex-direction-row align-items-center justify-content-between">
+    <span class="course-nav-text-wrapper">
+      
+        <a class="text-dark nav-link"
+          data-uuid="c5cf8c5e-59b0-bc3e-51ba-6284d467e6d6"
+           href="../../pages/sessions/index.html" >
+          Sessions
+        </a>
+      
+    </span>
+    
+    <button
+      class="course-nav-section-toggle"
+      type="button"
+      id="nav-button_mobile_c5cf8c5e-59b0-bc3e-51ba-6284d467e6d6"
+      data-toggle="collapse"
+      data-target="#nav-container_mobile_c5cf8c5e-59b0-bc3e-51ba-6284d467e6d6"
+      data-uuid="c5cf8c5e-59b0-bc3e-51ba-6284d467e6d6"
+      aria-controls="nav-container_mobile_c5cf8c5e-59b0-bc3e-51ba-6284d467e6d6"
+      aria-expanded="false"
+      aria-label="Subsections for Sessions"
+    >
+      <i class="material-icons md-18" aria-hidden="true"></i>
+    </button>
+    
+  </div>
+  
+  <span class="medium-and-below-only"><hr/></span>
+  
+  <ul
+    class="course-nav-child-nav m-auto collapse"
+    id="nav-container_mobile_c5cf8c5e-59b0-bc3e-51ba-6284d467e6d6"
+    aria-labelledby="nav-button_mobile_c5cf8c5e-59b0-bc3e-51ba-6284d467e6d6"
+  >
+    
+      
+
+
+
+
+
+
+
+
+
+<li class="course-nav-list-item">
+  <div class="course-nav-parent d-flex flex-direction-row align-items-center justify-content-between">
+    <span class="course-nav-text-wrapper">
+      
+        <a class="text-dark nav-link"
+          data-uuid="6712229f-d71f-3221-ea88-ce00d32d3866"
+           href="../../pages/sessions/session-1-program-objectives-understanding-mission-and-how-best-to-achieve-it/index.html" >
+          Session 1: Program Objectives
+        </a>
+      
+    </span>
+    
+  </div>
+  
+  <ul
+    class="course-nav-child-nav m-auto collapse"
+    id="nav-container_mobile_6712229f-d71f-3221-ea88-ce00d32d3866"
+    aria-labelledby="nav-button_mobile_6712229f-d71f-3221-ea88-ce00d32d3866"
+  >
+    
+  </ul>
+</li>
+
+    
+      
+
+
+
+
+
+
+
+
+
+<li class="course-nav-list-item">
+  <div class="course-nav-parent d-flex flex-direction-row align-items-center justify-content-between">
+    <span class="course-nav-text-wrapper">
+      
+        <a class="text-dark nav-link"
+          data-uuid="4215d186-7d4f-8eba-8477-4b8d85ec43fc"
+           href="../../pages/sessions/session-2-considerations-in-program-and-product-design/index.html" >
+          Session 2: Considerations in Program and Product Design
+        </a>
+      
+    </span>
+    
+  </div>
+  
+  <ul
+    class="course-nav-child-nav m-auto collapse"
+    id="nav-container_mobile_4215d186-7d4f-8eba-8477-4b8d85ec43fc"
+    aria-labelledby="nav-button_mobile_4215d186-7d4f-8eba-8477-4b8d85ec43fc"
+  >
+    
+  </ul>
+</li>
+
+    
+      
+
+
+
+
+
+
+
+
+
+<li class="course-nav-list-item">
+  <div class="course-nav-parent d-flex flex-direction-row align-items-center justify-content-between">
+    <span class="course-nav-text-wrapper">
+      
+        <a class="text-dark nav-link"
+          data-uuid="219fe568-e41d-dc10-9cf5-bce77c008a10"
+           href="../../pages/sessions/session-3-valuation-and-subsidy-measures/index.html" >
+          Session 3: Valuation and Subsidy Measures
+        </a>
+      
+    </span>
+    
+  </div>
+  
+  <ul
+    class="course-nav-child-nav m-auto collapse"
+    id="nav-container_mobile_219fe568-e41d-dc10-9cf5-bce77c008a10"
+    aria-labelledby="nav-button_mobile_219fe568-e41d-dc10-9cf5-bce77c008a10"
+  >
+    
+  </ul>
+</li>
+
+    
+      
+
+
+
+
+
+
+
+
+
+<li class="course-nav-list-item">
+  <div class="course-nav-parent d-flex flex-direction-row align-items-center justify-content-between">
+    <span class="course-nav-text-wrapper">
+      
+        <a class="text-dark nav-link"
+          data-uuid="6907be93-d863-028a-af71-629ccb976e53"
+           href="../../pages/sessions/session-4-credit-portfolio-costs-and-managing-performance/index.html" >
+          Session 4: Credit Portfolio Costs and Managing Performance
+        </a>
+      
+    </span>
+    
+  </div>
+  
+  <ul
+    class="course-nav-child-nav m-auto collapse"
+    id="nav-container_mobile_6907be93-d863-028a-af71-629ccb976e53"
+    aria-labelledby="nav-button_mobile_6907be93-d863-028a-af71-629ccb976e53"
+  >
+    
+  </ul>
+</li>
+
+    
+      
+
+
+
+
+
+
+
+
+
+<li class="course-nav-list-item">
+  <div class="course-nav-parent d-flex flex-direction-row align-items-center justify-content-between">
+    <span class="course-nav-text-wrapper">
+      
+        <a class="text-dark nav-link"
+          data-uuid="c6c2c186-1456-9ef4-75ed-ce90dbaf7325"
+           href="../../pages/sessions/session-5-working-with-private-partners/index.html" >
+          Session 5: Working with Private Partners
+        </a>
+      
+    </span>
+    
+  </div>
+  
+  <ul
+    class="course-nav-child-nav m-auto collapse"
+    id="nav-container_mobile_c6c2c186-1456-9ef4-75ed-ce90dbaf7325"
+    aria-labelledby="nav-button_mobile_c6c2c186-1456-9ef4-75ed-ce90dbaf7325"
+  >
+    
+  </ul>
+</li>
+
+    
+      
+
+
+
+
+
+
+
+
+
+<li class="course-nav-list-item">
+  <div class="course-nav-parent d-flex flex-direction-row align-items-center justify-content-between">
+    <span class="course-nav-text-wrapper">
+      
+        <a class="text-dark nav-link"
+          data-uuid="856a7838-32ca-9db7-9ae5-863e83acc3cc"
+           href="../../pages/sessions/session-6-case-studies/index.html" >
+          Session 6: Case Studies
+        </a>
+      
+    </span>
+    
+  </div>
+  
+  <ul
+    class="course-nav-child-nav m-auto collapse"
+    id="nav-container_mobile_856a7838-32ca-9db7-9ae5-863e83acc3cc"
+    aria-labelledby="nav-button_mobile_856a7838-32ca-9db7-9ae5-863e83acc3cc"
+  >
+    
+  </ul>
+</li>
+
+    
+  </ul>
+</li>
+
+    
+      
+
+
+
+
+
+
+
+
+
+<li class="course-nav-list-item">
+  <div class="course-nav-parent d-flex flex-direction-row align-items-center justify-content-between">
+    <span class="course-nav-text-wrapper">
+      
+        <a class="text-dark nav-link"
+          data-uuid="029d4591-7a8c-3e6c-daef-9b7a067f756e"
+           href="../../pages/tools/index.html" >
+          Tools
+        </a>
+      
+    </span>
+    
+  </div>
+  
+  <span class="medium-and-below-only"><hr/></span>
+  
+  <ul
+    class="course-nav-child-nav m-auto collapse"
+    id="nav-container_mobile_029d4591-7a8c-3e6c-daef-9b7a067f756e"
+    aria-labelledby="nav-button_mobile_029d4591-7a8c-3e6c-daef-9b7a067f756e"
+  >
+    
+  </ul>
+</li>
+
+    
+      
+
+
+
+
+
+
+
+
+
+<li class="course-nav-list-item">
+  <div class="course-nav-parent d-flex flex-direction-row align-items-center justify-content-between">
+    <span class="course-nav-text-wrapper">
+      
+        <a class="text-dark nav-link"
+          data-uuid="62908a25-aaef-3bfa-b106-5898ed2d8f72"
+           href="../../pages/readings/index.html" >
+          Related Readings
+        </a>
+      
+    </span>
+    
+  </div>
+  
+  <span class="medium-and-below-only"><hr/></span>
+  
+  <ul
+    class="course-nav-child-nav m-auto collapse"
+    id="nav-container_mobile_62908a25-aaef-3bfa-b106-5898ed2d8f72"
+    aria-labelledby="nav-button_mobile_62908a25-aaef-3bfa-b106-5898ed2d8f72"
+  >
+    
+  </ul>
+</li>
+
+    
+      
+
+
+
+
+
+
+
+
+
+<li class="course-nav-list-item">
+  <div class="course-nav-parent d-flex flex-direction-row align-items-center justify-content-between">
+    <span class="course-nav-text-wrapper">
+      
+        <a class="text-dark nav-link"
+          data-uuid="f6ccc6d8-2b74-032d-508e-eae78f9076bf"
+           href="../../pages/practices-and-innovations/index.html" >
+          Practices and Innovations
+        </a>
+      
+    </span>
+    
+  </div>
+  
+  <span class="medium-and-below-only"><hr/></span>
+  
+  <ul
+    class="course-nav-child-nav m-auto collapse"
+    id="nav-container_mobile_f6ccc6d8-2b74-032d-508e-eae78f9076bf"
+    aria-labelledby="nav-button_mobile_f6ccc6d8-2b74-032d-508e-eae78f9076bf"
+  >
+    
+  </ul>
+</li>
+
+    
+  </ul>
+</nav>
+
+</div>
+
+    <div
+  id="course-info-drawer"
+  class="bg-faded pt-3 bg-light navbar-offcanvas navbar-offcanvas-right medium-and-below-only drawer"
+>
+  <div class="col-12">
+    <button
+      class="btn close-mobile-course-info"
+      type="button"
+      aria-label="Close Course Info"
+      onclick="$('#mobile-course-info-toggle').click();"
+      id="close-mobile-course-info-button"
+      >
+      <img
+        class=""
+        src="../../../../static_shared/images/close_small.b0a2684ccc0da6407a56.svg"
+        alt=""
+        width="12px"
+      />
+    </button>
+  </div>
+    
+
+<div class="course-info">
+  <div class="course-detail-title bg-light-gray">
+    <h2 class="font-black py-1 pl-3 m-0">
+      Course Info
+    </h2>
+  </div>
+  <div class="px-3 mt-4">
+    <div class="row">
+      <div class="col-12 ">
+        
+        <div class="">
+          
+          <h5 class="panel-course-info-title ">
+            Instructors
+            </h5>
+          <div class="course-info-content panel-course-info-text">
+            
+
+
+
+
+<ul class="list-unstyled m-0">
+  
+  
+  
+    
+  
+  <li>
+    <a   class="course-info-instructor strip-link-offline"    href="https://ocw.mit.edu/search/?q=Deborah+Lucas"  >Deborah Lucas</a>
+  </li>
+  
+  
+  
+    
+  
+  <li>
+    <a   class="course-info-instructor strip-link-offline"    href="https://ocw.mit.edu/search/?q=Douglas+Criscitello"  >Douglas Criscitello</a>
+  </li>
+  
+  
+  
+    
+  
+  <li>
+    <a   class="course-info-instructor strip-link-offline"    href="https://ocw.mit.edu/search/?q=Charles+Tansey"  >Charles Tansey</a>
+  </li>
+  
+</ul>
+
+
+          </div>
+        </div>
+        
+        
+          
+          
+            <div class="mt-4">
+              <h5 class="panel-course-info-title ">
+                Departments
+              </h5>
+              <div class="course-info-content panel-course-info-text">
+                
+
+
+
+
+<ul class="list-unstyled m-0">
+  
+  
+  
+    
+  
+  <li>
+    <a   class="course-info-department strip-link-offline"    href="https://ocw.mit.edu/search/?d=Sloan+School+of+Management"  >Sloan School of Management</a>
+  </li>
+  
+</ul>
+
+
+              </div>
+            </div>
+          
+         
+        
+        <div class="mt-4">
+          <h5 class="panel-course-info-title ">
+            As Taught In
+          </h5>
+          <div class="course-info-content panel-course-info-text">
+            Summer
+            
+              2016
+            
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <h5 class="panel-course-info-title ">
+            Level
+          </h5>
+          <div class="course-info-content panel-course-info-text">
+            
+              
+                <a   class=" strip-link-offline"    href="https://ocw.mit.edu/search/?l=Graduate"  >Graduate</a><br />
+              
+            
+          </div>
+        </div>
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+  
+
+
+
+
+
+<div class=" mt-4">
+  <h5 class="panel-course-info-title ">
+    Topics
+  </h5>
+  <ul class="list-unstyled pb-2 m-0 panel-course-info-text">
+      <li>
+
+
+
+
+
+
+
+
+<div class="position-relative pt-1 pb-1 pl-4 ml-n2 ">
+  
+  <button
+    type="button"
+    class="topic-toggle border-0 bg-transparent pl-0"
+    data-target="#subtopic-container_mobile_0"
+    data-toggle="collapse"
+    aria-controls="subtopic-container_mobile_0"
+    aria-expanded="true"
+    aria-label="Business subtopics"
+  >
+    <i aria-hidden="true" class="material-icons"></i>
+  </button>
+  
+  <span class="topic-text-wrapper">
+    <a   class="text-black course-info-topic strip-link-offline"    href="https://ocw.mit.edu/search/?t=Business"  >Business</a></span>
+</div>
+
+<ul
+  class="pl-4 subtopic-container collapse show list-unstyled"
+  id="subtopic-container_mobile_0"
+  aria-label="Subtopics"
+>
+  
+  
+  
+  <li>
+    <div class="position-relative pt-1 pb-1  pl-2 ">
+      
+      <span class="topic-text-wrapper">
+        
+        <a   class="text-black course-info-topic strip-link-offline"    href="https://ocw.mit.edu/search/?t=Accounting"  >Accounting</a></span>
+    </div>
+    <ul
+      class="collapse show list-unstyled"
+      id="speciality-container_mobile_0_0"
+      aria-label="Specialties"
+    >
+      
+    </ul>
+    
+  </li>
+  
+  
+  <li>
+    <div class="position-relative pt-1 pb-1  pl-2 ">
+      
+      <span class="topic-text-wrapper">
+        
+        <a   class="text-black course-info-topic strip-link-offline"    href="https://ocw.mit.edu/search/?t=Finance"  >Finance</a></span>
+    </div>
+    <ul
+      class="collapse show list-unstyled"
+      id="speciality-container_mobile_0_1"
+      aria-label="Specialties"
+    >
+      
+    </ul>
+    
+  </li>
+  
+  
+  <li>
+    <div class="position-relative pt-1 pb-1  pl-2 ">
+      
+      <span class="topic-text-wrapper">
+        
+        <a   class="text-black course-info-topic strip-link-offline"    href="https://ocw.mit.edu/search/?t=Management"  >Management</a></span>
+    </div>
+    <ul
+      class="collapse show list-unstyled"
+      id="speciality-container_mobile_0_2"
+      aria-label="Specialties"
+    >
+      
+    </ul>
+    
+  </li>
+  
+</ul>
+
+</li>
+      <li>
+
+
+
+
+
+
+
+
+<div class="position-relative pt-1 pb-1 pl-4 ml-n2 ">
+  
+  <button
+    type="button"
+    class="topic-toggle border-0 bg-transparent pl-0"
+    data-target="#subtopic-container_mobile_1"
+    data-toggle="collapse"
+    aria-controls="subtopic-container_mobile_1"
+    aria-expanded="false"
+    aria-label="Social Science subtopics"
+  >
+    <i aria-hidden="true" class="material-icons"></i>
+  </button>
+  
+  <span class="topic-text-wrapper">
+    <a   class="text-black course-info-topic strip-link-offline"    href="https://ocw.mit.edu/search/?t=Social+Science"  >Social Science</a></span>
+</div>
+
+<ul
+  class="pl-4 subtopic-container collapse list-unstyled"
+  id="subtopic-container_mobile_1"
+  aria-label="Subtopics"
+>
+  
+  
+  
+  <li>
+    <div class="position-relative pt-1 pb-1  pl-4 ">
+      
+      <button
+        class="topic-toggle border-0 bg-transparent pl-0"
+        data-target="#speciality-container_mobile_1_0"
+        data-toggle="collapse"
+        aria-controls="speciality-container_mobile_1_0"
+        aria-expanded="false"
+        aria-label="Economics specialties"
+      >
+        <i aria-hidden="true" class="material-icons"></i>
+      </button>
+      
+      <span class="topic-text-wrapper">
+        
+        <a   class="text-black course-info-topic strip-link-offline"    href="https://ocw.mit.edu/search/?t=Economics"  >Economics</a></span>
+    </div>
+    <ul
+      class="collapse list-unstyled"
+      id="speciality-container_mobile_1_0"
+      aria-label="Specialties"
+    >
+      
+      <li class="pt-1 pb-1 pl-5">
+        <span class="topic-text-wrapper">
+          
+          <a   class="text-black course-info-topic strip-link-offline"    href="https://ocw.mit.edu/search/?t=Public+Economics"  >Public Economics</a></span>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  
+  <li>
+    <div class="position-relative pt-1 pb-1  pl-4 ">
+      
+      <button
+        class="topic-toggle border-0 bg-transparent pl-0"
+        data-target="#speciality-container_mobile_1_1"
+        data-toggle="collapse"
+        aria-controls="speciality-container_mobile_1_1"
+        aria-expanded="false"
+        aria-label="Public Administration specialties"
+      >
+        <i aria-hidden="true" class="material-icons"></i>
+      </button>
+      
+      <span class="topic-text-wrapper">
+        
+        <a   class="text-black course-info-topic strip-link-offline"    href="https://ocw.mit.edu/search/?t=Public+Administration"  >Public Administration</a></span>
+    </div>
+    <ul
+      class="collapse list-unstyled"
+      id="speciality-container_mobile_1_1"
+      aria-label="Specialties"
+    >
+      
+      <li class="pt-1 pb-1 pl-5">
+        <span class="topic-text-wrapper">
+          
+          <a   class="text-black course-info-topic strip-link-offline"    href="https://ocw.mit.edu/search/?t=Public+Policy"  >Public Policy</a></span>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+</ul>
+
+</li>
+      
+  </ul>
+</div>
+
+  
+
+
+
+
+  <hr>
+<div class="pb-3">
+  <a class="download-course-link-button btn btn-outline-primary btn-link link-button text-decoration-none px-4 py-2"
+    role="button"
+    href="../../download">
+    <div class="text-center w-100">Download Course</div>
+  </a>
+</div>
+</div>
+
+    
+
+
+
+
+
+<div id="mobile-header" class="position-relative bg-black medium-and-below-only">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black d-flex">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="material-icons display-4 text-white align-bottom">menu</i>
+    </button>
+    <div class="mx-auto">
+      <a href="https://ocw.mit.edu/">
+        <img width="200" src="../../../../static_shared/images/ocw_logo_white.cabdc9a745b03db3dad4.svg" alt="MIT OpenCourseWare"/>
+      </a>
+    </div>
+    <div class="user-menu-container"></div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto pl-2 pt-2">
+        <li class="nav-item">
+  
+  
+    <a class="nav-link search-icon text-white pr-6" href="https://ocw.mit.edu/search/">
+      <i class="material-icons">search</i>
+    </a>
+  
+</li>
+        <li class="nav-item">
+          <a   class="nav-link"    href="https://giving.mit.edu/give/to/ocw/?utm_source=ocw&amp;utm_medium=homepage_banner&amp;utm_campaign=nextgen_home"  >Give Now</a>
+        </li>
+        <li class="nav-item">
+          <a   class="nav-link"    href="https://ocw.mit.edu/about"  >About OCW</a>
+        </li>
+        <li class="nav-item">
+          <a   class="nav-link"   target="_blank"   href="https://mitocw.zendesk.com/hc/en-us"  >Help &amp; Faqs</a>
+        </li>
+        <li class="nav-item">
+          <a   class="nav-link"    href="https://ocw.mit.edu/contact"  >Contact Us</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+
+<div id="desktop-header">
+  <div class="contents">
+    <div class="left">
+      <div class="ocw-logo">
+        <a href="https://ocw.mit.edu/">
+          <img src="../../../../static_shared/images/ocw_logo_white.cabdc9a745b03db3dad4.svg" alt="MIT OpenCourseWare" />
+        </a>
+      </div>
+    </div>
+    <div class="right">
+      
+  
+  
+    <a class="nav-link search-icon text-white pr-6" href="https://ocw.mit.edu/search/">
+      <i class="material-icons">search</i>
+    </a>
+  
+
+      <a class="give-button text-white text-decoration-none font-weight-bold small-link d-flex align-items-center" aria-label="Give Now - Donate to MIT OpenCourseWare" href="https://giving.mit.edu/give/to/ocw/?utm_source=ocw&amp;utm_medium=homepage_banner&amp;utm_campaign=nextgen_home">
+        <span class="m-0 pr-2">GIVE NOW</span>
+        <img src="../../../../static_shared/images/heart_burgundy.e7c8635e8cc6538b89fa.svg" class="heart-burgundy" alt="" />
+      </a>
+      <a   class="text-white text-decoration-none font-weight-bold pl-5 pr-3 py-2"    href="https://ocw.mit.edu/about"  >about ocw</a>
+      <a   class="text-white text-decoration-none font-weight-bold px-3 py-2"   target="_blank"   href="https://mitocw.zendesk.com/hc/en-us"  >help &amp; faqs</a>
+      <a   class="text-white text-decoration-none font-weight-bold px-3 py-2"    href="https://ocw.mit.edu/contact"  >contact us</a>
+      <div class="user-menu-container"></div>
+    </div>
+  </div>
+</div>
+
+<div id="user-list-modal-container"></div>
+<div id="create-user-list-modal-container"></div>
+    </span>
+    
+    
+
+<div id="course-banner" class="p-0">
+  <div class="max-content-width course-banner-content m-auto py-3">
+    <div class="row">
+    <div class="col-11">
+      
+      <span class="course-number-term-detail">RES.15-002 | Summer 2016 | Graduate</span>
+      <br>
+      <br>
+      <h1>
+        <a
+          class="text-capitalize m-0 text-white"
+          href="../../index.html"
+        >Mission &amp; Metrics: Finance Training for Federal Credit Program Professionals</a>
+      </h1>
+    </div>
+    <div class="col-1"><div class="bookmark-button-container" data-resourcereadableid="RES.15-002&#43;summer_2016"></div>
+    </div>
+    </div>
+  </div>
+</div>
+
+
+    <div id="course-main-content">
+      <div class="row">
+        <div class="col-12 course-home-grid">
+          <div class="medium-and-below-only">
+            <div class="d-flex align-items-center mb-3">
+              <div class="col-6 px-0">
+                <div>
+  <button
+    id="mobile-course-nav-toggle"
+    class="mobile-course-nav-toggle-btn d-inline-flex align-items-center offcanvas-toggle"
+    data-toggle="offcanvas"
+    data-target="#mobile-course-nav"
+  >
+    <img src="../../../../static_shared/images/expand.a062b1c47b121e3c7e03.svg" alt=""/>
+    <span class="pl-1">Menu</span>
+  </button>
+</div>
+
+              </div>
+              <div class="col-6 px-0">
+                
+
+
+  <button 
+    class="btn btn-link float-right mobile-course-info-toggle-btn toggle navbar-toggle offcanvas-toggle"
+    id="mobile-course-info-toggle"
+    data-toggle="offcanvas" 
+    data-target="#course-info-drawer">
+    More Info
+  </button>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row course-cards">
+        <div class="col-2 course-home-grid large-and-above-only">  
+          <div class="card">
+  <div class="card-body pr-2">
+    
+
+<nav class="course-nav" aria-label="Course materials">
+  <ul class="w-100 m-auto list-unstyled">
+    
+      
+
+
+
+
+
+
+
+
+
+<li class="course-nav-list-item">
+  <div class="course-nav-parent d-flex flex-direction-row align-items-center justify-content-between">
+    <span class="course-nav-text-wrapper">
+      
+        <a class="text-dark nav-link"
+          data-uuid="bad66661-53cd-ea6f-63bd-1e83e178f5e5"
+           href="../../pages/syllabus/index.html" >
+          Syllabus
+        </a>
+      
+    </span>
+    
+  </div>
+  
+  <span class="medium-and-below-only"><hr/></span>
+  
+  <ul
+    class="course-nav-child-nav m-auto collapse"
+    id="nav-container_desktop_bad66661-53cd-ea6f-63bd-1e83e178f5e5"
+    aria-labelledby="nav-button_desktop_bad66661-53cd-ea6f-63bd-1e83e178f5e5"
+  >
+    
+  </ul>
+</li>
+
+    
+      
+
+
+
+
+
+
+
+
+
+<li class="course-nav-list-item">
+  <div class="course-nav-parent d-flex flex-direction-row align-items-center justify-content-between">
+    <span class="course-nav-text-wrapper">
+      
+        <a class="text-dark nav-link"
+          data-uuid="95a3d99b-4964-c421-a20e-eb84f9477109"
+           href="../../pages/calendar/index.html" >
+          Calendar
+        </a>
+      
+    </span>
+    
+  </div>
+  
+  <span class="medium-and-below-only"><hr/></span>
+  
+  <ul
+    class="course-nav-child-nav m-auto collapse"
+    id="nav-container_desktop_95a3d99b-4964-c421-a20e-eb84f9477109"
+    aria-labelledby="nav-button_desktop_95a3d99b-4964-c421-a20e-eb84f9477109"
+  >
+    
+  </ul>
+</li>
+
+    
+      
+
+
+
+
+
+
+
+
+  
+
+
+<li class="course-nav-list-item">
+  <div class="course-nav-parent d-flex flex-direction-row align-items-center justify-content-between">
+    <span class="course-nav-text-wrapper">
+      
+        <a class="text-dark nav-link"
+          data-uuid="c5cf8c5e-59b0-bc3e-51ba-6284d467e6d6"
+           href="../../pages/sessions/index.html" >
+          Sessions
+        </a>
+      
+    </span>
+    
+    <button
+      class="course-nav-section-toggle"
+      type="button"
+      id="nav-button_desktop_c5cf8c5e-59b0-bc3e-51ba-6284d467e6d6"
+      data-toggle="collapse"
+      data-target="#nav-container_desktop_c5cf8c5e-59b0-bc3e-51ba-6284d467e6d6"
+      data-uuid="c5cf8c5e-59b0-bc3e-51ba-6284d467e6d6"
+      aria-controls="nav-container_desktop_c5cf8c5e-59b0-bc3e-51ba-6284d467e6d6"
+      aria-expanded="false"
+      aria-label="Subsections for Sessions"
+    >
+      <i class="material-icons md-18" aria-hidden="true"></i>
+    </button>
+    
+  </div>
+  
+  <span class="medium-and-below-only"><hr/></span>
+  
+  <ul
+    class="course-nav-child-nav m-auto collapse"
+    id="nav-container_desktop_c5cf8c5e-59b0-bc3e-51ba-6284d467e6d6"
+    aria-labelledby="nav-button_desktop_c5cf8c5e-59b0-bc3e-51ba-6284d467e6d6"
+  >
+    
+      
+
+
+
+
+
+
+
+
+
+<li class="course-nav-list-item">
+  <div class="course-nav-parent d-flex flex-direction-row align-items-center justify-content-between">
+    <span class="course-nav-text-wrapper">
+      
+        <a class="text-dark nav-link"
+          data-uuid="6712229f-d71f-3221-ea88-ce00d32d3866"
+           href="../../pages/sessions/session-1-program-objectives-understanding-mission-and-how-best-to-achieve-it/index.html" >
+          Session 1: Program Objectives
+        </a>
+      
+    </span>
+    
+  </div>
+  
+  <ul
+    class="course-nav-child-nav m-auto collapse"
+    id="nav-container_desktop_6712229f-d71f-3221-ea88-ce00d32d3866"
+    aria-labelledby="nav-button_desktop_6712229f-d71f-3221-ea88-ce00d32d3866"
+  >
+    
+  </ul>
+</li>
+
+    
+      
+
+
+
+
+
+
+
+
+
+<li class="course-nav-list-item">
+  <div class="course-nav-parent d-flex flex-direction-row align-items-center justify-content-between">
+    <span class="course-nav-text-wrapper">
+      
+        <a class="text-dark nav-link"
+          data-uuid="4215d186-7d4f-8eba-8477-4b8d85ec43fc"
+           href="../../pages/sessions/session-2-considerations-in-program-and-product-design/index.html" >
+          Session 2: Considerations in Program and Product Design
+        </a>
+      
+    </span>
+    
+  </div>
+  
+  <ul
+    class="course-nav-child-nav m-auto collapse"
+    id="nav-container_desktop_4215d186-7d4f-8eba-8477-4b8d85ec43fc"
+    aria-labelledby="nav-button_desktop_4215d186-7d4f-8eba-8477-4b8d85ec43fc"
+  >
+    
+  </ul>
+</li>
+
+    
+      
+
+
+
+
+
+
+
+
+
+<li class="course-nav-list-item">
+  <div class="course-nav-parent d-flex flex-direction-row align-items-center justify-content-between">
+    <span class="course-nav-text-wrapper">
+      
+        <a class="text-dark nav-link"
+          data-uuid="219fe568-e41d-dc10-9cf5-bce77c008a10"
+           href="../../pages/sessions/session-3-valuation-and-subsidy-measures/index.html" >
+          Session 3: Valuation and Subsidy Measures
+        </a>
+      
+    </span>
+    
+  </div>
+  
+  <ul
+    class="course-nav-child-nav m-auto collapse"
+    id="nav-container_desktop_219fe568-e41d-dc10-9cf5-bce77c008a10"
+    aria-labelledby="nav-button_desktop_219fe568-e41d-dc10-9cf5-bce77c008a10"
+  >
+    
+  </ul>
+</li>
+
+    
+      
+
+
+
+
+
+
+
+
+
+<li class="course-nav-list-item">
+  <div class="course-nav-parent d-flex flex-direction-row align-items-center justify-content-between">
+    <span class="course-nav-text-wrapper">
+      
+        <a class="text-dark nav-link"
+          data-uuid="6907be93-d863-028a-af71-629ccb976e53"
+           href="../../pages/sessions/session-4-credit-portfolio-costs-and-managing-performance/index.html" >
+          Session 4: Credit Portfolio Costs and Managing Performance
+        </a>
+      
+    </span>
+    
+  </div>
+  
+  <ul
+    class="course-nav-child-nav m-auto collapse"
+    id="nav-container_desktop_6907be93-d863-028a-af71-629ccb976e53"
+    aria-labelledby="nav-button_desktop_6907be93-d863-028a-af71-629ccb976e53"
+  >
+    
+  </ul>
+</li>
+
+    
+      
+
+
+
+
+
+
+
+
+
+<li class="course-nav-list-item">
+  <div class="course-nav-parent d-flex flex-direction-row align-items-center justify-content-between">
+    <span class="course-nav-text-wrapper">
+      
+        <a class="text-dark nav-link"
+          data-uuid="c6c2c186-1456-9ef4-75ed-ce90dbaf7325"
+           href="../../pages/sessions/session-5-working-with-private-partners/index.html" >
+          Session 5: Working with Private Partners
+        </a>
+      
+    </span>
+    
+  </div>
+  
+  <ul
+    class="course-nav-child-nav m-auto collapse"
+    id="nav-container_desktop_c6c2c186-1456-9ef4-75ed-ce90dbaf7325"
+    aria-labelledby="nav-button_desktop_c6c2c186-1456-9ef4-75ed-ce90dbaf7325"
+  >
+    
+  </ul>
+</li>
+
+    
+      
+
+
+
+
+
+
+
+
+
+<li class="course-nav-list-item">
+  <div class="course-nav-parent d-flex flex-direction-row align-items-center justify-content-between">
+    <span class="course-nav-text-wrapper">
+      
+        <a class="text-dark nav-link"
+          data-uuid="856a7838-32ca-9db7-9ae5-863e83acc3cc"
+           href="../../pages/sessions/session-6-case-studies/index.html" >
+          Session 6: Case Studies
+        </a>
+      
+    </span>
+    
+  </div>
+  
+  <ul
+    class="course-nav-child-nav m-auto collapse"
+    id="nav-container_desktop_856a7838-32ca-9db7-9ae5-863e83acc3cc"
+    aria-labelledby="nav-button_desktop_856a7838-32ca-9db7-9ae5-863e83acc3cc"
+  >
+    
+  </ul>
+</li>
+
+    
+  </ul>
+</li>
+
+    
+      
+
+
+
+
+
+
+
+
+
+<li class="course-nav-list-item">
+  <div class="course-nav-parent d-flex flex-direction-row align-items-center justify-content-between">
+    <span class="course-nav-text-wrapper">
+      
+        <a class="text-dark nav-link"
+          data-uuid="029d4591-7a8c-3e6c-daef-9b7a067f756e"
+           href="../../pages/tools/index.html" >
+          Tools
+        </a>
+      
+    </span>
+    
+  </div>
+  
+  <span class="medium-and-below-only"><hr/></span>
+  
+  <ul
+    class="course-nav-child-nav m-auto collapse"
+    id="nav-container_desktop_029d4591-7a8c-3e6c-daef-9b7a067f756e"
+    aria-labelledby="nav-button_desktop_029d4591-7a8c-3e6c-daef-9b7a067f756e"
+  >
+    
+  </ul>
+</li>
+
+    
+      
+
+
+
+
+
+
+
+
+
+<li class="course-nav-list-item">
+  <div class="course-nav-parent d-flex flex-direction-row align-items-center justify-content-between">
+    <span class="course-nav-text-wrapper">
+      
+        <a class="text-dark nav-link"
+          data-uuid="62908a25-aaef-3bfa-b106-5898ed2d8f72"
+           href="../../pages/readings/index.html" >
+          Related Readings
+        </a>
+      
+    </span>
+    
+  </div>
+  
+  <span class="medium-and-below-only"><hr/></span>
+  
+  <ul
+    class="course-nav-child-nav m-auto collapse"
+    id="nav-container_desktop_62908a25-aaef-3bfa-b106-5898ed2d8f72"
+    aria-labelledby="nav-button_desktop_62908a25-aaef-3bfa-b106-5898ed2d8f72"
+  >
+    
+  </ul>
+</li>
+
+    
+      
+
+
+
+
+
+
+
+
+
+<li class="course-nav-list-item">
+  <div class="course-nav-parent d-flex flex-direction-row align-items-center justify-content-between">
+    <span class="course-nav-text-wrapper">
+      
+        <a class="text-dark nav-link"
+          data-uuid="f6ccc6d8-2b74-032d-508e-eae78f9076bf"
+           href="../../pages/practices-and-innovations/index.html" >
+          Practices and Innovations
+        </a>
+      
+    </span>
+    
+  </div>
+  
+  <span class="medium-and-below-only"><hr/></span>
+  
+  <ul
+    class="course-nav-child-nav m-auto collapse"
+    id="nav-container_desktop_f6ccc6d8-2b74-032d-508e-eae78f9076bf"
+    aria-labelledby="nav-button_desktop_f6ccc6d8-2b74-032d-508e-eae78f9076bf"
+  >
+    
+  </ul>
+</li>
+
+    
+  </ul>
+</nav>
+
+  </div>
+</div>
+
+        </div>
+        <div class="col-sm-12 col-lg-10 course-home-grid">
+          <div class="">
+            <div class="card">
+              <div class="d-flex justify-content-between">
+                <div class="p-0 col-lg-9" id="main-course-section">
+                  <div class="card-body">
+                    
+<div class="rounded mb-2">
+  <header>
+  <div class="course-section-title-container">
+    <div id="course-title">
+      
+      <div class="course-content-parent-title">Tools</div>
+      
+      <h2 class="pb-1 mb-1">The MM2 Federal Program Calculator (MM2FPC)</h2>
+    </div>
+  </div>
+</header>
+
+</div>
+
+   
+<div class="resource-page-container"><div class="row">
+        <div class="label col-12">Description:</div>
+        <div class="content col-12"><p>Excel financial scenario calculator.</p>
+</div>
+      </div><div class="row resource-type">
+          <div class="label resource-type">Resource Type:</div>
+          <div class="content">Tools</div>
+        </div><div class="resource-item resource-body p-0">
+      <div class="row p-0 m-0">
+        <div class="resource-details-container col-lg-12 d-flex flex-wrap">
+          <div class="wrapper d-flex col-12 col-lg-7 col-md-8 col-sm-7">
+            <a class="resource-thumbnail" href="../../d4d679ed79ff6a833da418888e4ff4d5_MM2FPC_ver1pt94.xlsx" target="_blank" aria-label="Download file" download>
+              
+              <div class="resource-type-thumbnail file">
+                <div class="d-flex align-self-center">file</div>
+              </div>  
+              <div class="download-container">
+                    <span class="download-link">
+                      
+                          <img
+                            class="hide-offline resources-download"
+                            src="../../../../static_shared/images/resource-download.dab02d010ffdeffef264.svg"
+                            aria-hidden="true"
+                          />
+                      
+                    </span>
+                    
+                    <div class="resource-list-file-size">
+                      2 MB
+                    </div>
+                    
+              </div>
+            </a>
+            <div class="resource-list-item-details">
+              The MM2 Federal Program Calculator (MM2FPC)
+            </div>
+          </div>
+          <div class="download-button-container col-12 col-sm align-self-center d-flex justify-content-end p-0"><div class="button-wrapper">
+                <a class="download-file" href="../../d4d679ed79ff6a833da418888e4ff4d5_MM2FPC_ver1pt94.xlsx">
+                  Download File
+                </a>
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+                  </div>
+                </div>
+                
+                  <button 
+  type="button" 
+  class="btn course-info-button large-and-above-only"
+  id="desktop-course-drawer-button"
+  data-target="#desktop-course-drawer"
+  data-toggle="collapse"
+  aria-label="Course Info"
+  aria-controls="desktop-course-drawer"
+  aria-expanded="false"
+>
+  <img
+    class="expand-drawer-img drawer-icon-img"
+    src="../../../../static_shared/images/left_arrow.3c482a1f6223bff3f0e6.svg"
+    alt=""
+  />
+  <img
+    class="collapse-drawer-img drawer-icon-img"
+    src="../../../../static_shared/images/close_small.b0a2684ccc0da6407a56.svg"
+    alt=""
+  />
+</button>
+
+<div class="collapse border-left p-0 large-and-above-only col-3" id="desktop-course-drawer">
+    
+
+<div class="course-info">
+  <div class="course-detail-title bg-light-gray">
+    <h2 class="font-black py-1 pl-3 m-0">
+      Course Info
+    </h2>
+  </div>
+  <div class="px-3 mt-4">
+    <div class="row">
+      <div class="col-12 ">
+        
+        <div class="">
+          
+          <h5 class="panel-course-info-title ">
+            Instructors
+            </h5>
+          <div class="course-info-content panel-course-info-text">
+            
+
+
+
+
+<ul class="list-unstyled m-0">
+  
+  
+  
+    
+  
+  <li>
+    <a   class="course-info-instructor strip-link-offline"    href="https://ocw.mit.edu/search/?q=Deborah+Lucas"  >Deborah Lucas</a>
+  </li>
+  
+  
+  
+    
+  
+  <li>
+    <a   class="course-info-instructor strip-link-offline"    href="https://ocw.mit.edu/search/?q=Douglas+Criscitello"  >Douglas Criscitello</a>
+  </li>
+  
+  
+  
+    
+  
+  <li>
+    <a   class="course-info-instructor strip-link-offline"    href="https://ocw.mit.edu/search/?q=Charles+Tansey"  >Charles Tansey</a>
+  </li>
+  
+</ul>
+
+
+          </div>
+        </div>
+        
+        
+          
+          
+            <div class="mt-4">
+              <h5 class="panel-course-info-title ">
+                Departments
+              </h5>
+              <div class="course-info-content panel-course-info-text">
+                
+
+
+
+
+<ul class="list-unstyled m-0">
+  
+  
+  
+    
+  
+  <li>
+    <a   class="course-info-department strip-link-offline"    href="https://ocw.mit.edu/search/?d=Sloan+School+of+Management"  >Sloan School of Management</a>
+  </li>
+  
+</ul>
+
+
+              </div>
+            </div>
+          
+         
+        
+        <div class="mt-4">
+          <h5 class="panel-course-info-title ">
+            As Taught In
+          </h5>
+          <div class="course-info-content panel-course-info-text">
+            Summer
+            
+              2016
+            
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <h5 class="panel-course-info-title ">
+            Level
+          </h5>
+          <div class="course-info-content panel-course-info-text">
+            
+              
+                <a   class=" strip-link-offline"    href="https://ocw.mit.edu/search/?l=Graduate"  >Graduate</a><br />
+              
+            
+          </div>
+        </div>
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+  <div class="px-3">
+    
+
+
+
+
+
+<div class=" mt-4">
+  <h5 class="panel-course-info-title ">
+    Topics
+  </h5>
+  <ul class="list-unstyled pb-2 m-0 panel-course-info-text">
+      <li>
+
+
+
+
+
+
+
+
+<div class="position-relative pt-1 pb-1 pl-4 ml-n2 ">
+  
+  <button
+    type="button"
+    class="topic-toggle border-0 bg-transparent pl-0"
+    data-target="#subtopic-container_desktop_0"
+    data-toggle="collapse"
+    aria-controls="subtopic-container_desktop_0"
+    aria-expanded="true"
+    aria-label="Business subtopics"
+  >
+    <i aria-hidden="true" class="material-icons"></i>
+  </button>
+  
+  <span class="topic-text-wrapper">
+    <a   class="text-black course-info-topic strip-link-offline"    href="https://ocw.mit.edu/search/?t=Business"  >Business</a></span>
+</div>
+
+<ul
+  class="pl-4 subtopic-container collapse show list-unstyled"
+  id="subtopic-container_desktop_0"
+  aria-label="Subtopics"
+>
+  
+  
+  
+  <li>
+    <div class="position-relative pt-1 pb-1  pl-2 ">
+      
+      <span class="topic-text-wrapper">
+        
+        <a   class="text-black course-info-topic strip-link-offline"    href="https://ocw.mit.edu/search/?t=Accounting"  >Accounting</a></span>
+    </div>
+    <ul
+      class="collapse show list-unstyled"
+      id="speciality-container_desktop_0_0"
+      aria-label="Specialties"
+    >
+      
+    </ul>
+    
+  </li>
+  
+  
+  <li>
+    <div class="position-relative pt-1 pb-1  pl-2 ">
+      
+      <span class="topic-text-wrapper">
+        
+        <a   class="text-black course-info-topic strip-link-offline"    href="https://ocw.mit.edu/search/?t=Finance"  >Finance</a></span>
+    </div>
+    <ul
+      class="collapse show list-unstyled"
+      id="speciality-container_desktop_0_1"
+      aria-label="Specialties"
+    >
+      
+    </ul>
+    
+  </li>
+  
+  
+  <li>
+    <div class="position-relative pt-1 pb-1  pl-2 ">
+      
+      <span class="topic-text-wrapper">
+        
+        <a   class="text-black course-info-topic strip-link-offline"    href="https://ocw.mit.edu/search/?t=Management"  >Management</a></span>
+    </div>
+    <ul
+      class="collapse show list-unstyled"
+      id="speciality-container_desktop_0_2"
+      aria-label="Specialties"
+    >
+      
+    </ul>
+    
+  </li>
+  
+</ul>
+
+</li>
+      <li>
+
+
+
+
+
+
+
+
+<div class="position-relative pt-1 pb-1 pl-4 ml-n2 ">
+  
+  <button
+    type="button"
+    class="topic-toggle border-0 bg-transparent pl-0"
+    data-target="#subtopic-container_desktop_1"
+    data-toggle="collapse"
+    aria-controls="subtopic-container_desktop_1"
+    aria-expanded="false"
+    aria-label="Social Science subtopics"
+  >
+    <i aria-hidden="true" class="material-icons"></i>
+  </button>
+  
+  <span class="topic-text-wrapper">
+    <a   class="text-black course-info-topic strip-link-offline"    href="https://ocw.mit.edu/search/?t=Social+Science"  >Social Science</a></span>
+</div>
+
+<ul
+  class="pl-4 subtopic-container collapse list-unstyled"
+  id="subtopic-container_desktop_1"
+  aria-label="Subtopics"
+>
+  
+  
+  
+  <li>
+    <div class="position-relative pt-1 pb-1  pl-4 ">
+      
+      <button
+        class="topic-toggle border-0 bg-transparent pl-0"
+        data-target="#speciality-container_desktop_1_0"
+        data-toggle="collapse"
+        aria-controls="speciality-container_desktop_1_0"
+        aria-expanded="false"
+        aria-label="Economics specialties"
+      >
+        <i aria-hidden="true" class="material-icons"></i>
+      </button>
+      
+      <span class="topic-text-wrapper">
+        
+        <a   class="text-black course-info-topic strip-link-offline"    href="https://ocw.mit.edu/search/?t=Economics"  >Economics</a></span>
+    </div>
+    <ul
+      class="collapse list-unstyled"
+      id="speciality-container_desktop_1_0"
+      aria-label="Specialties"
+    >
+      
+      <li class="pt-1 pb-1 pl-5">
+        <span class="topic-text-wrapper">
+          
+          <a   class="text-black course-info-topic strip-link-offline"    href="https://ocw.mit.edu/search/?t=Public+Economics"  >Public Economics</a></span>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  
+  <li>
+    <div class="position-relative pt-1 pb-1  pl-4 ">
+      
+      <button
+        class="topic-toggle border-0 bg-transparent pl-0"
+        data-target="#speciality-container_desktop_1_1"
+        data-toggle="collapse"
+        aria-controls="speciality-container_desktop_1_1"
+        aria-expanded="false"
+        aria-label="Public Administration specialties"
+      >
+        <i aria-hidden="true" class="material-icons"></i>
+      </button>
+      
+      <span class="topic-text-wrapper">
+        
+        <a   class="text-black course-info-topic strip-link-offline"    href="https://ocw.mit.edu/search/?t=Public+Administration"  >Public Administration</a></span>
+    </div>
+    <ul
+      class="collapse list-unstyled"
+      id="speciality-container_desktop_1_1"
+      aria-label="Specialties"
+    >
+      
+      <li class="pt-1 pb-1 pl-5">
+        <span class="topic-text-wrapper">
+          
+          <a   class="text-black course-info-topic strip-link-offline"    href="https://ocw.mit.edu/search/?t=Public+Policy"  >Public Policy</a></span>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+</ul>
+
+</li>
+      
+  </ul>
+</div>
+
+    
+
+
+
+
+    <hr>
+<div class="pb-3">
+  <a class="download-course-link-button btn btn-outline-primary btn-link link-button text-decoration-none px-4 py-2"
+    role="button"
+    href="../../download">
+    <div class="text-center w-100">Download Course</div>
+  </a>
+</div>
+  </div>
+</div>
+
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+<div class="footer">
+    <div class="footer-main-content mx-auto">
+    	<div class="col-12 px-0">
+        	<div class="row align-items-center mx-0">
+            	<div class="col-12 col-md-8 px-0">
+					<div class="d-md-flex align-items-center">
+						<a href="https://openlearning.mit.edu/" target="_blank">
+							<img width="117px" src="../../../../static_shared/images/mit_ol.4165342f87abb1da46fd.svg" alt="MIT Open Learning" />
+						</a>
+						<div class="ml-md-3 mt-4 mt-md-0">
+							<div class="font-weight-bold">
+								Over 2,500 courses & materials
+							</div>
+							<div>
+								Freely sharing knowledge with learners and educators around the world. <a href='https://ocw.mit.edu/about'>Learn more</a>
+							</div>
+						</div>
+					</div>
+            	</div>
+				<div class="col-12 col-md-4 px-0 d-none d-md-block">
+					<div class="d-flex justify-content-md-end">
+	<div>
+		<a href="https://www.facebook.com/MITOCW" target="_blank">
+			<img class="footer-social-icon ml-0" src="../../../../static_shared/images/Facebook.d1f5caeb73d7d12505a2.png" alt="facebook"/>
+		</a>
+	</div>
+	<div>
+		<a href="https://www.instagram.com/mitocw" target="_blank">
+			<img class="footer-social-icon" src="../../../../static_shared/images/Instagram.4df41828ffee4ff33d8a.png" alt="instagram"/>
+		</a>
+	</div>
+	<div>
+		<a href="https://twitter.com/MITOCW" target="_blank">
+			<img class="footer-social-icon" src="../../../../static_shared/images/x-formerly-twitter-black.f8c75ad9f42902726d25.png" alt="x (formerly twitter)"/>
+		</a>
+	</div>
+	<div>
+		<a href="https://www.youtube.com/mitocw" target="_blank">
+			<img class="footer-social-icon" src="../../../../static_shared/images/Youtube.7c9f62c4f1dc9515ebb4.png" alt="youtube"/>
+		</a>
+	</div>
+	<div>
+		<a href="https://www.linkedin.com/company/mit-opencourseware/" target="_blank">
+			<img class="footer-social-icon nudge-up" src="../../../../static_shared/images/linkedin-black.2f7f8a6a3899f5d1e1d6.png" alt="linkedin"/>
+		</a>
+	</div>
+	<div>
+		<a href="https://bsky.app/profile/mitocw.bsky.social" target="_blank">
+			<img class="footer-social-icon" src="../../../../static_shared/images/bluesky-black.9f4523fcefa9b6f25be7.png" alt="bluesky"/>
+		</a>
+	</div>
+	<div>
+		<a href="https://mastodon.social/@mitocw" target="_blank">
+			<img class="footer-social-icon" src="../../../../static_shared/images/mastodon-black.9e2de31a28415c123800.png" alt="mastodon"/>
+		</a>
+	</div>
+</div>
+
+				</div>
+        	</div>
+    	</div>
+		
+		<div class="col-12 mt-3 mt-md-4 px-0">
+			<div class="row align-items-center mx-0">
+            	<div class="col-12 col-md-8 px-0">
+					<div class="d-lg-flex">
+						<div class="pr-md-2 mt-2 mt-lg-0 d-none d-lg-block">
+							© 2001–2025 Massachusetts Institute of Technology
+						</div>
+						<div class="px-lg-2 mt-2 mt-lg-0">
+							<a href="https://accessibility.mit.edu" target="_blank">Accessibility</a>
+						</div>
+						<div class="px-lg-2 mt-2 mt-lg-0">
+							<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons License</a>
+						</div>
+						<div class="px-lg-2 mt-2 mt-lg-0">
+							<a class="hide-offline" href='https://ocw.mit.edu/pages/privacy-and-terms-of-use/'>Terms and Conditions</a>
+						</div>
+					</div>
+            	</div>
+				<div class="col-12 col-md-4 px-0">
+					<div class="d-flex justify-content-md-end mt-4 mt-lg-0">
+						<div>
+						Proud member of: 
+						<a href="https://www.oeglobal.org/" target="_blank">
+							<img class="oeg-logo" src="../../../../static_shared/images/oeg_logo.8a31f7b87f30df2d0169.png" alt="Open Education Global"/>
+						</a>
+						</div>
+					</div>
+				</div>
+        	</div>
+		</div>
+
+		<div class="col-12 mt-5 px-0 d-md-none">
+			<div class="d-flex justify-content-md-end">
+	<div>
+		<a href="https://www.facebook.com/MITOCW" target="_blank">
+			<img class="footer-social-icon ml-0" src="../../../../static_shared/images/Facebook.d1f5caeb73d7d12505a2.png" alt="facebook"/>
+		</a>
+	</div>
+	<div>
+		<a href="https://www.instagram.com/mitocw" target="_blank">
+			<img class="footer-social-icon" src="../../../../static_shared/images/Instagram.4df41828ffee4ff33d8a.png" alt="instagram"/>
+		</a>
+	</div>
+	<div>
+		<a href="https://twitter.com/MITOCW" target="_blank">
+			<img class="footer-social-icon" src="../../../../static_shared/images/x-formerly-twitter-black.f8c75ad9f42902726d25.png" alt="x (formerly twitter)"/>
+		</a>
+	</div>
+	<div>
+		<a href="https://www.youtube.com/mitocw" target="_blank">
+			<img class="footer-social-icon" src="../../../../static_shared/images/Youtube.7c9f62c4f1dc9515ebb4.png" alt="youtube"/>
+		</a>
+	</div>
+	<div>
+		<a href="https://www.linkedin.com/company/mit-opencourseware/" target="_blank">
+			<img class="footer-social-icon nudge-up" src="../../../../static_shared/images/linkedin-black.2f7f8a6a3899f5d1e1d6.png" alt="linkedin"/>
+		</a>
+	</div>
+	<div>
+		<a href="https://bsky.app/profile/mitocw.bsky.social" target="_blank">
+			<img class="footer-social-icon" src="../../../../static_shared/images/bluesky-black.9f4523fcefa9b6f25be7.png" alt="bluesky"/>
+		</a>
+	</div>
+	<div>
+		<a href="https://mastodon.social/@mitocw" target="_blank">
+			<img class="footer-social-icon" src="../../../../static_shared/images/mastodon-black.9e2de31a28415c123800.png" alt="mastodon"/>
+		</a>
+	</div>
+</div>
+
+		</div>
+
+		<div class="col-12 mt-4 px-0 d-lg-none">
+			© 2001–2025 Massachusetts Institute of Technology
+		</div>
+    
+
+
+    
+    <script src="../../../../static_shared/js/common.ba051.js"></script>
+    
+
+    
+    <script src="../../../../static_shared/js/course_v2.ba051.js"></script>
+    
+
+
+
+
+
+    
+<script async src="https://w.appzi.io/w.js?token=Tgs1d"></script>
+
+	</div>
+</div>
+
+  </div>
+  <script>
+function hideLinksOffline(){
+  if (!window.navigator.onLine) {
+    const stripLinks = document.querySelectorAll(".strip-link-offline")
+    const hideOffline = document.querySelectorAll(".hide-offline")
+    const showOffline = document.querySelectorAll(".show-offline")
+    Array.prototype.forEach.call(stripLinks, function(link) {
+      link.outerHTML = link.innerHTML
+    })
+    Array.prototype.forEach.call(hideOffline, function(link) {
+      link.classList.add("d-none")
+    })
+    Array.prototype.forEach.call(showOffline, function(link) {
+      link.classList.remove("d-none")
+    })
+  }
+}
+hideLinksOffline()
+</script>
+
+  
+
+<div
+  class="modal"
+  id="external-link-modal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="external-link-modal-title"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content p-3">
+      <div class="modal-header d-flex align-items-center">
+        <div class="d-flex align-items-center">
+          <img
+            class="modal-header-icon-img mr-3 align-baseline"
+            src="../../../../static_shared/images/external_link.58bbdd86c00a2c146c36.svg"
+            alt=""
+            aria-hidden="true"
+          />
+          <h1 class="modal-title" id="external-link-modal-title">
+            You are leaving MIT OpenCourseWare
+          </h1>
+        </div>
+        <button type="button" class="border-0 p-0 bg-transparent d-flex" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" class="material-icons modal-header-icon">close</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Please be advised that external sites may have terms and conditions, 
+        including license rights, that differ from ours. MIT OCW is not responsible 
+        for any content on third party sites, nor does a link suggest an endorsement 
+        of those sites and/or their content.
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-outline-primary btn-link link-button"
+          data-dismiss="modal"
+          >
+            Stay Here
+        </button>
+        <a
+          role="button"
+          class="btn btn-primary btn-continue"
+          target="_blank"
+          href="index.html#"
+        >
+          Continue
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script>
+    
+    
+    
+    
+    
+    
+    'use strict';
+    const COURSE_DRAWER_LOCAL_STORAGE_KEY = "desktopCourseDrawerState"
+    const COURSE_DRAWER_OPENED = "opened"
+    const COURSE_DRAWER_CLOSED = "closed"
+    
+    const DESKTOP_COURSE_DRAWER_ID = "desktop-course-drawer"
+    const COURSE_DRAWER_BTN_ID = "desktop-course-drawer-button"
+    const MAIN_COURSE_SECTION_ID = "main-course-section"
+
+    try{
+
+      
+
+      function initializeDesktopCourseDrawerState() {
+        const state = getLocalStorageItem(COURSE_DRAWER_LOCAL_STORAGE_KEY)
+        if (state === null) {
+          
+          setLocalStorageItem(COURSE_DRAWER_LOCAL_STORAGE_KEY, COURSE_DRAWER_OPENED)
+          showOrHideDesktopCourseDrawer(COURSE_DRAWER_OPENED)
+        } else {
+          showOrHideDesktopCourseDrawer(state)
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+          const drawer = $(`#${DESKTOP_COURSE_DRAWER_ID}`)
+          const mainSection = $(`#${MAIN_COURSE_SECTION_ID}`)
+
+          drawer.on("shown.bs.collapse", (event) => {
+            if (event.target.id !== DESKTOP_COURSE_DRAWER_ID) {
+              return;
+            }
+            mainSection.addClass("col-lg-9")
+            mainSection.removeClass("col-12")
+            setLocalStorageItem(COURSE_DRAWER_LOCAL_STORAGE_KEY, COURSE_DRAWER_OPENED)
+          })
+      
+          drawer.on("hidden.bs.collapse", (event) => {
+            if (event.target.id !== DESKTOP_COURSE_DRAWER_ID) {
+              return;
+            }
+            mainSection.addClass("col-12")
+            mainSection.removeClass("col-lg-9")
+            setLocalStorageItem(COURSE_DRAWER_LOCAL_STORAGE_KEY, COURSE_DRAWER_CLOSED)
+          })
+        })
+      }
+
+      function showOrHideDesktopCourseDrawer(state) {
+        const drawer = document.getElementById(DESKTOP_COURSE_DRAWER_ID)
+        const button = document.getElementById(COURSE_DRAWER_BTN_ID)
+        const mainSection = document.getElementById(MAIN_COURSE_SECTION_ID)
+
+        if (state === COURSE_DRAWER_OPENED) {
+          drawer.classList.add("show")
+          button.setAttribute("aria-expanded", "true")
+        } else {
+          drawer.classList.remove("show")
+          button.setAttribute("aria-expanded", "false")
+          mainSection.classList.remove("col-lg-9")
+          mainSection.classList.add("col-12")
+        }
+      }
+
+      function setOrGetLocalStorageItem(action,key,value) {
+        try {
+          
+          if (typeof Storage !== "undefined") {
+            if (action === "set") {
+              localStorage.setItem(key, value)
+              return true
+            } else {
+              return localStorage.getItem(key)
+            }
+          }
+          console.error("This browser has no web storage support.")
+          return null
+        } catch (e) {
+          console.error("An exception occurred while storing/fetching data in/from localstorage: ", e)
+          return null
+        }
+      }
+
+      function setLocalStorageItem(key, value) {
+        return setOrGetLocalStorageItem("set", key, value)
+      }
+      
+      function getLocalStorageItem(key){
+        return setOrGetLocalStorageItem("get", key)
+      }
+
+      initializeDesktopCourseDrawerState();
+    }
+    catch(e){
+      console.error("Something went wrong in maintaining/toggling course drawer state", e)
+    }
+  </script>
+
+  
+
+<script>
+function expandNav(e,t){t.classList.add("show"),e.querySelector(".course-nav-section-toggle, video-tab-toggle-section").setAttribute("aria-expanded","true")}function courseNav(){document.querySelectorAll(".course-nav, .transcript-header").forEach(e=>{e.querySelectorAll(".nav-link").forEach(e=>{const t=e.getAttribute("href")?e.getAttribute("href"):"";if(t.replace(/\/$/,"")===window.location.pathname.replace(/\/$/,"")){e.classList.add("active");const s=e.dataset.uuid,t=e.closest(".course-nav-list-item"),n=t?.querySelector(".collapse"),o=Array.prototype.filter.call(document.querySelectorAll(".course-nav-section-toggle"),e=>e.dataset.uuid===s);t&&n&&o.length>0&&expandNav(t,n)}});const t=e.querySelector("a.nav-link.active");e.querySelectorAll(".course-nav-list-item").forEach(e=>{const n=e.querySelector(".collapse");n&&n.contains(t)&&expandNav(e,n)})})}courseNav()
+</script>
+
+  
+
+<script>
+(()=>{var e=()=>document.querySelectorAll("#course-content-section table"),t=()=>document.getElementById("course-content-section");function n(){const o=e(),n=t();if(!n)return;if(!window.ResizeObserver)return;const i=new ResizeObserver(()=>s());i.observe(n),o.forEach(e=>{const t=e.getElementsByTagName("th"),n=e.querySelectorAll("table tr");n.forEach(e=>{const n=e.querySelectorAll("td");n.forEach((e,s)=>{t.length>=s+1&&(n[s].dataset.title=t[s].innerText.trim().concat(": "))})})})}function s(){const s=e(),n=t();if(!n)return;s.forEach(e=>{const t=n.getBoundingClientRect(),o=+(e.dataset.minWidth??0);t.width>o&&e.classList.remove("mobile-table");const s=e.getBoundingClientRect();s.right>t.right&&(e.dataset.minWidth=`${s.width}`,e.classList.add("mobile-table"))})}n()})()
+</script>
+
+</body>
+
+</html>

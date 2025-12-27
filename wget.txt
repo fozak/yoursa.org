@@ -1,0 +1,1 @@
+wget --mirror --convert-links --page-requisites --no-parent --no-host-directories -e robots=off -i courses.txt

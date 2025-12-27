@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>BU Mentor Matching Demo</title>
+
+<style>
+  body { font-family: Arial, sans-serif; background:#f5f6f8; padding:20px; }
+  h2 { margin-bottom: 8px; }
+  .controls, .card {
+    background:#fff; border-radius:8px; padding:12px;
+    box-shadow:0 2px 6px rgba(0,0,0,.08);
+  }
+  .controls { margin-bottom:16px; }
+  label { margin-right:12px; font-size:14px; }
+  .grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+    gap:16px;
+  }
+  .card h3 { margin:6px 0; }
+  .badge {
+    display:inline-block; font-size:11px;
+    background:#e7ecff; padding:3px 7px;
+    border-radius:6px; margin:2px;
+  }
+  .score { font-weight:bold; margin-top:6px; }
+</style>
+</head>
+
+<body>
+
+<h2>🎓 BU Mentor Matching (Demo)</h2>
+
+<div class="controls">
+  <strong>Core filters (must match):</strong><br><br>
+  <label><input type="checkbox" class="core" value="computer-science"> CS</label>
+  <label><input type="checkbox" class="core" value="software-engineering"> SWE</label>
+  <label><input type="checkbox" class="core" value="class-of-2026"> Class of 2026</label>
+  <label><input type="checkbox" class="core" value="internship-experience"> Internship</label>
+
+  <hr>
+
+  <strong>Mentor priorities (score):</strong><br><br>
+  <label><input type="checkbox" class="fit" value="clear-goals"> Clear goals</label>
+  <label><input type="checkbox" class="fit" value="bias-to-action"> Bias to action</label>
+  <label><input type="checkbox" class="fit" value="coachability"> Coachable</label>
+  <label><input type="checkbox" class="fit" value="self-driven"> Self-driven</label>
+
+  <hr>
+
+  <strong>Connection preference (boost):</strong><br><br>
+  <label><input type="checkbox" class="conn" value="bu-alumni-preferred"> BU alumni</label>
+  <label><input type="checkbox" class="conn" value="boston-ecosystem"> Boston</label>
+</div>
+
+<div id="cards" class="grid"></div>
+
+<script>
+const students = [
+  {
+    name: "Alex M.",
+    major: "Computer Science",
+    coreTags: ["computer-science","software-engineering","class-of-2026","internship-experience"],
+    mentorFitTags: ["clear-goals","bias-to-action","coachability","self-driven"],
+    connectionTags: ["bu-alumni-preferred","boston-ecosystem"]
+  },
+  {
+    name: "Emily R.",
+    major: "Data Science",
+    coreTags: ["computer-science","class-of-2026"],
+    mentorFitTags: ["coachability","self-driven"],
+    connectionTags: ["boston-ecosystem"]
+  },
+  {
+    name: "Jason L.",
+    major: "Computer Engineering",
+    coreTags: ["computer-science","software-engineering","class-of-2026"],
+    mentorFitTags: ["bias-to-action","self-driven"],
+    connectionTags: []
+  },
+  {
+    name: "Sarah K.",
+    major: "CS + Econ",
+    coreTags: ["computer-science","class-of-2026","internship-experience"],
+    mentorFitTags: ["clear-goals","coachability"],
+    connectionTags: ["bu-alumni-preferred"]
+  },
+  {
+    name: "Daniel P.",
+    major: "Software Engineering",
+    coreTags: ["software-engineering","class-of-2026","internship-experience"],
+    mentorFitTags: ["bias-to-action"],
+    connectionTags: ["boston-ecosystem"]
+  },
+  {
+    name: "Maya T.",
+    major: "Computer Science",
+    coreTags: ["computer-science","class-of-2026"],
+    mentorFitTags: ["clear-goals","self-driven","coachability"],
+    connectionTags: []
+  }
+];
+
+const cardsEl = document.getElementById("cards");
+const coreInputs = document.querySelectorAll(".core");
+const fitInputs = document.querySelectorAll(".fit");
+const connInputs = document.querySelectorAll(".conn");
+
+function update() {
+  const core = [...coreInputs].filter(i=>i.checked).map(i=>i.value);
+  const fit = [...fitInputs].filter(i=>i.checked).map(i=>i.value);
+  const conn = [...connInputs].filter(i=>i.checked).map(i=>i.value);
+
+  let result = students
+    // HARD FILTER
+    .filter(s => core.every(t => s.coreTags.includes(t)))
+    // SCORE
+    .map(s => {
+      const fitScore = fit.filter(t => s.mentorFitTags.includes(t)).length;
+      const boost = 1 + conn.filter(t => s.connectionTags.includes(t)).length * 0.15;
+      return { ...s, finalScore: (fitScore * boost).toFixed(2) };
+    })
+    // SORT
+    .sort((a,b)=>b.finalScore - a.finalScore);
+
+  render(result);
+}
+
+function render(list) {
+  cardsEl.innerHTML = "";
+  list.forEach(s => {
+    const div = document.createElement("div");
+    div.className = "card";
+    div.innerHTML = `
+      <h3>${s.name}</h3>
+      <p>${s.major}</p>
+
+      <div>${s.coreTags.map(t=>`<span class="badge">${t}</span>`).join("")}</div>
+      <div>${s.mentorFitTags.map(t=>`<span class="badge">${t}</span>`).join("")}</div>
+      <div>${s.connectionTags.map(t=>`<span class="badge">${t}</span>`).join("")}</div>
+
+      <div class="score">Mentor priority: ${s.finalScore}</div>
+    `;
+    cardsEl.appendChild(div);
+  });
+}
+
+[...coreInputs, ...fitInputs, ...connInputs]
+  .forEach(i => i.addEventListener("change", update));
+
+update();
+</script>
+
+</body>
+</html>
+

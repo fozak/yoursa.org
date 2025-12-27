@@ -1,0 +1,446 @@
+{UTF-8}
+Perceived Marginal Cost=A FUNCTION OF(Perceived Marginal Cost,Marginal Cost,Time to Perceive Marginal Cost\
+		) ~~|
+Perceived Marginal Cost=
+	~	$/mmbtu
+	~	Developers' belief about the marginal costs of new wells.
+	|
+
+Reference Capacity Under Development= INITIAL(
+	Capacity Under Development)
+	~	Thousand Cubic Feet/Year
+	~	To ensure that the model starts in equilibrium, the reference level of \
+		capacity under development is set to the initial value of the stock of \
+		capacity under development.
+	|
+
+Production Capacity= INTEG (
+	Project Completion-Decommissioning,
+		Reference Production Capacity)
+	~	Thousand Cubic Feet/Year
+	~	Total natural gas production capacity, measured in million BTU/year of \
+		potential production, determined by the number of producing wells and \
+		average well productivity.
+	|
+
+Marginal Cost=
+	Reference Marginal Cost*Long Run Supply Curve(Total Exploited Resource/Reference Exploited Resource\
+		)*Effect of Fracking on Marginal Costs
+	~	$/tcf
+	~	The marginal cost of new wells is determined by the long run supply curve, \
+		which in turn is a function of the total exploited resource relative to a \
+		reference level.  As total production capacity (including capacity under \
+		development) increases relative to the reference level, the marginal cost \
+		of the next project increases.  To simulate the impact of technological \
+		improvement, marginal costs shift by a fraction given by the Supply Curve \
+		Shift at a specified Supply Curve Shift Time.
+	|
+
+Demand=
+	Reference Production Capacity
+	~	Thousand Cubic Feet/Year
+	~	For this simple model we set demand to a constant, the initial equilibrium \
+		value given by reference production capacity.  A more sophisticated model \
+		would represent demand as depening on stocks of natural gas consuming \
+		plant and equipment (buildings, factories, power plants, etc.) and their \
+		capacity utilization.
+	|
+
+Effect of Fracking on Marginal Costs=
+	1+STEP(Supply Curve Shift,Supply Curve Shift Time)
+	~	Dmnl
+	~	Fracking shifts the supply curve by a specified amount at a specified time.
+	|
+
+Reference Exploited Resource=
+	Reference Production Capacity+Reference Capacity Under Development
+	~	Thousand Cubic Feet/Year
+	~	The long run supply curve is normalized by the reference total exploited \
+		resource, consisting of the reference (initial) capacity plus capacity \
+		under development, that is, the total capacity entailed by all exploited \
+		sites.
+	|
+
+Supply Curve Shift=
+	-0.2
+	~	Dmnl
+	~	To simulate the impact of technological change, the marginal cost of new \
+		capacity shifts by this fraction at a specified time.  A value of -.2, for \
+		example, reduces marginal costs by 20%.
+	|
+
+Expected Price=A FUNCTION OF(Expected Price,Price,Time to Form Price Expectations) ~~|
+Expected Price=
+	~	$/tcf
+	~	The price investors and developers expect at the time investments \
+		initiated now are completed
+	|
+
+Reference Marginal Cost=
+	6
+	~	$/tcf
+	~	The reference (initial) marginal cost of production, in $/tcf.
+	|
+
+Long Run Supply Curve(
+	[(0,0)-(4,60)],(0,0.4),(0.5,0.6),(1,1),(1.5,1.6),(2,2.5),(2.5,5),(3,10),(4,50))
+	~	Dmnl
+	~	The long run supply curve determines how marginal costs rise as the total \
+		exploited resource increases relative to the reference level.
+	|
+
+Reference Production Capacity=
+	2e+010
+	~	Thousand Cubic Feet/Year
+	~	To ensure that the model begins in equilibrium, reference production \
+		capacity is set to a constant that approximates actual production for the \
+		period before the advent of fracking.  Total consumption in the US in the \
+		2000s averaged approximately 20-22 billion btu/year (based on consumption \
+		of about 20 million cubic feet/year and an average of 1020 BTU/cubic foot).
+	|
+
+Supply Curve Shift Time=
+	0
+	~	Year
+	~	The year in which the exogenous technological shift in marginal costs \
+		occurs.
+	|
+
+Price=
+	Perceived Marginal Cost*(Demand/Production Capacity)^(1/Sensitivity of Utilization to Profit\
+		)
+	~	$/tcf
+	~	The spot price is modeled as a reference level modified by the \
+		demand/supply balance.  To clear the market, price must take the level \
+		that causes utilization of production capacity to rise or fall just enough \
+		to satisfy the market clearing condition that Demand = Production Capacity \
+		* Capacity Utilization.  Capacity utilization, U, can be modeled simply as \
+		U = f(P/P*) = (P/P*)^s where P is price, P* is the marginal cost perceived \
+		by market participants, and s is the sensitivity of utilization to price.  \
+		Solving for price yields the equation here.
+	|
+
+Decommissioning=A FUNCTION OF(Decommissioning,Average Life of Capacity,Project Completion\
+		) ~~|
+Decommissioning=
+	~	Thousand Cubic Feet/Year/Year
+	~	The rate at which existing production infrastructure is decommissioned.
+	|
+
+Project Completion=A FUNCTION OF(Project Completion,Average Development Delay,Project Initiation\
+		) ~~|
+Project Completion=
+	~	Thousand Cubic Feet/Year/Year
+	~	The rate at which development projects are completed and add to production \
+		capacity.
+	|
+
+Project Initiation=
+	MAX(0, Decommissioning + Effect of Expected Profit on Investment*Production Capacity\
+		)
+	~	Thousand Cubic Feet/Year/Year
+	~	The number of new wells being initiated each year, measured in terms of \
+		production capacity (tcf/year) started per year.  Projects are initiated \
+		to replace capacity that is being decommissioned, adjusted by the effect \
+		of expected profitability on project starts.  When expected profits are \
+		high, developers initiate more projects and vice versa.  The number of new \
+		projects started is proportional to existing capacity.  The Initiation \
+		rate is constrained to be nonnegative:  even if development were extremely \
+		unprofitable, the initiation rate cannot fall below zero.
+	|
+
+Sensitivity of Utilization to Profit=
+	0.2
+	~	Dmnl
+	~	The sensitivity of utilization to profit determines the response of \
+		capacity utilization as it depends on price.
+	|
+
+Total Exploited Resource=
+	Production Capacity+Capacity Under Development
+	~	Thousand Cubic Feet/Year
+	~	The total exploited resource is the sum of current capacity and capacity \
+		under development.
+	|
+
+Capacity Under Development= INTEG (
+	Project Initiation-Project Completion,
+		Average Development Delay*Decommissioning)
+	~	Thousand Cubic Feet/Year
+	~	Total capacity under development, including projects being planned.
+	|
+
+Average Development Delay=A FUNCTION OF(Average Development Delay) ~~|
+Average Development Delay=
+	~	Year
+	~	The average time between project initiatiion and completion.
+	|
+
+Effect of Expected Profit on Investment=
+	Sensitivity of Investment to Profitability*Expected Profit
+	~	1/Year
+	~	Development increases when expected profits are high and contracts when \
+		expected profits are low.  The sensitivity parameter is the fractional \
+		rate of expansion or contraction per year as a fraction of existing \
+		production capacity.
+	|
+
+Expected Profit=
+	(Expected Price-Perceived Marginal Cost)/Perceived Marginal Cost
+	~	Dmnl
+	~	Expected profit, as a fraction of perceived marginal costs of development.  \
+		The expected profit margin is the difference between expected price and \
+		perceived marginal cost.  Marginal costs here include the required return \
+		on capital, so in equilibrium expected profits are zero.  That is, \
+		expected profit represents economic, not accounting profitability.
+	|
+
+Sensitivity of Investment to Profitability=
+	0.1
+	~	1/Year
+	~	The sensitivity of investment to profitability is the fractional rate per \
+		year of capacity increase or decrease as a function of expected \
+		profitability.  The larger the value the more aggressively developers \
+		respond to abnormal profits.
+	|
+
+Time to Form Price Expectations=A FUNCTION OF(Time to Form Price Expectations) ~~|
+Time to Form Price Expectations=
+	~	Year
+	~	The average time required for developers to update their beliefs about the \
+		future price.
+	|
+
+Time to Perceive Marginal Cost=A FUNCTION OF(Time to Perceive Marginal Cost) ~~|
+Time to Perceive Marginal Cost=
+	~	Year
+	~	The average time required for developers to perceive changes in true \
+		marginal costs
+	|
+
+Average Life of Capacity=A FUNCTION OF(Average Life of Capacity) ~~|
+Average Life of Capacity=
+	~	Year
+	~	The average useful life of wells and associated production equipment.
+	|
+
+********************************************************
+	.Control
+********************************************************~
+		Simulation Control Parameters
+	|
+
+FINAL TIME  = 40
+	~	Year
+	~	The final time for the simulation.
+	|
+
+INITIAL TIME  = -2
+	~	Year
+	~	The initial time for the simulation.
+	|
+
+SAVEPER  = 
+        TIME STEP
+	~	Year [0,?]
+	~	The frequency with which output is stored.
+	|
+
+TIME STEP  = 0.015625
+	~	Year [0,?]
+	~	The time step for the simulation.
+	|
+
+\\\---/// Sketch information - do not modify anything except names
+V300  Do not put anything below this section - it will be ignored
+*Main
+$192-192-192,0,Arial|14|B|0-0-0|0-0-0|0-0-255|-1--1--1|-1--1--1|120,120,100,0
+10,1,Marginal Cost,1475,702,83,35,8,131,0,0,0,0,0,0
+10,2,Perceived Marginal Cost,1210,702,93,40,8,131,0,0,0,0,0,0
+10,3,Expected Price,1208,913,68,33,8,131,0,0,0,0,0,0
+10,4,Expected Profit,1012,600,80,33,8,131,0,0,0,0,0,0
+10,5,Capacity Under Development,1345,317,90,50,3,131,0,0,0,0,0,0
+10,6,Production Capacity,1800,308,92,50,3,131,0,0,0,0,0,0
+12,7,48,1090,313,17,13,0,3,0,0,-1,0,0,0
+1,8,10,5,4,0,0,22,2,0,0,-1--1--1,|14||0-0-0,1|(1212,312)|
+1,9,10,7,100,0,0,22,2,0,0,-1--1--1,|14||0-0-0,1|(1127,312)|
+11,10,48,1158,312,10,13,34,3,0,0,1,0,0,0
+10,11,Project Initiation,1158,352,78,27,40,131,0,0,-1,0,0,0
+1,12,14,6,4,0,0,22,2,0,0,-1--1--1,|14||0-0-0,1|(1643,312)|
+1,13,14,5,100,0,0,22,2,0,0,-1--1--1,|14||0-0-0,1|(1497,312)|
+11,14,620,1568,312,10,13,34,3,0,0,1,0,0,0
+10,15,Project Completion,1568,352,68,27,40,3,0,0,-1,0,0,0
+12,16,48,2202,307,17,13,0,3,0,0,-1,0,0,0
+1,17,19,16,4,0,0,22,2,0,0,-1--1--1,|14||0-0-0,1|(2133,307)|
+1,18,19,6,100,0,0,22,2,0,0,-1--1--1,|14||0-0-0,1|(1977,307)|
+11,19,48,2072,307,10,13,34,3,0,0,1,0,0,0
+10,20,Decommissioning,2072,348,108,28,40,131,0,0,-1,0,0,0
+1,21,1,2,1,0,43,13,0,64,0,-1--1--1,,1|(1382,742)|
+1,22,43,3,1,0,43,13,0,64,0,-1--1--1,,1|(1310,957)|
+1,23,2,4,1,0,45,13,2,64,0,-1--1--1,|14||0-0-0,1|(1080,678)|
+1,24,4,31,1,0,43,13,0,64,0,-1--1--1,,1|(1005,520)|
+10,25,Average Development Delay,1517,210,78,40,8,3,0,0,0,0,0,0
+10,26,Average Life of Capacity,2120,197,90,27,8,3,0,0,0,0,0,0
+1,27,25,14,1,0,45,0,2,192,0,-1--1--1,|14||0-0-0,1|(1582,250)|
+1,28,26,19,1,0,45,0,2,192,0,-1--1--1,|14||0-0-0,1|(2097,255)|
+10,29,Demand,1945,938,50,15,8,3,0,0,0,0,0,0
+1,30,6,40,1,0,43,13,0,64,0,-1--1--1,,1|(1632,502)|
+10,31,Effect of Expected Profit on Investment,1035,457,118,27,8,3,0,0,0,0,0,0
+1,32,31,11,1,0,43,13,0,64,0,-1--1--1,,1|(1082,392)|
+10,33,Time to Form Price Expectations,1275,1050,112,27,8,3,0,0,0,0,0,0
+10,34,Time to Perceive Marginal Cost,1290,807,98,27,8,3,0,0,0,0,0,0
+1,35,34,2,1,0,0,0,2,64,0,-1--1--1,|14||0-0-0,1|(1175,778)|
+1,36,33,3,1,0,43,0,0,64,0,-1--1--1,,1|(1213,982)|
+1,37,25,5,0,0,43,0,0,64,1,-1--1--1,,1|(1448,252)|
+10,38,Sensitivity of Investment to Profitability,957,302,80,40,8,3,0,0,-1,0,0,0
+1,39,38,31,1,0,0,0,2,64,0,-1--1--1,|14||0-0-0,1|(965,375)|
+10,40,Total Exploited Resource,1597,513,93,37,8,131,0,0,0,0,0,0
+1,41,5,40,1,0,43,13,0,64,0,-1--1--1,,1|(1468,392)|
+1,42,40,1,1,0,43,13,0,64,0,-1--1--1,,1|(1565,633)|
+10,43,Price,1730,933,53,25,8,131,0,0,0,0,0,0
+10,44,Sensitivity of Utilization to Profit,1670,1062,110,27,8,3,0,0,0,0,0,0
+1,45,44,43,1,0,0,0,2,64,0,-1--1--1,|14||0-0-0,1|(1690,997)|
+1,46,6,43,1,0,45,13,2,64,0,-1--1--1,|14||0-0-0,1|(1845,885)|
+1,47,29,43,1,0,43,0,0,64,0,-1--1--1,,1|(1822,965)|
+1,48,20,5,0,0,43,0,0,64,1,-1--1--1,,1|(1710,332)|
+1,49,3,4,1,0,43,13,2,192,0,-1--1--1,|14||0-0-0,1|(1080,813)|
+1,50,19,10,1,0,43,0,2,192,0,-1--1--1,|14||0-0-0,1|(1662,50)|
+1,51,6,10,1,0,43,0,0,64,0,-1--1--1,,1|(1485,152)|
+12,52,0,1360,522,33,33,4,7,0,0,-1,0,0,0
+B1
+12,53,0,1360,580,70,13,8,7,0,8,-1,0,0,0,0-0-0,0-0-0,|12||0-0-0
+Marginal Cost
+12,54,0,1497,888,33,33,4,7,0,0,-1,0,0,0
+B2
+12,55,0,1497,947,28,13,8,7,0,8,-1,0,0,0,0-0-0,0-0-0,|12||0-0-0
+Price
+12,56,0,70,307,250,250,3,44,0,0,1,0,0,0
+Price_&_Marginal_Cost
+12,57,0,583,308,250,250,3,44,0,0,1,0,0,0
+Project_Initiation
+12,58,0,70,810,250,250,3,44,0,0,1,0,0,0
+Demand_&_Capacity
+12,59,0,583,813,250,250,3,44,0,0,1,0,0,0
+Expectations
+12,60,0,-443,307,250,250,3,44,0,0,2,0,0,0
+Expected Profit,Graph
+12,61,0,-443,810,250,250,3,44,0,0,2,0,0,0
+Expected Price,Graph
+1,62,11,15,1,0,43,0,2,64,0,-1--1--1,|14||0-0-0,1|(1350,398)|
+1,63,15,20,1,0,43,0,2,64,0,-1--1--1,|14||0-0-0,1|(1787,388)|
+10,64,Perceived Marginal Cost,1943,1047,90,27,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|14||128-128-128
+1,65,64,43,1,0,43,0,2,64,0,-1--1--1,|14||0-0-0,1|(1772,1012)|
+10,66,Effect of Fracking on Marginal Costs,1767,750,115,27,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|14||128-128-128
+1,67,66,1,1,0,43,0,2,192,0,-1--1--1,|14||0-0-0,1|(1615,753)|
+10,68,Long Run Supply Curve,1510,808,80,27,8,3,0,0,-1,0,0,0
+1,69,68,1,1,0,0,0,0,64,0,-1--1--1,,1|(1435,762)|
+10,70,Reference Exploited Resource,1775,577,133,33,8,130,0,3,-1,0,0,0,128-128-128,0-0-0,|14||128-128-128
+1,71,70,1,1,0,45,0,2,64,0,-1--1--1,|14||0-0-0,1|(1645,655)|
+10,72,Reference Marginal Cost,1797,662,82,27,8,3,0,0,-1,0,0,0
+1,73,72,1,1,0,43,0,2,192,0,-1--1--1,|14||0-0-0,1|(1638,697)|
+1,74,75,6,0,0,0,0,0,64,1,-1--1--1,,1|(1953,592)|
+10,75,Reference Production Capacity,2093,843,68,40,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|14||128-128-128
+1,76,75,29,0,0,0,0,0,64,0,-1--1--1,,1|(2008,897)|
+\\\---/// Sketch information - do not modify anything except names
+V300  Do not put anything below this section - it will be ignored
+*Marginal Cost
+$192-192-192,0,Arial|14|B|0-0-0|0-0-0|0-0-255|-1--1--1|-1--1--1|120,120,5,0
+10,1,Marginal Cost,493,468,83,35,8,131,0,0,0,0,0,0
+10,2,Total Exploited Resource,690,283,95,27,8,2,0,0,0,0,0,0
+1,3,2,1,1,0,43,0,0,64,0,-1--1--1,,1|(612,400)|
+10,4,Capacity Under Development,1423,507,98,27,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|14||128-128-128
+10,5,Long Run Supply Curve,457,710,80,27,8,3,0,0,0,0,0,0
+10,6,Reference Marginal Cost,653,728,82,27,8,3,0,0,0,0,0,0
+10,7,Reference Production Capacity,1077,398,65,40,8,131,0,0,0,0,0,0
+1,8,7,16,1,0,45,0,2,64,0,-1--1--1,|14||0-0-0,1|(865,482)|
+10,9,Reference Capacity Under Development,1130,518,117,27,8,3,0,0,-1,0,0,0
+1,10,9,16,1,0,45,0,2,64,0,-1--1--1,|14||0-0-0,1|(963,565)|
+10,11,Supply Curve Shift Time,1042,677,80,27,8,3,0,0,0,0,0,0
+10,12,Supply Curve Shift,978,778,80,27,8,3,0,0,0,0,0,0
+10,13,Effect of Fracking on Marginal Costs,803,643,107,27,8,3,0,0,-1,0,0,0
+1,14,11,13,1,0,0,0,0,64,0,-1--1--1,,1|(950,685)|
+1,15,12,13,1,0,0,0,0,64,0,-1--1--1,,1|(870,730)|
+10,16,Reference Exploited Resource,830,515,60,40,8,131,0,0,0,0,0,0
+1,17,13,1,1,0,0,0,0,64,0,-1--1--1,,1|(652,580)|
+1,18,5,1,1,0,0,0,0,64,0,-1--1--1,,1|(437,590)|
+1,19,16,1,1,0,0,0,0,64,0,-1--1--1,,1|(677,510)|
+1,20,6,1,1,0,0,0,0,64,0,-1--1--1,,1|(560,608)|
+1,21,4,9,0,0,0,0,0,64,1,-1--1--1,,1|(1297,510)|
+\\\---/// Sketch information - do not modify anything except names
+V300  Do not put anything below this section - it will be ignored
+*Dashboard
+$192-192-192,0,Arial|14|B|0-0-0|0-0-0|0-0-255|-1--1--1|-1--1--1|120,120,5,0
+12,1,0,1525,443,250,250,3,12,0,0,1,0,0,0
+Price_&_Marginal_Cost
+12,2,0,2045,445,250,250,3,44,0,0,1,0,0,0
+Project_Initiation
+12,3,0,1525,947,250,250,3,44,0,0,1,0,0,0
+Demand_&_Capacity
+12,4,0,2045,950,250,250,3,44,0,0,1,0,0,0
+Expectations
+10,5,Average Development Delay,2512,635,185,32,8,131,0,0,-1,0,0,0
+10,6,Average Life of Capacity,2502,795,175,15,8,131,0,0,-1,0,0,0
+10,7,Time to Form Price Expectations,2507,360,203,25,8,131,0,0,-1,0,0,0
+10,8,Time to Perceive Marginal Cost,2510,487,192,27,8,131,0,0,-1,0,0,0
+12,9,0,1018,443,250,250,3,44,0,0,2,0,0,0
+Expected Profit,Graph
+12,10,0,1018,947,250,250,3,44,0,0,2,0,0,0
+Expected Price,Graph
+///---\\\
+:GRAPH Demand_&_Capacity
+:TITLE Demand_&_Capacity
+:SCALE
+:VAR Demand
+:VAR Production Capacity
+
+:GRAPH Price_&_Marginal_Cost
+:TITLE Price & Marginal Cost
+:SCALE
+:VAR Price
+:VAR Marginal Cost
+
+:GRAPH Project_Initiation
+:TITLE Project Initiation
+:SCALE
+:VAR Project Initiation
+:VAR Project Completion
+:VAR Decommissioning
+
+:GRAPH Expectations
+:TITLE Expectations
+:SCALE
+:VAR Price
+:VAR Expected Price
+
+:GRAPH Perceived_Marginal_Cost
+:TITLE Perceived Marginal Cost
+:SCALE
+:VAR Marginal Cost
+:VAR Perceived Unit Cost
+:L<%^E!@
+9:current
+22:$,Dollar,Dollars,$s
+22:Hour,Hours
+22:Month,Months
+22:Person,People,Persons
+22:Unit,Units
+22:Week,Weeks
+22:Year,Years
+22:Day,Days
+23:0
+15:0,0,0,0,0,0
+19:100,0
+27:2,
+34:0,
+4:Time
+5:Marginal Cost
+35:Date
+36:YYYY-MM-DD
+37:2000
+38:1
+39:1
+40:0
+41:0
+24:0
+25:40
+26:40
