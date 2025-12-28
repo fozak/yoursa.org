@@ -1,10 +1,23 @@
-# Sitemap Generator Script
+# Sitemap Generator Script with XML Entity Escaping
 # Recursively scans for .html files and generates sitemap.xml
 
 # Configuration
-$baseUrl = "https://yoursa.org"
+$baseUrl = "https://coworker365.com"
 $rootPath = Get-Location
 $outputFile = Join-Path $rootPath "sitemap.xml"
+
+# Function to escape XML entities
+function Escape-XmlEntities {
+    param([string]$text)
+    
+    $text = $text -replace '&', '&amp;'
+    $text = $text -replace '<', '&lt;'
+    $text = $text -replace '>', '&gt;'
+    $text = $text -replace '"', '&quot;'
+    $text = $text -replace "'", '&apos;'
+    
+    return $text
+}
 
 # Get all HTML files recursively
 $htmlFiles = Get-ChildItem -Path $rootPath -Filter "*.html" -Recurse -File
@@ -23,8 +36,8 @@ foreach ($file in $htmlFiles) {
     # Remove leading slash if present
     $relativePath = $relativePath.TrimStart('/')
     
-    # Build full URL
-    $url = "$baseUrl/$relativePath"
+    # Build full URL and escape XML entities
+    $url = Escape-XmlEntities "$baseUrl/$relativePath"
     
     # Get last modified date in ISO format
     $lastMod = $file.LastWriteTime.ToString("yyyy-MM-dd")
@@ -46,7 +59,7 @@ $xml += @"
 "@
 
 # Write to file (overwrites if exists)
-$xml | Out-File -FilePath $outputFile -Encoding UTF8
+$xml | Out-File -FilePath $outputFile -Encoding UTF8 -NoNewline
 
 Write-Host "Sitemap generated successfully!" -ForegroundColor Green
 Write-Host "Location: $outputFile" -ForegroundColor Cyan
