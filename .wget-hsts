@@ -1,4 +1,4 @@
 # HSTS 1.0 Known Hosts database for GNU Wget.
 # Edit at your own risk.
 # <hostname>	<port>	<incl. subdomains>	<created>	<max-age>
-ocw.mit.edu	0	0	1766863944	300
+yoursa.org	0	0	1766863944	300
