@@ -1,0 +1,730 @@
+/* At the very top of your CSS file */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700&display=swap');
+
+
+:root {
+  /* ===== THREE BLUE SYSTEM ===== */
+  
+  /* DARK BLUE (40% - Headers, emphasis, navigation bars) */
+  --blue: #002868;
+  --blue-dark: #002868;
+  --blue-darker: #002868;
+  --indigo: #002868;
+  --purple: #002868;
+  --primary: #002868;
+  --dark: #002868;
+  --theme-primary-color: #002868;
+  --theme-primary-bgcolor: #002868;
+  
+  /* LIGHT BLUE (30% - Buttons, links, interactive elements) */
+  --theme-secondary-color: #4A7BC8;
+  --theme-secondary-bgcolor: #4A7BC8;
+  --blue-light: #4A7BC8;
+  --blue-lighter: #E8F0FA;
+  
+  /* MEDIUM BLUE (5% - Supporting, accents) */
+  --theme-tertiary-color: #00398F;
+  --theme-tertiary-bgcolor: #00398F;
+  --cyan: #00398F;
+  --teal: #00398F;
+  --info: #00398F;
+  --green: #00398F;
+  --success: #00398F;
+  
+  /* ===== RED ACCENT (Defined but NOT USED in current elements) ===== */
+  --red: #BF0A30;
+  --danger: #BF0A30;
+  --warning: #BF0A30;
+  --orange: #BF0A30;
+  --yellow: #BF0A30;
+  --pink: #BF0A30;
+  
+  /* ===== NEUTRALS ===== */
+  --white: #FFFFFF;
+  --light: #F1F1F1;
+  --grey-lighter: #F1F1F1;
+  --black: #000000;
+  --grey-darker: #000000;
+  --body-color: #000000;
+  --theme-font-color: #000000;
+  
+  /* Grays - Keep for secondary UI */
+  --gray: #6c757d;
+  --grey: #6c757d;
+  --grey-light: #6c757d;
+  --secondary: #6c757d;
+  --gray-dark: #343a40;
+  --grey-dark: #343a40;
+  
+  /* ===== HEADER COLORS ===== */
+  --theme-h1-font-color: #002868;
+  --theme-h2-font-color: #002868;
+  --theme-h3-font-color: #002868;
+  --theme-h4-font-color: #002868;
+  --theme-h5-font-color: #002868;
+  --theme-h6-font-color: #002868;
+  
+  /* ===== LINK COLORS ===== */
+  --theme-anchor-color: #4A7BC8;
+  --theme-anchor-hover-color: #00398F;  /* Medium blue, NOT red */
+  
+  /* ===== SHADOWS ===== */
+  --theme-box-shadow-primary-color: rgba(0, 40, 104, .08);
+  --theme-box-shadow-secondary-color: rgba(0, 40, 104, .15);
+  --theme-header-box-shadow-color: rgba(0, 40, 104, .1);
+  
+  /* Keep typography settings unchanged */
+  --theme-font-family: "Montserrat", Arial, sans-serif;
+  --theme-font-size: 16px;
+  --theme-font-weight: normal;
+  --theme-letter-spacing: .25px;
+  --theme-line-height: 1.5;
+  
+  /* Breakpoints - unchanged */
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+}
+
+/* ===== BODY ===== */
+/* Prevent horizontal scrollbar */
+html, body {
+    overflow-x: hidden;
+}
+
+
+/* ===== BUTTONS ===== */
+
+/* Primary buttons - Light blue with white text */
+.btn,
+.btn-primary {
+  background-color: #4A7BC8 !important;
+  color: #FFFFFF !important;
+  border-color: #4A7BC8 !important;
+}
+
+/* Hover: Light blue → Medium blue */
+.btn:hover,
+.btn-primary:hover {
+  background-color: #00398F !important;
+  border-color: #00398F !important;
+  color: #FFFFFF !important;
+}
+
+/* Outline buttons - White bg with light blue text, NO BORDER */
+.btn.outline-btn,
+.c-info-section__column-button {
+  background-color: #FFFFFF !important;
+  color: #4A7BC8 !important;
+  border: none !important;  /* NO border */
+}
+
+/* Hover: White → Light blue background */
+.btn.outline-btn:hover,
+.c-info-section__column-button:hover {
+  background-color: #4A7BC8 !important;
+  color: #FFFFFF !important;
+  border: none !important;
+}
+
+/* Info/Success buttons - Medium blue */
+.btn-info,
+.btn-success {
+  background-color: #00398F !important;
+  border-color: #00398F !important;
+  color: #FFFFFF !important;
+}
+
+/* Hover: Medium blue → Dark blue */
+.btn-info:hover,
+.btn-success:hover {
+  background-color: #002868 !important;
+  border-color: #002868 !important;
+  color: #FFFFFF !important;
+}
+
+/* Secondary buttons - Gray */
+.btn-secondary {
+  background-color: #6c757d !important;
+  border-color: #6c757d !important;
+  color: #FFFFFF !important;
+}
+
+/* Hover: Gray → Darker gray */
+.btn-secondary:hover {
+  background-color: #5a6268 !important;
+  border-color: #5a6268 !important;
+  color: #FFFFFF !important;
+}
+
+/* Danger/Warning buttons - Red (DEFINED but likely not used) */
+.btn-danger,
+.btn-warning {
+  background-color: #BF0A30 !important;
+  border-color: #BF0A30 !important;
+  color: #FFFFFF !important;
+}
+
+.btn-danger:hover,
+.btn-warning:hover {
+  background-color: #8F0724 !important;
+  border-color: #8F0724 !important;
+}
+
+/* ===== HEADERS ===== */
+h1, h2, h3, h4, h5, h6 {
+  color: #002868 !important;
+}
+
+.c-number-counter__item-count,
+.c-number-counter__number-counter-column_title,
+.l-portfolio__item-title,
+.l-team-archive__name {
+  color: #002868 !important;
+}
+
+/* ===== NAVIGATION - REMOVE YELLOW UNDERLINE ===== */
+
+/* Remove ::after yellow pseudo-element */
+.c-header__nav-link::before,
+.c-header__nav-link::after,
+.nav-link::before,
+.nav-link::after {
+    content: none !important;
+    display: none !important;
+    background: transparent !important;
+    border: none !important;
+}
+
+/* Remove border-bottom */
+.c-header__nav-link {
+    border-bottom: none !important;
+}
+
+/* Default navigation links */
+.nav-link,
+.c-header__nav-link {
+    color: #343a40 !important;  /*FIXIT to black*/
+    font-weight: 500;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Active state - Bold, no background, no yellow */
+.nav-link.active,
+.c-header__nav-link.active {
+    color: #4A7BC8 !important;
+    font-weight: 700 !important;
+    border-radius: 5px;
+    padding: 8px 16px;
+}
+
+/* Hover state */
+.nav-link:hover,
+.c-header__nav-link:hover {
+    color: #00398F !important;
+}
+
+/* Active link stays same on hover */
+.nav-link.active:hover,
+.c-header__nav-link.active:hover {
+    color: #4A7BC8 !important;
+}
+
+/* ===== LINKS ===== */
+a {
+  color: #4A7BC8 !important;
+}
+
+/* Hover: Light blue → Medium blue */
+a:hover {
+  color: #00398F !important;
+}
+
+/* ===== BACKGROUNDS ===== */
+.bg-primary {
+  background-color: #002868 !important;
+}
+
+.bg-secondary {
+  background-color: #6c757d !important;
+}
+
+.bg-info,
+.bg-success {
+  background-color: #00398F !important;
+}
+
+.bg-danger,
+.bg-warning {
+  background-color: #BF0A30 !important;
+}
+
+.bg-light {
+  background-color: #F1F1F1 !important;
+}
+
+/* ===== TEXT COLORS ===== */
+.text-primary {
+  color: #002868 !important;
+}
+
+.text-secondary {
+  color: #6c757d !important;
+}
+
+.text-info,
+.text-success {
+  color: #00398F !important;
+}
+
+.text-danger,
+.text-warning {
+  color: #BF0A30 !important;
+}
+
+/* ===== BADGES & ALERTS ===== */
+.badge-primary {
+  background-color: #002868 !important;
+}
+
+.badge-info,
+.badge-success {
+  background-color: #00398F !important;
+}
+
+.badge-danger,
+.badge-warning {
+  background-color: #BF0A30 !important;
+}
+
+.alert-primary {
+  background-color: rgba(0, 40, 104, .1) !important;
+  border-color: #002868 !important;
+  color: #002868 !important;
+}
+
+.alert-info,
+.alert-success {
+  background-color: rgba(0, 57, 143, .1) !important;
+  border-color: #00398F !important;
+  color: #00398F !important;
+}
+
+.alert-danger,
+.alert-warning {
+  background-color: rgba(191, 10, 48, .1) !important;
+  border-color: #BF0A30 !important;
+  color: #BF0A30 !important;
+}
+
+/* ===== FOOTER ===== */
+
+/* Desktop - rounded corners with margin 
+@media only screen and (min-width: 767px) {
+    .c-footer {
+        border-radius: 25px;
+        margin: 0 20px 20px;
+    }
+}*/
+
+/* All screens - background and padding */
+/* ===== FOOTER (FULL WIDTH WITH TOP ROUNDED CORNERS) ===== */
+
+.c-footer {
+    background-color: #002868 !important;
+    padding: 100px 0 30px;
+    display: block;
+    /* Only top corners rounded */
+    border-top-left-radius: 25px !important;
+    border-top-right-radius: 25px !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    margin: 0;  /* NO margins */
+    width: 100%;  /* Force full width */
+}
+
+/* Make sure container inside footer is also full width */
+.c-footer .container {
+    max-width: 1200px;  /* Or your container max-width */
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Footer headings - WHITE */
+.c-footer__footer-heading {
+    color: #FFFFFF !important;
+}
+
+/* Footer text - WHITE */
+.c-footer,
+.c-footer p,
+.c-footer a,
+.c-footer__footer-content,
+.c-footer__footer-content p,
+.c-footer__copyright-text,
+.c-footer__copyright-text p,
+.c-footer__footer-column ul li,
+.c-footer__footer-column ul li a {
+    color: #FFFFFF !important;
+}
+
+/* Footer link hover - Light blue */
+.c-footer a:hover,
+.c-footer__footer-column ul li a:hover {
+    color: #4A7BC8 !important;
+}
+
+/* Footer social icons - White circle with dark blue icon */
+.c-footer__copyright-social-icon ul li a i {
+    background-color: #FFFFFF !important;
+    padding: 10px;
+    border-radius: 50%;
+    color: #002868 !important;
+    transition: .5s;
+}
+
+/* Footer social icons hover - Light blue circle with white icon */
+.c-footer__copyright-social-icon ul li a i:hover {
+    background-color: #4A7BC8 !important;
+    color: #FFFFFF !important;
+}
+
+/* Font Awesome brands */
+.fab {
+    font-family: 'Font Awesome 5 Brands';
+}
+
+/* ===== BORDERS ===== */
+.border-primary {
+  border-color: #002868 !important;
+}
+
+.border-secondary {
+  border-color: #6c757d !important;
+}
+
+.border-danger,
+.border-warning {
+  border-color: #BF0A30 !important;
+}
+
+/* ===== SPECIFIC OVERRIDES ===== */
+
+/* Override inline RGB colors */
+[style*="rgb(45, 54, 99)"] {
+  color: #002868 !important;
+}
+
+[style*="background-color: rgb(45, 54, 99)"],
+[style*="background: rgb(45, 54, 99)"] {
+  background-color: #002868 !important;
+}
+
+[style*="rgb(110, 146, 255)"] {
+  color: #4A7BC8 !important;
+}
+
+[style*="background-color: rgb(110, 146, 255)"],
+[style*="background: rgb(110, 146, 255)"] {
+  background-color: #4A7BC8 !important;
+}
+
+[style*="rgb(22, 44, 64)"] {
+  color: #000000 !important;
+}
+
+[style*="rgb(0, 57, 143)"] {
+  color: #00398F !important;
+}
+
+[style*="background-color: rgb(0, 57, 143)"],
+[style*="background: rgb(0, 57, 143)"] {
+  background-color: #00398F !important;
+}
+
+/* Heroicons patriotic coloring - ADD THIS TO YOUR EXISTING FILE */
+
+
+.icon-patriotic-3 { stroke: none !important; }
+.icon-patriotic-3 path:nth-child(1) { fill: #002868; }   /*stroke removed*/
+.icon-patriotic-3 path:nth-child(2) { fill: #4A7BC8; }
+.icon-patriotic-3 path:nth-child(3) { fill: #BF0A30; }
+
+/* Gradient option */
+.icon-patriotic-gradient { 
+    stroke: url(#patriotic-gradient); 
+}
+
+/* Add to patriotic.css */
+
+/* Feature icons (replaces 87px PNGs) */
+.feature-icon,
+.c-info-section__analyze-column_column-image img,
+.c-info-section__analyze-column_column-image svg {
+    width: 96px;
+    height: 96px;
+}
+
+/* Responsive sizing */
+@media (max-width: 767px) {
+    .feature-icon {
+        width: 64px;
+        height: 64px;
+    }
+}
+
+/* ===== TITLE BLOCK WAVE BACKGROUND ===== */
+
+/* Page title block with wave background */
+.block-page-title-block {
+    margin-bottom: 4rem;
+    padding-top: 0rem;   /*FIXED 8rem*/
+    position: relative;
+}
+
+/* Wave background media */
+.block-page-title-block .block__media {
+    display: block;
+    left: calc(-50vw + 50%);
+    max-width: none;
+    width: 100vw;
+    height: 38rem;
+    position: absolute;
+    top: 0;
+    z-index: 0;
+    background-image: url('/images/waive-2.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Full-width block with image on right */
+.block-page-title-block .block__inner {
+    background-color: #FFFFFF;
+    /*border-radius: 0.5rem;*/
+    display: flex;
+    align-items: stretch;
+    max-width: 100%;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    overflow: hidden;
+    gap: 0;
+    height: 30rem;
+}
+
+/* Left side: Text content */
+.block__inner-text {
+    flex: 1 1 42%;  /* Takes 42% */
+    min-width: 42%;
+    padding: 1.5rem 3.5rem 1.75rem;
+    /*display: flex;*/
+    flex-direction: column;
+    justify-content: space-between; /* CHANGED from flex-start */
+    position: relative; /* For absolute positioning of button */
+    background-color: #E8F0FA; /* was white white background */
+}
+
+/* Right side: Full-height image with overlay */
+.block__inner-image {
+    flex: 0 0 58%; /* Takes 58% - CHANGED from 40% */
+    min-height: 100%;
+    position: relative; /* For absolute positioning of overlay */
+}
+
+/* Base hero image */
+.hero-image-base {
+    /*width: 100%;*/
+    /*height: 100%;*/
+    object-fit: cover;
+    display: block;
+    object-position: -90px center;
+}
+
+/* Overlapping color image - OUTSIDE to the left */
+.hero-image-overlay {
+    position: absolute;
+    bottom: 24px;        /* 24px from bottom */
+    left: -48px;         /* 48px OUTSIDE to the left */
+    width: auto;
+    height: 50%;         /* 50% of parent height */
+    z-index: 2;
+    object-fit: contain;
+}
+
+/* Call to action button - bottom left aligned with overlay */
+.block__inner-text .c-call-to-action__button {
+    position: absolute;
+    bottom: 30px;       /* was 24px Same as hero-image-overlay bottom */
+    left: 3.5rem;       /* Same as text padding-left */
+    color: #BF0A30;     /* FIXED */
+}
+
+.block__inner-text .c-call-to-action__button .btn {
+    margin: 0;
+}
+
+/* Responsive: Stack on mobile - TEXT GOES BELOW IMAGE */
+@media (max-width: 991px) {
+    .block-page-title-block .block__inner {
+        flex-direction: column;
+        height: auto; /* Allow height to adjust */
+    }
+    
+    /* Image on top */
+    .block__inner-image {
+        flex: 0 0 300px;
+        order: 1; /* Image first */
+        width: 100%;
+    }
+    
+    /* Text below image */
+    .block__inner-text {
+        order: 2; /* Text second */
+        padding: 1rem 2rem 1.25rem;
+        min-width: 100%;
+        flex: 1 1 auto;
+    }
+    
+    .hero-image-base {
+        object-position: center center; /* Better mobile centering */
+    }
+    
+    .hero-image-overlay {
+        bottom: 16px;
+        left: -24px; /* Less overlap on mobile */
+        height: 40%;
+    }
+    
+    /* Button positioning on mobile */
+    .block__inner-text .c-call-to-action__button {
+        position: relative; /* Stack normally on mobile */
+        bottom: auto;
+        left: auto;
+        margin-top: 1.5rem;
+    }
+}
+
+/* Fix main content position below fixed header */
+#main-content {
+    margin-top: 86px;
+    display: grid;
+    grid-template-columns: 20% 1fr;
+    gap: 2%;
+}
+
+#sidebar-image {
+    /* Image column - stays on left */
+}
+
+#sidebar-image img {
+    width: 75%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Make all other content go into second column */
+#main-content > *:not(#sidebar-image) {
+    grid-column: 2;
+}
+
+@media (max-width: 991px) {
+    #main-content {
+        grid-template-columns: 1fr;
+    }
+    
+    #sidebar-image {
+        display: none;
+    }
+}
+
+/* Simple styling - no fixed positioning needed */
+scrolling-text {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    background: #f5f5f5; 
+    padding: 12px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+scrolling-text > div {
+    display: inline-block;
+}
+
+.text-size--larger {
+    font-size: 1.1rem;
+}
+
+.element--horizontal-space--regular-x-2 {
+    padding: 0 2rem;
+}
+
+/* Hide demo wrapper elements */
+.demo-container {
+    margin: 0;
+}
+
+.demo-label {
+    display: none;
+}
+
+/*portfolio proportions*/
+
+.l-portfolio__item-image {
+    height: 600px;
+    background-size: cover;
+}
+/*NUMBER COUNTER SECTION*/
+.c-number-counter {
+  padding-top: 40px; /*FIXED from 80px*/
+    padding-bottom: 10px; /*FIXED from 80px*/
+}
+
+/*her-block content section*/
+
+#hero-block-content {
+    margin-top: 125px;
+    display: grid;
+    grid-template-columns: 1fr; /*FIXWED grid-template-columns: 40% 1fr; */
+    gap: 2%;
+}
+
+
+
+/* Slogan block */
+.slogan-block {
+    background-color: #f5f5f5;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2rem;
+}
+
+.slogan-block h3 {
+    text-align: center;
+    margin: 0;
+    color: #002868 !important;
+    font-size: 24px;
+    line-height: 1.4;
+}
+
+@media (max-width: 767px) {
+    .slogan-block h3 {
+        font-size: 18px;
+    }
+}
+
+/* Desktop layout - switch to side-by-side */
+@media (min-width: 768px) {
+    #hero-block-content {
+        grid-template-columns: 40% 1fr;
+    }
+}
+

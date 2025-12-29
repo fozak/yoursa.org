@@ -1,3 +1,31 @@
+/* Brand Assets Module */
+
+const brandAssets = {
+  logo: {
+    primary: "/brandbook/logo-primary.svg",
+    secondary: "/brandbook/logo-secondary.svg",
+    favicon: "/brandbook/favicon.svg",
+  },
+  css: "/brandbook/branded.css",
+  icons: {
+    social: {
+      facebook: "/brandbook/facebook.svg",
+      twitter: "/brandbook/twitter.svg",
+      linkedin: "/brandbook/linkedin.svg",
+    },
+    ui: "/brandbook/ui-icons.svg",
+  },
+  images: {
+    hero: "/brandbook/hero.jpg",
+    placeholder: "/brandbook/placeholder.png",
+  },
+  brandGuidelines: "/brandbook/brand-guidelines.pdf",
+};
+
+export default brandAssets;
+
+
+
 /*TODO: improve design
 /*TODO: registration and legal
 /*ISSUES: lack of directors 
