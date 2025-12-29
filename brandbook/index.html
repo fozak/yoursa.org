@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Asset Preview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .item {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .preview {
+            width: 100%;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fafafa;
+            border-bottom: 1px solid #eee;
+            overflow: hidden;
+        }
+        
+        .preview img,
+        .preview svg {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        .preview iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .info {
+            padding: 12px;
+            font-size: 14px;
+        }
+        
+        .filename {
+            font-weight: 600;
+            color: #333;
+            word-break: break-all;
+        }
+        
+        .filetype {
+            color: #666;
+            font-size: 12px;
+            margin-top: 4px;
+        }
+        
+        @media (max-width: 1024px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Media Asset Preview</h1>
+    <div class="grid" id="grid"></div>
+
+    <script>
+        async function loadAssets() {
+            try {
+                const response = await fetch('.');
+                const text = await response.text();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(text, 'text/html');
+                const links = Array.from(doc.querySelectorAll('a'));
+                
+                const files = links
+                    .map(a => a.getAttribute('href'))
+                    .filter(href => href && href !== '../' && !href.startsWith('?'))
+                    .filter(href => /\.(svg|png|jpg|jpeg|gif|webp|html|htm)$/i.test(href));
+                
+                const grid = document.getElementById('grid');
+                
+                files.forEach(file => {
+                    const item = document.createElement('div');
+                    item.className = 'item';
+                    
+                    const preview = document.createElement('div');
+                    preview.className = 'preview';
+                    
+                    const ext = file.split('.').pop().toLowerCase();
+                    
+                    if (['svg', 'png', 'jpg', 'jpeg', 'gif', 'webp'].includes(ext)) {
+                        const img = document.createElement('img');
+                        img.src = file;
+                        img.alt = file;
+                        preview.appendChild(img);
+                    } else if (['html', 'htm'].includes(ext)) {
+                        const iframe = document.createElement('iframe');
+                        iframe.src = file;
+                        iframe.sandbox = 'allow-scripts allow-same-origin';
+                        preview.appendChild(iframe);
+                    }
+                    
+                    const info = document.createElement('div');
+                    info.className = 'info';
+                    info.innerHTML = `
+                        <div class="filename">${file}</div>
+                        <div class="filetype">${ext.toUpperCase()}</div>
+                    `;
+                    
+                    item.appendChild(preview);
+                    item.appendChild(info);
+                    grid.appendChild(item);
+                });
+                
+            } catch (error) {
+                console.error('Error loading assets:', error);
+            }
+        }
+        
+        loadAssets();
+    </script>
+</body>
+</html>
