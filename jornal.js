@@ -20,6 +20,7 @@ const brandAssets = {
     placeholder: "/brandbook/placeholder.png",
   },
   brandGuidelines: "/brandbook/brand-guidelines.pdf",
+  blogTemplate:
 };
 
 export default brandAssets;
