@@ -1,8 +1,8 @@
-TODO: improve design
-TODO: registration and legal
-ISSUES: lack of directors 
+/*TODO: improve design
+/*TODO: registration and legal
+/*ISSUES: lack of directors 
 
-lets put into audiences mapping and expectaions on their side to win the trust. lets start with yoursa.org. this is non-profit supporting american students, target - US 60+ private donors that believe that white US students need support, 
+/*lets put into audiences mapping and expectaions on their side to win the trust. lets start with yoursa.org. this is non-profit supporting american students, target - US 60+ private donors that believe that white US students need support, 
 
 Got it — and quick pause to set this up cleanly and safely so it actually builds trust (and doesn’t create legal or reputational risk).
 
@@ -126,4 +126,4 @@ Design a homepage trust hierarchy (what appears above the fold)
 
 Map student eligibility wording that aligns with donor intent without risk
 
-Tell me which one you want to do next, and we’ll make it rock-solid.
+Tell me which one you want to do next, and we’ll make it rock-solid.*/
