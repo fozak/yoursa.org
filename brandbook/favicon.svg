@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="100">
+  <style>
+    .ysa-container {
+      font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+      font-weight: bold;
+      font-size: 96px; /* large size */
+      fill: #4A7BC8;
+      line-height: 1;
+    }
+    .star {
+      font-size: 0.5em; /* 50% of main font size */
+    }
+  </style>
+
+  <!-- Large "Y★" text -->
+  <text class="ysa-container" x="0" y="75">
+    Y<tspan class="star" dx="-0.27em" dy="-0.12em">★</tspan>
+  </text>
+</svg>
