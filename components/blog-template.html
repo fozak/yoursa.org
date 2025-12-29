@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Blog Post Title | YourSA</title>
+    <meta name="description" content="Write a concise, compelling description of your blog post here (under 160 characters).">
+    <link rel="canonical" href="https://yoursa.org/blog/your-post-slug">
+    <meta name="robots" content="index, follow">
+
+    <!-- Structured Data (Article Schema) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Blog Post Title",
+        "author": {
+            "@type": "Organization",
+            "name": "YourSA"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "YourSA",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://yoursa.org/assets/images/logo/siteicon.png"
+            }
+        },
+        "datePublished": "2025-12-29",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://yoursa.org/blog/your-post-slug"
+        }
+    }
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="https://yoursa.org/brandbook/favicon.svg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;500&family=Poppins:wght@100;400;600&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="stylesheet" href="/assets/patriotic.css">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8X5QJG7E71"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag("js", new Date());
+        gtag("config", "G-8X5QJG7E71");
+    </script>
+</head>
+
+<body class="blog-post">
+    <!-- Header -->
+    <div id="header" data-loader="/components/header.html"></div>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <article>
+            <!-- Blog Title -->
+            <header>
+                <h1 data-semantic="blog-title">Blog Post Title</h1>
+                <p data-semantic="blog-date">December 29, 2025</p>
+            </header>
+
+            <!-- Introduction / Hero Section -->
+            <section data-semantic="blog-intro">
+                <p>Write an engaging introductory paragraph here. Hook the reader and summarize the main topic.</p>
+            </section>
+
+            <!-- Main Content Sections -->
+            <section data-semantic="blog-section">
+                <h2 data-semantic="blog-subtitle">Section 1 Title</h2>
+                <p>Content for section 1. Use paragraphs, lists, or tables as needed.</p>
+                <h3 data-semantic="blog-sub-subtitle">Subsection 1.1</h3>
+                <p>Content for subsection 1.1.</p>
+            </section>
+
+            <section data-semantic="blog-section">
+                <h2 data-semantic="blog-subtitle">Section 2 Title</h2>
+                <p>Content for section 2.</p>
+                <h3 data-semantic="blog-sub-subtitle">Subsection 2.1</h3>
+                <p>Content for subsection 2.1.</p>
+            </section>
+
+            <section data-semantic="blog-section">
+                <h2 data-semantic="blog-subtitle">Conclusion / Summary</h2>
+                <p>Summarize the key takeaways of the article and optionally include a call-to-action.</p>
+            </section>
+        </article>
+    </main>
+
+    <!-- Footer / CTA -->
+    <div id="footer" data-loader="/components/footer.html"></div>
+
+    <!-- Scripts -->
+    <script src="/assets/js/_loader.js"></script>
+</body>
+
+</html>
