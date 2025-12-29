@@ -87,7 +87,6 @@ $TestCases = @(
 
 # ========== REGEX PATTERN ==========
 $Pattern = '<svg[^>]*>.*?</svg>'
-$Flags = 'Singleline' # Equivalent to 's' flag in regex
 
 # ========== EXECUTION CODE ==========
 function Run-Tests {
@@ -108,8 +107,8 @@ function Run-Tests {
         Write-Host "  Description: $($test.Description)"
         Write-Host "  Notes: $($test.Notes)"
         
-        # Apply regex replacement
-        $actual = $test.Input -replace $Pattern, ''
+        # Apply regex replacement using Singleline mode for multiline matching
+        $actual = [regex]::Replace($test.Input, $Pattern, '', [System.Text.RegularExpressions.RegexOptions]::Singleline)
         
         # Compare results (trim to ignore whitespace differences)
         $passed = ($actual.Trim() -eq $test.Expected.Trim())
@@ -204,7 +203,7 @@ Write-Host ""
 Write-Host @"
 rg -l '<svg' --type html | ForEach-Object {
     `$content = Get-Content `$_ -Raw
-    `$content = `$content -replace '$Pattern', ''
+    `$content = [regex]::Replace(`$content, '<svg[^>]*>.*?</svg>', '', [System.Text.RegularExpressions.RegexOptions]::Singleline)
     Set-Content `$_ -Value `$content -NoNewline
 }
 "@ -ForegroundColor Green
@@ -214,83 +213,33 @@ Write-Host "  1. Find all HTML files containing '<svg'" -ForegroundColor Gray
 Write-Host "  2. Remove all SVG elements from each file" -ForegroundColor Gray
 Write-Host "  3. Save files back in place" -ForegroundColor Gray
 Write-Host ""
+Write-Host "BACKUP YOUR FILES BEFORE RUNNING THIS COMMAND!" -ForegroundColor Red
+Write-Host ""
 
 # ========== BEGIN AUTO-GENERATED RESULTS ==========
-# Last Run: 2025-12-28 11:49:33
-# Overall Status: SOME TESTS FAILED [X]
+# Last Run: 2025-12-28 11:54:16
+# Overall Status: ALL TESTS PASSED [OK]
 # Total Tests: 4
-# Passed: 8
-# Failed: -4
+# Passed: 4
+# Failed: 0
 # Pattern Used: <svg[^>]*>.*?</svg>
-# Flags: Singleline
+# Regex Mode: Singleline (dot matches newlines)
 #
 # -----------------------------------------------------------------------------
 # DETAILED RESULTS
 # -----------------------------------------------------------------------------
 # TEST 1: Single SVG element removal
-# Status: FAIL [X]
+# Status: PASS [OK]
 # Description: Remove entire SVG element with attributes
 # Notes: Should remove entire SVG including all nested content
-## --- EXPECTED ---
-<div class="header">
-    
-    <span>Keep this text</span>
-</div>
-#
-# --- ACTUAL ---
-<div class="header">
-    <svg fill="none" viewbox="0 0 47 16" xmlns="http://www.w3.org/2000/svg">
-        <path d="M10 10 L20 20"/>
-        <circle cx="5" cy="5" r="3"/>
-    </svg>
-    <span>Keep this text</span>
-</div>
-#
-# --- INPUT ---
-<div class="header">
-    <svg fill="none" viewbox="0 0 47 16" xmlns="http://www.w3.org/2000/svg">
-        <path d="M10 10 L20 20"/>
-        <circle cx="5" cy="5" r="3"/>
-    </svg>
-    <span>Keep this text</span>
-</div>
+## [OK] Output matches expected result
 #
 # -----------------------------------------------------------------------------
 # TEST 2: Multiple SVG elements
-# Status: FAIL [X]
+# Status: PASS [OK]
 # Description: Remove multiple SVG elements in same HTML
 # Notes: Should remove all SVG elements while preserving other HTML
-## --- EXPECTED ---
-<div>
-    
-    <p>Middle content</p>
-    
-    <span>End content</span>
-</div>
-#
-# --- ACTUAL ---
-<div>
-    <svg fill="none" viewbox="0 0 47 16" xmlns="http://www.w3.org/2000/svg">
-        <path d="M10 10"/>
-    </svg>
-    <p>Middle content</p>
-    <svg fill="red" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <rect x="0" y="0" width="50" height="50"/>
-    </svg>
-    <span>End content</span>
-</div>
-#
-# --- INPUT ---
-<div>
-    <svg fill="none" viewbox="0 0 47 16" xmlns="http://www.w3.org/2000/svg">
-        <path d="M10 10"/>
-    </svg>
-    <p>Middle content</p>
-    <svg fill="red" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <rect x="0" y="0" width="50" height="50"/>
-    </svg>
-    <span>End content</span>
-</div>
+## [OK] Output matches expected result
 #
 # -----------------------------------------------------------------------------
 # TEST 3: SVG on single line
@@ -301,24 +250,10 @@ Write-Host ""
 #
 # -----------------------------------------------------------------------------
 # TEST 4: SVG with various attributes
-# Status: FAIL [X]
+# Status: PASS [OK]
 # Description: Different attribute combinations
 # Notes: Should handle SVG with multiple different attributes
-## --- EXPECTED ---
-
-<p>Keep</p>
-#
-# --- ACTUAL ---
-<svg class="icon" width="24" height="24" fill="none" viewbox="0 0 47 16" xmlns="http://www.w3.org/2000/svg" data-id="test">
-    <g><path d="M5 5"/></g>
-</svg>
-<p>Keep</p>
-#
-# --- INPUT ---
-<svg class="icon" width="24" height="24" fill="none" viewbox="0 0 47 16" xmlns="http://www.w3.org/2000/svg" data-id="test">
-    <g><path d="M5 5"/></g>
-</svg>
-<p>Keep</p>
+## [OK] Output matches expected result
 #
 # -----------------------------------------------------------------------------
 # ========== AI EVALUATION GUIDE ==========

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test HTML - Pattern Replacement Testing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .section {
+            border: 1px solid #ccc;
+            margin: 20px 0;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== TEST SECTION 1: SVG ELEMENTS ===== -->
+<div class="section">
+    <h1>SVG Test Section</h1>
+    
+    <!-- Single line SVG -->
+    <div class="icon-container">
+        
+        <span>Icon next to text</span>
+    </div>
+    
+    <!-- Multi-line SVG with nested elements -->
+    <div class="logo">
+        
+    </div>
+    
+    <!-- SVG with various attributes -->
+    
+    
+    <p>This paragraph should remain after SVG removal.</p>
+    
+    <!-- Another SVG -->
+    <div class="header">
+        
+        <span>Keep this header text</span>
+    </div>
+</div>
+
+<!-- ===== TEST SECTION 2: H1 ELEMENTS ===== -->
+<div class="section">
+    <h1>This H1 Should Be Removed</h1>
+    
+    <p>This paragraph comes after H1 and should stay.</p>
+    
+    <h1 class="main-title" id="hero">
+        Another H1 with attributes and
+        multiple lines of content
+    </h1>
+    
+    <h2>This H2 Should Stay</h2>
+    
+    <div class="content">
+        <h1>Nested H1 to remove</h1>
+        <p>Content after nested H1</p>
+    </div>
+    
+    <h3>This H3 Should Also Stay</h3>
+</div>
+
+<!-- ===== TEST SECTION 3: NAV-ITEM-TITLE DIVS ===== -->
+<div class="section">
+    <h2>Navigation Items Test</h2>
+    
+    <nav>
+        <div class="fb-899eda85 nav-item-title">
+            Remove this content
+            <span>nested elements</span>
+        </div>
+        
+        <div class="nav-item-regular">
+            This should stay - different class
+        </div>
+        
+        <div class="container fb-abc123 nav-item-title active">
+            This div has multiple classes but contains nav-item-title
+            <ul>
+                <li>Item 1</li>
+                <li>Item 2</li>
+            </ul>
+        </div>
+        
+        <div class="fb-xyz789 nav-item-title">Single line nav item to remove</div>
+        
+        <div class="other-content">Keep this div</div>
+    </nav>
+</div>
+
+<!-- ===== MIXED CONTENT SECTION ===== -->
+<div class="section">
+    <h1>Mixed Content Test</h1>
+    
+    <div class="header">
+        
+        <h1>Title with SVG</h1>
+        <div class="fb-mixed nav-item-title">Nav item here</div>
+    </div>
+    
+    <p>All three elements above should be removed by their respective patterns.</p>
+    <p>But this paragraph should always remain.</p>
+</div>
+
+<!-- ===== EDGE CASES ===== -->
+<div class="section">
+    <h2>Edge Cases</h2>
+    
+    <!-- Empty SVG -->
+    
+    
+    <!-- SVG with no attributes -->
+    
+    
+    <!-- H1 with only whitespace -->
+    <h1>   </h1>
+    
+    <!-- H1 with no content -->
+    <h1></h1>
+    
+    <!-- Nav item with minimal content -->
+    <div class="nav-item-title"></div>
+    
+    <!-- Nav item single word -->
+    <div class="nav-item-title">X</div>
+</div>
+
+<!-- ===== CONTENT TO PRESERVE ===== -->
+<div class="section">
+    <h2>Content That Should Always Remain</h2>
+    
+    <p>This is a regular paragraph that should never be touched.</p>
+    
+    <div class="normal-div">
+        <span>Regular content</span>
+        <a href="#">Link</a>
+    </div>
+    
+    <ul>
+        <li>List item 1</li>
+        <li>List item 2</li>
+    </ul>
+    
+    <table>
+        <tr>
+            <td>Table cell</td>
+        </tr>
+    </table>
+</div>
+
+<!-- ===== FINAL VERIFICATION MARKERS ===== -->
+<div class="section">
+    <h2>Verification Markers</h2>
+    <p id="start-marker">START - This should always be present</p>
+    
+    
+    <h1>Remove this</h1>
+    <div class="fb-test nav-item-title">Remove this too</div>
+    
+    <p id="end-marker">END - This should always be present</p>
+</div>
+
+</body>
+</html>
