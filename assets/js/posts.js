@@ -1,5 +1,7 @@
 // posts.js - Load blog posts from sitemap.xml
 
+// posts.js - Load blog posts from sitemap.xml
+
 async function loadBlogPosts() {
     try {
         const response = await fetch('/sitemap.xml');
@@ -22,7 +24,10 @@ async function loadBlogPosts() {
             if (loc.includes('/blog/')) {
                 // Extract filename from URL
                 const urlParts = loc.split('/');
-                const slug = urlParts[urlParts.length - 1];
+                let slug = urlParts[urlParts.length - 1];
+                
+                // Strip .html extension if present
+                slug = slug.replace(/\.html$/, '');
                 
                 // Try to extract date from slug or use lastmod
                 const dateMatch = slug.match(/(\d{4}-\d{2}-\d{2})/);
