@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Combiner & Prompt Builder</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        button {
+            padding: 10px 15px;
+            margin: 10px 0;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #message {
+            margin-top: 20px;
+            font-weight: bold;
+            color: green;
+        }
+        .error {
+            color: red;
+        }
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .settings-section {
+            margin-top: 40px;
+        }
+        
+        /* Prompt Builder Styles */
+        .composition-section {
+            margin-top: 40px;
+            border-top: 2px solid #333;
+            padding-top: 20px;
+        }
+        .composition-controls {
+            margin-bottom: 20px;
+        }
+        .prompt-blocks {
+            border: 1px solid #ddd;
+            min-height: 200px;
+            padding: 10px;
+            background: #f9f9f9;
+        }
+        .prompt-block {
+            background: white;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            position: relative;
+        }
+        .prompt-block .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .prompt-block .type-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+            margin-right: 10px;
+        }
+        .type-source { background: #e3f2fd; }
+        .type-template { background: #e8f5e9; }
+        .type-manual { background: #fff9c4; }
+        .type-link { background: #f3e5f5; }
+        .prompt-block .controls button {
+            margin-left: 5px;
+            padding: 2px 8px;
+            font-size: 12px;
+        }
+        .prompt-block .content {
+            max-height: 150px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            font-family: monospace;
+            font-size: 12px;
+            background: #fafafa;
+            padding: 8px;
+            border: 1px solid #eee;
+        }
+        .prompt-block textarea {
+            width: 100%;
+            min-height: 100px;
+            font-family: monospace;
+            box-sizing: border-box;
+        }
+        .preview-area {
+            margin-top: 20px;
+            padding: 10px;
+            background: #f0f0f0;
+            border: 1px solid #ccc;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .preview-area pre {
+            white-space: pre-wrap;
+            font-family: monospace;
+            font-size: 12px;
+            margin: 10px 0 0 0;
+        }
+        .row-select {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Combine Files from a Directory</h1>
+    <button id="combineBtn">Select Directory and Combine Files</button>
+    <div id="message"></div>
+
+    <table id="fileTable">
+        <thead>
+            <tr>
+                <th><input type="checkbox" id="selectAll"></th>
+                <th>Full Path</th>
+                <th>Comments</th>
+                <th>Mime Type</th>
+                <th>Size (bytes)</th>
+                <th>Text Content</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <div class="settings-section">
+        <h2>Settings</h2>
+        <div>
+            <h3>Non-Informative Extensions</h3>
+            <input type="text" id="nonInformativeInput" placeholder="Add extension e.g., txt">
+            <button id="addNonInformative">Add</button>
+            <ul id="nonInformativeList"></ul>
+        </div>
+        <div>
+            <h3>Exclude Files</h3>
+            <input type="text" id="excludeFilesInput" placeholder="Add file e.g., example.txt">
+            <button id="addExcludeFile">Add</button>
+            <ul id="excludeFilesList"></ul>
+        </div>
+        <div>
+            <h3>Exclude Directories</h3>
+            <input type="text" id="excludeDirectoriesInput" placeholder="Add directory e.g., temp">
+            <button id="addExcludeDirectory">Add</button>
+            <ul id="excludeDirectoriesList"></ul>
+        </div>
+    </div>
+
+    <div class="composition-section">
+        <h2>Prompt Builder</h2>
+        
+        <div class="composition-controls">
+            <button id="addSelectedBtn">Add Selected Files</button>
+            <button id="addManualBtn">Add Manual Block</button>
+            <button id="addLinkBtn">Add Link</button>
+            <button id="clearCompositionBtn">Clear All</button>
+            <button id="previewBtn">Preview Prompt</button>
+            <button id="copyBtn">Copy to Clipboard</button>
+        </div>
+        
+        <div id="promptBlocks" class="prompt-blocks">
+            <p style="color: #999;">No blocks added yet. Select files from the table above or add manual content.</p>
+        </div>
+        
+        <div id="previewArea" class="preview-area" style="display:none;">
+            <strong>Full Prompt Preview:</strong>
+            <pre id="previewContent"></pre>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script>
+        // Global variable for DataTable
+        let dataTable;
+
+        // Prompt composition state
+        let promptBlocks = [];
+        let blockIdCounter = 0;
+
+        // Initial sets for extensions, files, and directories
+        const nonInformativeExtensions = new Set([
+            'jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp', 'tiff', 'svg', 'ico', 'heic', 'avif',
+            'exe', 'bin', 'dll', 'zip', 'tar', 'gz', 'rar',
+            'mp3', 'wav', 'aac', 'mp4', 'avi', 'mov', 'mkv',
+            'log', 'md', 'lock', 'tmp', 'bak',
+            'ttf', 'otf', 'woff', 'woff2', 'eot',
+            'doc', 'docx', 'odt', 'xlsx',
+            'css', 'scss', 'less'
+        ]);
+
+        const excludeFiles = new Set([
+            'dataTables.js',
+            'jquery-3.6.0.min.js'
+        ]);
+
+        const excludeDirectories = new Set([
+            '_locales',
+            '_metadata',
+            'sample_csv',
+            '.git',
+            '.github'
+        ]);
+
+        function updateList(set, listElement) {
+            listElement.innerHTML = '';
+            set.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item;
+                const removeButton = document.createElement('button');
+                removeButton.textContent = 'Remove';
+                removeButton.onclick = () => {
+                    set.delete(item);
+                    updateList(set, listElement);
+                };
+                li.appendChild(removeButton);
+                listElement.appendChild(li);
+            });
+        }
+
+        document.getElementById('addNonInformative').onclick = () => {
+            const input = document.getElementById('nonInformativeInput');
+            const value = input.value.trim();
+            if (value) {
+                nonInformativeExtensions.add(value);
+                updateList(nonInformativeExtensions, document.getElementById('nonInformativeList'));
+                input.value = '';
+            }
+        };
+
+        document.getElementById('addExcludeFile').onclick = () => {
+            const input = document.getElementById('excludeFilesInput');
+            const value = input.value.trim();
+            if (value) {
+                excludeFiles.add(value);
+                updateList(excludeFiles, document.getElementById('excludeFilesList'));
+                input.value = '';
+            }
+        };
+
+        document.getElementById('addExcludeDirectory').onclick = () => {
+            const input = document.getElementById('excludeDirectoriesInput');
+            const value = input.value.trim();
+            if (value) {
+                excludeDirectories.add(value);
+                updateList(excludeDirectories, document.getElementById('excludeDirectoriesList'));
+                input.value = '';
+            }
+        };
+
+        function getFirstBytes(text, maxBytes) {
+            return text.slice(0, maxBytes);
+        }
+
+        function isNonInformativeFile(filename) {
+            const extension = filename.split('.').pop().toLowerCase();
+            return nonInformativeExtensions.has(extension);
+        }
+
+        function isExcludedPath(path) {
+            const segments = path.split('/');
+            const fileName = segments[segments.length - 1];
+
+            if (excludeFiles.has(fileName)) {
+                return true;
+            }
+
+            for (let segment of segments) {
+                if (excludeDirectories.has(segment)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        document.getElementById('combineBtn').addEventListener('click', selectDirectory);
+
+        async function selectDirectory() {
+            try {
+                const dirHandle = await window.showDirectoryPicker();
+                const processedFiles = new Set();
+                const fileData = [];
+
+                async function processDirectory(directoryHandle, path = '') {
+                    for await (const [name, handle] of directoryHandle.entries()) {
+                        const fullPath = `${path}${name}`;
+
+                        if (handle.kind === 'file' && !processedFiles.has(fullPath)) {
+                            if (isExcludedPath(fullPath)) {
+                                continue;
+                            }
+
+                            if (isNonInformativeFile(name)) {
+                                fileData.push(['', fullPath, 'Excluded by file type', '', 0, '']);
+                                continue;
+                            }
+
+                            const file = await handle.getFile();
+                            const text = await file.text();
+                            const mimeType = file.type || 'application/octet-stream';
+                            const size = file.size;
+                            let processedText = text;
+
+                            const maxBytes = 6000;
+                            if (size > maxBytes) {
+                                processedText = getFirstBytes(text, maxBytes);
+                                fileData.push(['', fullPath, `Truncated to ${maxBytes} bytes due to size > ${maxBytes}`, mimeType, size, processedText]);
+                            } else {
+                                fileData.push(['', fullPath, 'Included', mimeType, size, processedText]);
+                            }
+
+                            processedFiles.add(fullPath);
+                        } else if (handle.kind === 'directory') {
+                            await processDirectory(handle, `${fullPath}/`);
+                        }
+                    }
+                }
+
+                await processDirectory(dirHandle);
+
+                // Clear existing table
+                if (dataTable) {
+                    dataTable.destroy();
+                }
+                document.querySelector('#fileTable tbody').innerHTML = '';
+
+                // Populate the table
+                const tbody = document.querySelector('#fileTable tbody');
+                fileData.forEach(row => {
+                    const tr = document.createElement('tr');
+                    row.forEach((cell, idx) => {
+                        const td = document.createElement('td');
+                        if (idx === 0) {
+                            td.innerHTML = '<input type="checkbox" class="row-select">';
+                        } else {
+                            td.textContent = cell;
+                        }
+                        tr.appendChild(td);
+                    });
+                    tbody.appendChild(tr);
+                });
+
+                // Initialize DataTables
+                dataTable = $('#fileTable').DataTable({
+                    order: [[1, 'asc']]
+                });
+
+                const messageElement = document.getElementById('message');
+                messageElement.innerText = 'Files processed successfully. Check the table below.';
+                messageElement.classList.remove('error');
+
+            } catch (error) {
+                console.error('Error:', error);
+                const messageElement = document.getElementById('message');
+                messageElement.innerText = 'Error: ' + error.message;
+                messageElement.classList.add('error');
+            }
+        }
+
+        // Select All checkbox
+        document.getElementById('selectAll').onclick = function() {
+            const checkboxes = document.querySelectorAll('#fileTable .row-select');
+            checkboxes.forEach(cb => cb.checked = this.checked);
+        };
+
+        // PROMPT BUILDER FUNCTIONS
+
+        // Add selected files to composition
+        document.getElementById('addSelectedBtn').onclick = () => {
+            const checkedBoxes = document.querySelectorAll('#fileTable .row-select:checked');
+            
+            checkedBoxes.forEach(checkbox => {
+                const row = checkbox.closest('tr');
+                const cells = row.querySelectorAll('td');
+                
+                const fullPath = cells[1].textContent;
+                const content = cells[5].textContent;
+                
+                addBlock({
+                    type: 'source',
+                    label: fullPath,
+                    content: content,
+                    editable: false
+                });
+                
+                checkbox.checked = false;
+            });
+            
+            document.getElementById('selectAll').checked = false;
+        };
+
+        // Add manual block
+        document.getElementById('addManualBtn').onclick = () => {
+            const content = prompt('Enter manual text:');
+            if (content !== null && content !== '') {
+                addBlock({
+                    type: 'manual',
+                    label: 'Manual Input',
+                    content: content,
+                    editable: true
+                });
+            }
+        };
+
+        // Add link
+        document.getElementById('addLinkBtn').onclick = () => {
+            const url = prompt('Enter URL:');
+            if (url !== null && url !== '') {
+                addBlock({
+                    type: 'link',
+                    label: 'Link',
+                    content: url,
+                    editable: false
+                });
+            }
+        };
+
+        // Clear composition
+        document.getElementById('clearCompositionBtn').onclick = () => {
+            if (confirm('Clear all blocks?')) {
+                promptBlocks = [];
+                renderBlocks();
+                document.getElementById('previewArea').style.display = 'none';
+            }
+        };
+
+        // Preview
+        document.getElementById('previewBtn').onclick = () => {
+            const preview = document.getElementById('previewArea');
+            const content = document.getElementById('previewContent');
+            
+            const fullPrompt = promptBlocks.map(block => {
+                return `=== ${block.type.toUpperCase()}: ${block.label} ===\n${block.content}\n`;
+            }).join('\n');
+            
+            content.textContent = fullPrompt;
+            preview.style.display = 'block';
+        };
+
+        // Copy to clipboard
+        document.getElementById('copyBtn').onclick = () => {
+            const fullPrompt = promptBlocks.map(b => b.content).join('\n\n');
+            navigator.clipboard.writeText(fullPrompt).then(() => {
+                alert('Copied to clipboard!');
+            }).catch(err => {
+                alert('Failed to copy: ' + err);
+            });
+        };
+
+        // Add block to composition
+        function addBlock(blockData) {
+            const block = {
+                id: blockIdCounter++,
+                ...blockData
+            };
+            promptBlocks.push(block);
+            renderBlocks();
+        }
+
+        // Render all blocks
+        function renderBlocks() {
+            const container = document.getElementById('promptBlocks');
+            
+            if (promptBlocks.length === 0) {
+                container.innerHTML = '<p style="color: #999;">No blocks added yet. Select files from the table above or add manual content.</p>';
+                return;
+            }
+            
+            container.innerHTML = '';
+            
+            promptBlocks.forEach((block, index) => {
+                const blockDiv = document.createElement('div');
+                blockDiv.className = 'prompt-block';
+                blockDiv.dataset.blockId = block.id;
+                
+                const header = document.createElement('div');
+                header.className = 'header';
+                header.innerHTML = `
+                    <div>
+                        <span class="type-badge type-${block.type}">${block.type}</span>
+                        <span>${block.label}</span>
+                    </div>
+                    <div class="controls">
+                        ${index > 0 ? `<button onclick="moveBlock(${index}, ${index-1})">↑</button>` : ''}
+                        ${index < promptBlocks.length - 1 ? `<button onclick="moveBlock(${index}, ${index+1})">↓</button>` : ''}
+                        <button onclick="removeBlock(${index})">Remove</button>
+                    </div>
+                `;
+                
+                blockDiv.appendChild(header);
+                
+                if (block.editable) {
+                    const textarea = document.createElement('textarea');
+                    textarea.value = block.content;
+                    textarea.onchange = (e) => {
+                        promptBlocks[index].content = e.target.value;
+                    };
+                    blockDiv.appendChild(textarea);
+                } else {
+                    const content = document.createElement('div');
+                    content.className = 'content';
+                    content.textContent = block.content;
+                    blockDiv.appendChild(content);
+                }
+                
+                container.appendChild(blockDiv);
+            });
+        }
+
+        // Move block up/down
+        function moveBlock(fromIndex, toIndex) {
+            const [block] = promptBlocks.splice(fromIndex, 1);
+            promptBlocks.splice(toIndex, 0, block);
+            renderBlocks();
+        }
+
+        // Remove block
+        function removeBlock(index) {
+            promptBlocks.splice(index, 1);
+            renderBlocks();
+        }
+    </script>
+</body>
+</html>
