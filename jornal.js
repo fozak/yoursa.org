@@ -1,3 +1,5 @@
+/*latest tools https://claude.ai/chat/e84ae7c4-d142-449f-b4d8-7017285d6c72 */
+
 /* Brand Assets Module */
 
 const brandAssets = {
