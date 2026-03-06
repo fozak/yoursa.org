@@ -1,7 +1,7 @@
 /* Preloader script starts */
 // Define the variable from the parentlink meta tag
 var parentLinkMeta = document.querySelector('meta[name="parentlink"]');
-var parentLink = parentLinkMeta ? parentLinkMeta.getAttribute('content') : null;
+/*var parentLink = parentLinkMeta ? parentLinkMeta.getAttribute('content') : null;
 
 if (parentLink) {
     // Construct the URL for the additional content
@@ -32,7 +32,7 @@ if (parentLink) {
         });
 } else {
     console.error('No parentlink meta tag found.');
-}
+}*/
 
 // Load components when DOM is ready
 if (document.readyState === 'loading') {

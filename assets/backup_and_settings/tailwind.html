@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Events Cards - Shadcn Style with Icons</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 font-sans text-gray-900 p-8">
+
+<h1 class="text-4xl font-bold text-gray-900 mb-8 text-center">Upcoming Events</h1>
+
+<!-- Cards Container -->
+<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+
+  <!-- Event Card 1 -->
+  <div class="bg-white rounded-2xl border border-gray-200 p-6 flex flex-col shadow-sm hover:shadow-md transition-transform transform hover:-translate-y-1">
+    <img src="https://source.unsplash.com/400x200/?conference" alt="Event 1" class="rounded-xl mb-4 object-cover h-48 w-full">
+    <h2 class="text-xl font-semibold mb-2 text-gray-900 flex items-center gap-2">
+      <!-- Calendar Icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+      </svg>
+      Tech Conference 2026
+    </h2>
+    <p class="text-gray-600 mb-4">Join industry leaders to explore the future of technology, AI, and innovation.</p>
+    <p class="text-gray-400 text-sm mb-4 flex items-center gap-1">
+      <!-- Map Pin Icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c1.657 0 3-1.343 3-3S13.657 5 12 5s-3 1.343-3 3 1.343 3 3 3z"/>
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21s9-5.686 9-11a9 9 0 10-18 0c0 5.314 9 11 9 11z"/>
+      </svg>
+      Boston, MA | Jan 20, 2026
+    </p>
+    <button class="mt-auto px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition flex items-center gap-2">
+      <!-- Arrow Right Icon -->
+      <span>Learn More</span>
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Event Card 2 -->
+  <div class="bg-white rounded-2xl border border-gray-200 p-6 flex flex-col shadow-sm hover:shadow-md transition-transform transform hover:-translate-y-1">
+    <img src="https://source.unsplash.com/400x200/?startup" alt="Event 2" class="rounded-xl mb-4 object-cover h-48 w-full">
+    <h2 class="text-xl font-semibold mb-2 text-gray-900 flex items-center gap-2">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c1.657 0 3-1.343 3-3S13.657 2 12 2 9 3.343 9 5s1.343 3 3 3z"/>
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14v7m-4-4h8"/>
+      </svg>
+      Startup Meetup
+    </h2>
+    <p class="text-gray-600 mb-4">Network with early-stage startups, investors, and mentors from the Boston ecosystem.</p>
+    <p class="text-gray-400 text-sm mb-4 flex items-center gap-1">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c1.657 0 3-1.343 3-3S13.657 5 12 5s-3 1.343-3 3 1.343 3 3 3z"/>
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21s9-5.686 9-11a9 9 0 10-18 0c0 5.314 9 11 9 11z"/>
+      </svg>
+      Cambridge, MA | Feb 12, 2026
+    </p>
+    <button class="mt-auto px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition flex items-center gap-2">
+      <span>Register</span>
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Additional event cards can follow the same pattern... -->
+
+</div>
+
+</body>
+</html>
+
